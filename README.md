@@ -1,2 +1,2 @@
-#Simple Web Pages
-Simple web pages with Bootstrap, JQuery and Pug
+# Simple Web Pages
+build web pages with Bootstrap, Font Awesome, JQuery and Pug
