@@ -1,8 +1,9 @@
 {
-  "name": "website-project",
+  "name": "webpages-project",
   "version": "1.0.0",
-  "description": "project",
+  "description": "simple web pages with bootstrap, jquery and pug",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
