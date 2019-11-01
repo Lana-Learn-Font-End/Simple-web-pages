@@ -1,0 +1,14 @@
+{
+  "name": "website-project",
+  "version": "1.0.0",
+  "description": "project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lana",
+  "license": "MIT",
+  "devDependencies": {
+    "pug": "^2.0.4"
+  }
+}
