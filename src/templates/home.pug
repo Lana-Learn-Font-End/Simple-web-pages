@@ -8,25 +8,46 @@ html(lang="en")
         link(rel="stylesheet" href="../css/bootstrap.min.css")
     body
         nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
-            a(href="#").navbar-brand.mx-sm-2
-                i.fas.fa-boxes
-                span.ml-1 Logon
-            button(data-target="#nav-collapse" data-toggle="collapse").navbar-toggler
-                span.navbar-toggler-icon
+            button(data-target="#nav-collapse-menu" data-toggle="collapse").navbar-toggler
+                i.fas.fa-bars
+            button(data-target="#nav-collapse-option" data-toggle="collapse").navbar-toggler.ml-auto
+                i.fas.fa-user-cog
 
-            div#nav-collapse.collapse.navbar-collapse
-                form#search.ml-lg-4.my-1.form-inline
-                        input.form-control.mr-2
-                        button.btn.btn-outline-light.my-sm-0.my-2 Search
-                ul.navbar-nav.ml-auto
+            div#nav-collapse-menu.collapse.navbar-collapse
+                hr.d-block.d-lg-none.border-light
+                ul.navbar-nav.mr-auto
                     li.nav-item
-                        a(href="#").nav-link Home
+                        a(href="#").nav-link
+                            i.fas.fa-home.mr-1
+                            span Home
                     li.nav-item
-                        a(href="#").nav-link About
+                        a(href="#").nav-link
+                            i.fas.fa-box.mr-1
+                            span Products
                     li.nav-item
-                        a(href="#").nav-link Contact
+                        a(href="#").nav-link
+                            i.fas.fa-phone-alt.mr-1
+                            span Contact
                     li.nav-item
-                        a(href="#").nav-link Support
+                        a(href="#").nav-link
+                            i.fas.fa-user-friends.mr-1
+                            span Support
+                    li.nav-item
+                        a(href="#").nav-link
+                            i.fas.fa-question-circle.mr-1
+                            span About
+
+            div#nav-collapse-option.collapse.navbar-collapse
+                hr.border-light
+                ul.navbar-nav.ml-auto.mr-2
+                    li.nav-item
+                        a(href="#").nav-link Sign in
+                            i.fas.fa-sign-in-alt.ml-2
+                    li.nav-item
+                        a(href="#").nav-link Sign up
+                            i.fas.fa-user-plus.ml-2
+
+        header
 
 
 
