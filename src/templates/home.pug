@@ -1,3 +1,6 @@
+- var categories = [];
+- var popular = ["Laptop", "Smartphone","Tablets","Workstation","Gaming PC","Graphics Card","Cpu/Processor","USB/Flash drive"]
+
 doctype html
 html(lang="en")
     head
@@ -56,17 +59,33 @@ html(lang="en")
                                 i.fas.fa-user-plus.ml-2
 
         div.container
-            div.row.lg-2.mt-lg-4
+            div.row.mt-2.mt-lg-4
                 // left col - only show when lg
                 div.col-lg-3.d-none.d-lg-block
                     // lg logo (dark)
-                    div
+                    div.mb-4.text-center
                         h2.d-inline.mr-2
                             i.fas.fa-boxes
                         h3.d-inline L
                         h5.d-inline
                             i.far.fa-smile-wink
                         h3.d-inline gon
+
+                    div.list-group.mb-4
+                        div.list-group-item.list-group-item-secondary Shop by Product
+                        ul.nav.flex-column.list-group-item
+                            each category in categories
+                                li.nav-item
+                                    a(href="#").nav-link #{category}
+                    div.list-group
+                        div.list-group-item.list-group-item-secondary Most popular
+                        ul.nav.flex-column.list-group-item
+                            each category in popular
+                                li.nav-item
+                                    a(href="#").nav-link #{category}
+                            li.nav-item
+                                hr
+                                a(href="#") More Products...
 
                 div.col-lg-9.mt-2.mt-lg-0
                     // search bar
@@ -83,11 +102,6 @@ html(lang="en")
                                 span.d-none.d-md-inline-block.mr-2 Your cart
                                 i.fas.fa-shopping-cart
                                     span.badge.ml-1.badge-light 0
-
-                    // breadcrumb navigation
-                    nav.mb-2
-                        ol.breadcrumb
-                            li.breadcrumb-item Home
 
                     //main content
                     div(data-ride="carousel")#carousel.carousel.slide.rounded
