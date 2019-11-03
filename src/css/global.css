@@ -5,3 +5,8 @@ body {
 .font-small {
     font-size: 14px;
 }
+
+.smaller {
+    font-size: 65%;
+    font-weight: 400;
+}

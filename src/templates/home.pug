@@ -1,5 +1,8 @@
 - var categories = ["Desktop & Laptop","Smartphone & Tablet","Embedded Computer","Components","Accessories","Software"];
 - var popular = ["Gaming Laptop","Workstation","Gaming PC","Hard Drive","Graphics Card","External Drives","Gaming Gear","Monitor"]
+- var cartItems = [{name:"Nvidia GeForce RTX 2070", price:519},{name:"EVGA GeForce GTX 1080 FE", price:789},{name:"MSI GeForce GTX 1080", price:439}]
+- var totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+
 
 doctype html
 html(lang="en")
@@ -11,8 +14,8 @@ html(lang="en")
         link(rel="stylesheet" href="../css/bootstrap.min.css")
         link(rel="stylesheet" href="../css/global.css")
     body.bg-light
-        //top nav
-        nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
+        //header nav
+        header.navbar.navbar-dark.bg-dark.navbar-expand-lg
             div.container
                 button.navbar-toggler(data-target="#nav-collapse-menu" data-toggle="collapse")
                     i.fas.fa-bars
@@ -61,7 +64,7 @@ html(lang="en")
                                 i.fas.fa-user-plus.ml-2
 
         //sticky search bar
-        div.sticky-top.pt-2.pt-lg-3.mb-lg-4.bg-white.shadow
+        nav.sticky-top.py-2.py-lg-3.mb-lg-4.bg-white.shadow
             div.container
                 div.row
                     // lg logo (dark)
@@ -84,14 +87,31 @@ html(lang="en")
                                         button.btn.btn-primary(type="submit")
                                             i.fas.fa-search
                                             span.d-none.d-md-inline-block.ml-1 Search
+                            // cart with dropdown
                             div.ml-2.ml-lg-4
-                                button.btn.btn-primary
-                                    i.fas.fa-shopping-cart
-                                        span.badge.ml-1.badge-light 0
-                                    i.fas.fa-dollar-sign.ml-2.d-none.d-md-inline
-                                        span.ml-1 0.00
-            hr.mt-2.mt-lg-3
-
+                                div.dropdown
+                                    div.btn-group
+                                        a.btn.btn-primary(role="button" href="./cart.html")
+                                            i.fas.fa-shopping-cart
+                                                i.fas.fa-dollar-sign.ml-2.d-none.d-md-inline
+                                                    span.ml-1 #{totalPrice}
+                                        button.btn.btn-primary.dropdown-toggle.dropdown-toggle-split(type="button" data-toggle="dropdown")
+                                        div.dropdown-menu.bg-light.dropdown-menu-right.p-0.mt-2.mt-lg-3
+                                            h5.bg-dark.text-light.text-nowrap.dropdown-header.p-3.rounded-top Your Cart has #{cartItems.length} item
+                                            each item in cartItems
+                                                div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
+                                                    a.card-link.text-nowrap(href="#") #{item.name}
+                                                    span &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                    span.badge.badge-pill.badge-dark $#{item.price}
+                                            div.dropdown-divider.m-0
+                                            div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
+                                                a.card-link.text-nowrap(href="#") Total
+                                                h5 $#{totalPrice}
+                                            div.dropdown-divider.m-0
+                                            div.dropdown-item.px-4.pt-3.pb-2.text-center.d-flex
+                                                a.btn.btn-success.flex-grow-1.btn-sm.text-light Check out
+                                            div.dropdown-item.px-4.pb-3.text-center.d-flex
+                                                a.btn.btn-primary.flex-grow-1.btn-sm.text-light  Go to cart
         div.container
             div.row
                 // left col - only show when lg
@@ -142,6 +162,47 @@ html(lang="en")
                             span.carousel-control-next-icon
                         a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")
                             span.carousel-control-prev-icon
+
+        footer.bg-dark
+            div.container
+                div.row.text-white
+                    div.col-6.col-md-3.nav.flex-column.p-3
+                        h6 Support
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                    div.col-6.col-md-3.nav.flex-column.p-3
+                        h6 About
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                    div.col-6.col-md-3.nav.flex-column.p-3
+                        h6 Contact
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                    div.col-6.col-md-3.nav.flex-column.p-3
+                        h6 Cooperation
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+                        a(href="#").text-info.smaller Question
+
+                div.d-flex.row.py-1
+                    div.text-nowrap.d-flex
+                        a(href="#").text-light.ml-3.smaller Conditions of Use
+                        a(href="#").text-light.ml-2.smaller Privacy Notice
+                    div.text-nowrap.d-flex
+                        a(href="#").text-muted.ml-3.smaller Blog
+                        a(href="#").text-muted.ml-2.smaller Facebook
+                        a(href="#").text-muted.ml-2.smaller Twitter
+                        a(href="#").text-muted.ml-2.smaller Linkedln
+                    div.ml-3.text-muted.smaller &copy; 2019 Logon, Inc. All right reserved
+
+
 
         script(src="../scripts/jquery-3.4.1.min.js")
         script(src="../scripts/bootstrap.bundle.min.js")
