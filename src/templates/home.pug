@@ -93,9 +93,8 @@ html(lang="en")
                                     div.btn-group
                                         a.btn.btn-primary(role="button" href="./cart.html")
                                             i.fas.fa-shopping-cart
-                                                i.fas.fa-dollar-sign.ml-2.d-none.d-md-inline
-                                                    span.ml-1 #{totalPrice}
-                                        button.btn.btn-primary.dropdown-toggle.dropdown-toggle-split(type="button" data-toggle="dropdown")
+                                                span.ml-3.d-none.d-md-inline $#{totalPrice}.00
+                                        button.btn.btn-outline-primary.dropdown-toggle.dropdown-toggle-split(type="button" data-toggle="dropdown")
                                         div.dropdown-menu.bg-light.dropdown-menu-right.p-0.mt-2.mt-lg-3
                                             h5.bg-dark.text-light.text-nowrap.dropdown-header.p-3.rounded-top Your Cart has #{cartItems.length} item
                                             each item in cartItems
@@ -125,7 +124,7 @@ html(lang="en")
                                         a.nav-link.text-nowrap(href="#") #{category}
                                 li.nav-item
                                     hr.m-2
-                                    a.text-nowrap(href="./categories") More Category...
+                                    a.text-nowrap(href="./categories.html") More Category...
 
                         div.list-group.font-small.mb-4.shadow-sm
                             div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Popular Searches
