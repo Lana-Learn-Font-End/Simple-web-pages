@@ -1,5 +1,5 @@
-- var categories = [];
-- var popular = ["Laptop", "Smartphone","Tablets","Workstation","Gaming PC","Graphics Card","Cpu/Processor","USB/Flash drive"]
+- var categories = ["Desktop & Laptop","Smartphone & Tablet","Embedded Computer","Components","Accessories","Software"];
+- var popular = ["Gaming Laptop","Workstation","Gaming PC","Hard Drive","Graphics Card","External Drives","Gaming Gear","Monitor",1,1,1,1,1,1,1,1,1];
 
 doctype html
 html(lang="en")
@@ -9,115 +9,131 @@ html(lang="en")
         title= "Document"
         link(rel="stylesheet" href="../css/font.min.css")
         link(rel="stylesheet" href="../css/bootstrap.min.css")
+        style.
+            .font-small{
+                font-size: 14px;
+            }
+            .li
     body
         nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
             div.container
-                button(data-target="#nav-collapse-menu" data-toggle="collapse").navbar-toggler
+                button.navbar-toggler(data-target="#nav-collapse-menu" data-toggle="collapse")
                     i.fas.fa-bars
                 //sm logo (light)
                 div.d-block.flex-grow-1.d-lg-none.text-center.text-light
-                    h3.d-inline.mr-2
-                        i.fas.fa-boxes
+                    h4.d-inline.mr-2
+                        i.fas.fa-laptop
                     h4.d-inline L
                     h6.d-inline
-                        i.far.fa-smile-wink
+                        i.fas.fa-power-off
                     h4.d-inline gon
-                button(data-target="#nav-collapse-option" data-toggle="collapse").navbar-toggler.ml-auto
+                button.navbar-toggler.ml-auto(data-target="#nav-collapse-option" data-toggle="collapse")
                     i.fas.fa-user-cog
 
                 div#nav-collapse-menu.collapse.navbar-collapse
                     hr.d-block.d-lg-none.border-light
                     ul.navbar-nav.mr-auto
                         li.nav-item
-                            a(href="./home.html").nav-link
+                            a.nav-link(href="./home.html")
                                 i.fas.fa-home.mr-1
                                 span Home
                         li.nav-item
-                            a(href="#").nav-link
+                            a.nav-link(href="./categories.html")
                                 i.fas.fa-box.mr-1
                                 span Categories
                         li.nav-item
-                            a(href="#").nav-link
+                            a.nav-link(href="#")
                                 i.fas.fa-phone-alt.mr-1
                                 span Contact
                         li.nav-item
-                            a(href="#").nav-link
+                            a.nav-link(href="#")
                                 i.fas.fa-user-friends.mr-1
                                 span Support
                         li.nav-item
-                            a(href="#").nav-link
+                            a.nav-link(href="#")
                                 i.fas.fa-question-circle.mr-1
                                 span About
                 div#nav-collapse-option.collapse.navbar-collapse
                     hr.border-light
                     ul.navbar-nav.ml-auto.mr-2
                         li.nav-item
-                            a(href="#").nav-link Sign in
+                            a.nav-link(href="#") Sign in
                                 i.fas.fa-sign-in-alt.ml-2
                         li.nav-item
-                            a(href="#").nav-link Sign up
+                            a.nav-link(href="#") Sign up
                                 i.fas.fa-user-plus.ml-2
 
-        div.container
-            div.row.mt-2.mt-lg-4
-                // left col - only show when lg
-                div.col-lg-3.d-none.d-lg-block
+        //sticky search bar
+        div.sticky-top.pt-2.pt-lg-3.mb-lg-4.bg-light.shadow
+            div.container
+                div.row
                     // lg logo (dark)
-                    div.mb-4.text-center
-                        h2.d-inline.mr-2
-                            i.fas.fa-boxes
-                        h3.d-inline L
-                        h5.d-inline
-                            i.far.fa-smile-wink
-                        h3.d-inline gon
-
-                    div.list-group.mb-4
-                        div.list-group-item.list-group-item-secondary Shop by Product
-                        ul.nav.flex-column.list-group-item
-                            each category in categories
-                                li.nav-item
-                                    a(href="#").nav-link #{category}
-                    div.list-group
-                        div.list-group-item.list-group-item-secondary Most popular
-                        ul.nav.flex-column.list-group-item
-                            each category in popular
-                                li.nav-item
-                                    a(href="#").nav-link #{category}
-                            li.nav-item
-                                hr
-                                a(href="#") More Products...
-
-                div.col-lg-9.mt-2.mt-lg-0
+                    div.d-none.d-lg-block.col-lg-3
+                        div.mr-2
+                            div.text-center
+                                h2.d-inline.mr-2
+                                    i.fas.fa-laptop
+                                h3.d-inline L
+                                h5.d-inline
+                                    i.fas.fa-power-off
+                                h3.d-inline gon
                     // search bar
-                    div.d-flex.mb-2.mb-lg-4
-                        div.flex-grow-1
-                            form.input-group
-                                input(placeholder="Search for product...").form-control
-                                div.input-group-append
-                                    button(type="submit").btn.btn-primary
-                                        i.fas.fa-search
-                                        span.d-none.d-md-inline-block.ml-1 Search
-                        div.ml-2.ml-lg-4
-                            button.btn.btn-primary
-                                span.d-none.d-md-inline-block.mr-2 Your cart
-                                i.fas.fa-shopping-cart
-                                    span.badge.ml-1.badge-light 0
+                    div.col-lg-9
+                        div.d-flex
+                            div.flex-grow-1
+                                form.input-group
+                                    input.form-control.border-primary(placeholder="Search for product...")
+                                    div.input-group-append
+                                        button.btn.btn-primary(type="submit")
+                                            i.fas.fa-search
+                                            span.d-none.d-md-inline-block.ml-1 Search
+                            div.ml-2.ml-lg-4
+                                button.btn.btn-primary
+                                    i.fas.fa-shopping-cart
+                                        span.badge.ml-1.badge-light 0
+                                    i.fas.fa-dollar-sign.ml-2.d-none.d-md-inline
+                                        span.ml-1 0.00
+            hr.mt-2.mt-lg-3
 
+
+        div.container
+            div.row
+                // left col - only show when lg
+                div.d-none.d-lg-block.col-lg-3
+                    div.mr-2
+                        div.list-group.font-small.mb-4.shadow-sm
+                            div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Shop by Category
+                            ul.nav.flex-column.list-group-item
+                                each category in categories
+                                    li.nav-item
+                                        a.nav-link.text-nowrap(href="#") #{category}
+                                li.nav-item
+                                    hr.m-2
+                                    a.text-nowrap(href="./categories") More Category...
+
+                        div.list-group.font-small.mb-4.shadow-sm
+                            div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Popular Searches
+                            ul.nav.flex-column.list-group-item
+                                each category in popular
+                                    li.nav-item
+                                        a.nav-link.text-nowrap(href="#") #{category}
+
+                div.col-lg-9
                     //main content
-                    div(data-ride="carousel")#carousel.carousel.slide.rounded
+                    div#carousel.carousel.slide.rounded(data-ride="carousel")
                         ol.carousel-indicators
-                            li(data-target="#carousel" data-slide-to="0").active
+                            li.active(data-target="#carousel" data-slide-to="0")
                             each i in [1,2,3,4]
                                 li(data-target="#carousel" data-slide-to=i)
                         div.carousel-inner
                             div.carousel-item.active
-                                img(src="../images/carousel/slide0.jpg" alt="slide0").d-block.w-100.rounded
+                                img.d-block.w-100(src="../images/carousel/slide0.jpg" alt="slide0")
                             each i in [1,2,3,4]
                                 div.carousel-item
-                                    img(src=`../images/carousel/slide${i}.jpg` alt=`slide${i}`).d-block.w-100.rounded
-                        a(data-slide="next" role="button" href="#carousel").carousel-control-next
+                                    img.d-block.w-100(src=`../images/carousel/slide${i}.jpg` alt=`slide${i}`)
+                        a.carousel-control-next(data-slide="next" role="button" href="#carousel")
                             span.carousel-control-next-icon
-                        a(data-slide="prev" role="button" href="#carousel").carousel-control-prev
+                        a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")
                             span.carousel-control-prev-icon
 
         script(src="../scripts/jquery-3.4.1.min.js")
