@@ -1,5 +1,5 @@
 - var categories = ["Desktop & Laptop","Smartphone & Tablet","Embedded Computer","Components","Accessories","Software"];
-- var popular = ["Gaming Laptop","Workstation","Gaming PC","Hard Drive","Graphics Card","External Drives","Gaming Gear","Monitor",1,1,1,1,1,1,1,1,1];
+- var popular = ["Gaming Laptop","Workstation","Gaming PC","Hard Drive","Graphics Card","External Drives","Gaming Gear","Monitor"]
 
 doctype html
 html(lang="en")
@@ -9,12 +9,9 @@ html(lang="en")
         title= "Document"
         link(rel="stylesheet" href="../css/font.min.css")
         link(rel="stylesheet" href="../css/bootstrap.min.css")
-        style.
-            .font-small{
-                font-size: 14px;
-            }
-            .li
-    body
+        link(rel="stylesheet" href="../css/global.css")
+    body.bg-light
+        //top nav
         nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
             div.container
                 button.navbar-toggler(data-target="#nav-collapse-menu" data-toggle="collapse")
@@ -64,7 +61,7 @@ html(lang="en")
                                 i.fas.fa-user-plus.ml-2
 
         //sticky search bar
-        div.sticky-top.pt-2.pt-lg-3.mb-lg-4.bg-light.shadow
+        div.sticky-top.pt-2.pt-lg-3.mb-lg-4.bg-white.shadow
             div.container
                 div.row
                     // lg logo (dark)
@@ -95,7 +92,6 @@ html(lang="en")
                                         span.ml-1 0.00
             hr.mt-2.mt-lg-3
 
-
         div.container
             div.row
                 // left col - only show when lg
@@ -117,6 +113,17 @@ html(lang="en")
                                 each category in popular
                                     li.nav-item
                                         a.nav-link.text-nowrap(href="#") #{category}
+
+                        img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/tablet.jpg")
+                        div.card.shadow-sm.mb-4
+                            div.card-body
+                                h5.card-text.font-weight-light 50% Discount offer, Don't miss out!
+                                a.card-link.font-small(href="#") Read more >>
+                        div.card.shadow-sm.mb-4
+                            div.card-body
+                                h5.card-text.font-weight-light Some more fucking ad down there!
+                                a.card-link.font-small(href="#") Read more >>
+
 
                 div.col-lg-9
                     //main content
