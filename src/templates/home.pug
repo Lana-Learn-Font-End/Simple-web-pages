@@ -23,7 +23,7 @@ block content
 
     +offerBanner.mb-4
     div.mb-4
-        +stallHeader("Featured Product")
+        +stallHeader("Featured Product", "New")(class="badge-info")
         div(data-simplebar).pb-2
             div.row.flex-nowrap
                 +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
@@ -34,29 +34,122 @@ block content
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
 
+    div.mb-4
+        +stallHeader("Most Popular")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 2070", 5, 2000)
+                +item("Nvidia GTX 1070", 5, 499)
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819)
+                +item("Macbook pro 2019", 5, 1299)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+
+    +offerBanner.mb-4
+    div.mb-4
+        +stallHeader("On Sale", "Hot")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
+                +item("Nvidia GTX 1060", 5, 499, 699, "20%")
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819, "40%")
+                +item("Macbook pro 2019", 5, 1299, 1699)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+
+    div.mb-4
+        +stallHeader("Popular in Laptop")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 2070", 5, 2000)
+                +item("Nvidia GTX 1070", 5, 499)
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819)
+                +item("Macbook pro 2019", 5, 1299)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+
+    div.mb-4
+        +stallHeader("Popular in Workstation")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 2070", 5, 2000)
+                +item("Nvidia GTX 1070", 5, 499)
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819)
+                +item("Macbook pro 2019", 5, 1299)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+
+    div.mb-4
+        +stallHeader("Gaming Gear", "Hot")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 2070", 5, 2000)
+                +item("Nvidia GTX 1070", 5, 499)
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819)
+                +item("Macbook pro 2019", 5, 1299)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+
+    div.mb-4
+        +stallHeader("Hi-End Device")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 2070", 5, 2000)
+                +item("Nvidia GTX 1070", 5, 499)
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819)
+                +item("Macbook pro 2019", 5, 1299)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+    div.p-5
+
 append content
     script(src="../scripts/simplebar.min.js")
 
 mixin featuredProduct(title, subtitle)
-    div.col-md-6.col-12.col-lg-4&attributes(attributes)
-        div.card.shadow-sm
-            img.card-img-top.w-100(src="../images/thumb.jpg")
-            div.card-body.d-flex.flex-column
-                h4.card-title #{title}
-                h6.card-subtitle.text-muted.mb-2 #{subtitle}
-                a.card-link(href="#") Read more >>
-
-mixin item(title,desc,price)
-    div.col-md-4.col-6&attributes(attributes)
-        div.card.shadow-sm
+    div.col-md-6.col-12.col-lg-4.d-flex&attributes(attributes)
+        div.card.shadow-sm.flex-grow-1
             img.card-img-top.w-100(src="../images/thumb.jpg")
             div.card-body.d-flex.flex-column
                 h5.card-title #{title}
+                h6.card-subtitle.text-muted.mb-2 #{subtitle}
+                a.card-link.mt-auto(href="#") Read more >>
 
-mixin stallHeader(title,linkTitle)
-    div.d-flex.align-items-end.justify-content-between&attributes(attributes)
+mixin item(title, rate, price, oldPrice, saleTitle)
+    div.col-md-4.col-6.col-lg-3.d-flex&attributes(attributes)
+        div.card.shadow-sm
+            img.card-img-top.w-100(src="../images/thumb.jpg")
+            div.card-body.d-flex.flex-column.flex-grow-1.p-md-4.px-2.py-2
+                h6.card-title.mb-1 #{title}
+                //rating
+                div.smaller
+                    div.text-warning
+                        each _ in Array(rate)
+                            i.fas.fa-star
+                        each _ in Array(5 - rate)
+                            i.far.fa-star
+                //price and sale
+                div.small.text-success.font-weight-bold.d-flex.align-items-center $#{price}.00
+                    if oldPrice
+                        span.badge.badge-danger.ml-1 #{saleTitle || "Sale"}
+                if oldPrice
+                    del.smaller.text-muted #{oldPrice}.00
+                // description
+                // div.card-text.small.text-muted.d-none.d-md-block Some thing about this product.
+                a.small.card-link.stretched-link(href="#")
+                // button group
+                div.d-flex.flex-grow-1.align-items-end.justify-content-end
+                    div.btn-over-stretched-link
+                        button.btn.btn-outline-success.btn-sm.py-0.px-1
+                            i.fas.fa-cart-plus
+                        button.btn.btn-outline-danger.btn-sm.py-0.px-1.ml-1
+                            i.far.fa-heart
+
+mixin stallHeader(title, badgeTitle)
+    div.d-flex.align-items-end.justify-content-between
         h4 #{title}
-        a.card-link(href="#") #{linkTitle || "More"} >>
+            if badgeTitle
+                span.badge.ml-2&attributes(attributes) #{badgeTitle}
+        a.card-link(href="#") More >>
     hr.border-info.mt-2
 
 mixin offerBanner

@@ -18,3 +18,7 @@ body {
 .z-top {
     z-index: 2000;
 }
+
+.btn-over-stretched-link{
+    z-index: 1!important;
+}
