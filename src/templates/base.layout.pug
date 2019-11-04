@@ -1,5 +1,3 @@
-- var categories = ["Desktop & Laptop","Smartphone & Tablet","Embedded Computer","Components","Accessories","Software"];
-- var popular = ["Gaming Laptop","Workstation","Gaming PC","Hard Drive","Graphics Card","External Drives","Gaming Gear","Monitor"]
 - var cartItems = [{name:"Nvidia GeForce RTX 2070", price:519},{name:"EVGA GeForce GTX 1080 FE", price:789},{name:"MSI GeForce GTX 1080", price:439}]
 - var totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
@@ -61,7 +59,7 @@ html(lang="en")
                             a.nav-link(href="#") Sign up
                                 i.fas.fa-user-plus.ml-2
 
-        //sticky search bar
+        //sticky search bar nav and cart
         nav.sticky-top.py-2.py-lg-3.mb-lg-4.bg-white.shadow
             div.container
                 div.row
@@ -98,52 +96,20 @@ html(lang="en")
                                             each item in cartItems
                                                 div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
                                                     a.card-link.text-nowrap(href="#") #{item.name}
-                                                    span &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                    span &nbsp &nbsp &nbsp
                                                     span.badge.badge-pill.badge-dark $#{item.price}
                                             div.dropdown-divider.m-0
                                             div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
                                                 a.card-link.text-nowrap(href="#") Total
-                                                h5 $#{totalPrice}
+                                                h5 $#{totalPrice}.00
                                             div.dropdown-divider.m-0
                                             div.dropdown-item.px-4.pt-3.pb-2.text-center.d-flex
                                                 a.btn.btn-success.flex-grow-1.btn-sm.text-light Check out
                                             div.dropdown-item.px-4.pb-3.text-center.d-flex
                                                 a.btn.btn-primary.flex-grow-1.btn-sm.text-light  Go to cart
-        div.container
-            div.row
-                // left col - only show when lg
-                div.d-none.d-lg-block.col-lg-3
-                    div.mr-2
-                        div.list-group.font-small.mb-4.shadow-sm
-                            div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Shop by Category
-                            ul.nav.flex-column.list-group-item
-                                each category in categories
-                                    li.nav-item
-                                        a.nav-link.text-nowrap(href="#") #{category}
-                                li.nav-item
-                                    hr.m-2
-                                    a.text-nowrap(href="./categories.html") More Category...
 
-                        div.list-group.font-small.mb-4.shadow-sm
-                            div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Popular Searches
-                            ul.nav.flex-column.list-group-item
-                                each category in popular
-                                    li.nav-item
-                                        a.nav-link.text-nowrap(href="#") #{category}
-
-                        img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/tablet.jpg")
-                        div.card.shadow-sm.mb-4
-                            div.card-body
-                                h5.card-text.font-weight-light 50% Discount offer, Don't miss out!
-                                a.card-link.font-small(href="#") Read more >>
-                        div.card.shadow-sm.mb-4
-                            div.card-body
-                                h5.card-text.font-weight-light Some more fucking ad down there!
-                                a.card-link.font-small(href="#") Read more >>
-                // main content
-                div.col-lg-9
-                    block content
-
+        //content
+        block body
         footer.bg-dark
             div.container
                 div.row.text-white
@@ -155,7 +121,7 @@ html(lang="en")
                             a(href="#").text-info.smaller Even More
                             a(href="#").text-info.smaller Question
 
-                div.d-flex.row.py-1
+                div.d-flex.row.py-1.justify-content-md-center
                     div.text-nowrap.d-flex
                         a(href="#").text-light.ml-3.smaller Conditions of Use
                         a(href="#").text-light.ml-2.smaller Privacy Notice

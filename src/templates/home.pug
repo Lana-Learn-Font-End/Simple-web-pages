@@ -1,8 +1,9 @@
-extends ./layout-full
+extends nav-left.layout.pug
 
 block head
     title Home
-    link(rel='stylesheet' href='https://unpkg.com/simplebar@latest/dist/simplebar.css')
+    link(rel="stylesheet" href="../css/simplebar.css")
+
 block content
     div#carousel.carousel.slide.rounded.shadow-sm.mb-4(data-ride="carousel")
         ol.carousel-indicators
@@ -21,19 +22,23 @@ block content
             span.carousel-control-prev-icon
 
     +offerBanner.mb-4
-    div
+    div.mb-4
         +stallHeader("Featured Product")
-        div.overflow-auto(data-simplebar)
+        div(data-simplebar).pb-2
             div.row.flex-nowrap
                 +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
+                +featuredProduct("Nvidia GTX 1070","Old Technology gaming card")
+                +featuredProduct("Nvidia GTX 1080","Gaming card")
                 +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
                 +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
-                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
-    div
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
 
+append content
+    script(src="../scripts/simplebar.min.js")
 
 mixin featuredProduct(title, subtitle)
-    div.col-md-6.col-12&attributes(attributes)
+    div.col-md-6.col-12.col-lg-4&attributes(attributes)
         div.card.shadow-sm
             img.card-img-top.w-100(src="../images/thumb.jpg")
             div.card-body.d-flex.flex-column
@@ -51,7 +56,7 @@ mixin item(title,desc,price)
 mixin stallHeader(title,linkTitle)
     div.d-flex.align-items-end.justify-content-between&attributes(attributes)
         h4 #{title}
-        a(href="#") #{linkTitle || "More"} >>
+        a.card-link(href="#") #{linkTitle || "More"} >>
     hr.border-info.mt-2
 
 mixin offerBanner

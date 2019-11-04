@@ -14,11 +14,3 @@ body {
 .large {
     font-size: 120%;
 }
-
-.overflow-auto {
-    overflow: hidden !important;
-}
-
-.overflow-auto:hover {
-    overflow: auto !important;
-}
