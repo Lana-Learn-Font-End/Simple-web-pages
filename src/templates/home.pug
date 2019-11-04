@@ -1,207 +1,61 @@
-- var categories = ["Desktop & Laptop","Smartphone & Tablet","Embedded Computer","Components","Accessories","Software"];
-- var popular = ["Gaming Laptop","Workstation","Gaming PC","Hard Drive","Graphics Card","External Drives","Gaming Gear","Monitor"]
-- var cartItems = [{name:"Nvidia GeForce RTX 2070", price:519},{name:"EVGA GeForce GTX 1080 FE", price:789},{name:"MSI GeForce GTX 1080", price:439}]
-- var totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+extends ./layout-full
+
+block head
+    title Home
+    link(rel='stylesheet' href='https://unpkg.com/simplebar@latest/dist/simplebar.css')
+block content
+    div#carousel.carousel.slide.rounded.shadow-sm.mb-4(data-ride="carousel")
+        ol.carousel-indicators
+            li.active(data-target="#carousel" data-slide-to="0")
+            each i in [1,2,3,4]
+                li(data-target="#carousel" data-slide-to=i)
+        div.carousel-inner
+            div.carousel-item.active
+                img.d-block.w-100(src="../images/carousel/slide0.jpg" alt="slide0")
+            each i in [1,2,3,4]
+                div.carousel-item
+                    img.d-block.w-100(src=`../images/carousel/slide${i}.jpg` alt=`slide${i}`)
+        a.carousel-control-next(data-slide="next" role="button" href="#carousel")
+            span.carousel-control-next-icon
+        a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")
+            span.carousel-control-prev-icon
+
+    +offerBanner.mb-4
+    div
+        +stallHeader("Featured Product")
+        div.overflow-auto(data-simplebar)
+            div.row.flex-nowrap
+                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
+                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
+                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
+                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
+    div
 
 
-doctype html
-html(lang="en")
-    head
-        meta(charset="utf-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-        title= "Document"
-        link(rel="stylesheet" href="../css/font.min.css")
-        link(rel="stylesheet" href="../css/bootstrap.min.css")
-        link(rel="stylesheet" href="../css/global.css")
-    body.bg-light
-        //header nav
-        header.navbar.navbar-dark.bg-dark.navbar-expand-lg
-            div.container
-                button.navbar-toggler(data-target="#nav-collapse-menu" data-toggle="collapse")
-                    i.fas.fa-bars
-                //sm logo (light)
-                div.d-block.flex-grow-1.d-lg-none.text-center.text-light
-                    h4.d-inline.mr-2
-                        i.fas.fa-laptop
-                    h4.d-inline L
-                    h6.d-inline
-                        i.fas.fa-power-off
-                    h4.d-inline gon
-                button.navbar-toggler.ml-auto(data-target="#nav-collapse-option" data-toggle="collapse")
-                    i.fas.fa-user-cog
+mixin featuredProduct(title, subtitle)
+    div.col-md-6.col-12&attributes(attributes)
+        div.card.shadow-sm
+            img.card-img-top.w-100(src="../images/thumb.jpg")
+            div.card-body.d-flex.flex-column
+                h4.card-title #{title}
+                h6.card-subtitle.text-muted.mb-2 #{subtitle}
+                a.card-link(href="#") Read more >>
 
-                div#nav-collapse-menu.collapse.navbar-collapse
-                    hr.d-block.d-lg-none.border-light
-                    ul.navbar-nav.mr-auto
-                        li.nav-item
-                            a.nav-link(href="./home.html")
-                                i.fas.fa-home.mr-1
-                                span Home
-                        li.nav-item
-                            a.nav-link(href="./categories.html")
-                                i.fas.fa-box.mr-1
-                                span Categories
-                        li.nav-item
-                            a.nav-link(href="#")
-                                i.fas.fa-phone-alt.mr-1
-                                span Contact
-                        li.nav-item
-                            a.nav-link(href="#")
-                                i.fas.fa-user-friends.mr-1
-                                span Support
-                        li.nav-item
-                            a.nav-link(href="#")
-                                i.fas.fa-question-circle.mr-1
-                                span About
-                div#nav-collapse-option.collapse.navbar-collapse
-                    hr.border-light
-                    ul.navbar-nav.ml-auto.mr-2
-                        li.nav-item
-                            a.nav-link(href="#") Sign in
-                                i.fas.fa-sign-in-alt.ml-2
-                        li.nav-item
-                            a.nav-link(href="#") Sign up
-                                i.fas.fa-user-plus.ml-2
+mixin item(title,desc,price)
+    div.col-md-4.col-6&attributes(attributes)
+        div.card.shadow-sm
+            img.card-img-top.w-100(src="../images/thumb.jpg")
+            div.card-body.d-flex.flex-column
+                h5.card-title #{title}
 
-        //sticky search bar
-        nav.sticky-top.py-2.py-lg-3.mb-lg-4.bg-white.shadow
-            div.container
-                div.row
-                    // lg logo (dark)
-                    div.d-none.d-lg-block.col-lg-3
-                        div.mr-2
-                            div.text-center
-                                h2.d-inline.mr-2
-                                    i.fas.fa-laptop
-                                h3.d-inline L
-                                h5.d-inline
-                                    i.fas.fa-power-off
-                                h3.d-inline gon
-                    // search bar
-                    div.col-lg-9
-                        div.d-flex
-                            div.flex-grow-1
-                                form.input-group
-                                    input.form-control.border-primary(placeholder="Search for product...")
-                                    div.input-group-append
-                                        button.btn.btn-primary(type="submit")
-                                            i.fas.fa-search
-                                            span.d-none.d-md-inline-block.ml-1 Search
-                            // cart with dropdown
-                            div.ml-2.ml-lg-4
-                                div.dropdown
-                                    div.btn-group
-                                        a.btn.btn-primary(role="button" href="./cart.html")
-                                            i.fas.fa-shopping-cart
-                                                span.ml-3.d-none.d-md-inline $#{totalPrice}.00
-                                        button.btn.btn-outline-primary.dropdown-toggle.dropdown-toggle-split(type="button" data-toggle="dropdown")
-                                        div.dropdown-menu.bg-light.dropdown-menu-right.p-0.mt-2.mt-lg-3
-                                            h5.bg-dark.text-light.text-nowrap.dropdown-header.p-3.rounded-top Your Cart has #{cartItems.length} item
-                                            each item in cartItems
-                                                div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
-                                                    a.card-link.text-nowrap(href="#") #{item.name}
-                                                    span &nbsp &nbsp &nbsp &nbsp &nbsp
-                                                    span.badge.badge-pill.badge-dark $#{item.price}
-                                            div.dropdown-divider.m-0
-                                            div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
-                                                a.card-link.text-nowrap(href="#") Total
-                                                h5 $#{totalPrice}
-                                            div.dropdown-divider.m-0
-                                            div.dropdown-item.px-4.pt-3.pb-2.text-center.d-flex
-                                                a.btn.btn-success.flex-grow-1.btn-sm.text-light Check out
-                                            div.dropdown-item.px-4.pb-3.text-center.d-flex
-                                                a.btn.btn-primary.flex-grow-1.btn-sm.text-light  Go to cart
-        div.container
-            div.row
-                // left col - only show when lg
-                div.d-none.d-lg-block.col-lg-3
-                    div.mr-2
-                        div.list-group.font-small.mb-4.shadow-sm
-                            div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Shop by Category
-                            ul.nav.flex-column.list-group-item
-                                each category in categories
-                                    li.nav-item
-                                        a.nav-link.text-nowrap(href="#") #{category}
-                                li.nav-item
-                                    hr.m-2
-                                    a.text-nowrap(href="./categories.html") More Category...
+mixin stallHeader(title,linkTitle)
+    div.d-flex.align-items-end.justify-content-between&attributes(attributes)
+        h4 #{title}
+        a(href="#") #{linkTitle || "More"} >>
+    hr.border-info.mt-2
 
-                        div.list-group.font-small.mb-4.shadow-sm
-                            div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Popular Searches
-                            ul.nav.flex-column.list-group-item
-                                each category in popular
-                                    li.nav-item
-                                        a.nav-link.text-nowrap(href="#") #{category}
-
-                        img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/tablet.jpg")
-                        div.card.shadow-sm.mb-4
-                            div.card-body
-                                h5.card-text.font-weight-light 50% Discount offer, Don't miss out!
-                                a.card-link.font-small(href="#") Read more >>
-                        div.card.shadow-sm.mb-4
-                            div.card-body
-                                h5.card-text.font-weight-light Some more fucking ad down there!
-                                a.card-link.font-small(href="#") Read more >>
-
-
-                div.col-lg-9
-                    //main content
-                    div#carousel.carousel.slide.rounded(data-ride="carousel")
-                        ol.carousel-indicators
-                            li.active(data-target="#carousel" data-slide-to="0")
-                            each i in [1,2,3,4]
-                                li(data-target="#carousel" data-slide-to=i)
-                        div.carousel-inner
-                            div.carousel-item.active
-                                img.d-block.w-100(src="../images/carousel/slide0.jpg" alt="slide0")
-                            each i in [1,2,3,4]
-                                div.carousel-item
-                                    img.d-block.w-100(src=`../images/carousel/slide${i}.jpg` alt=`slide${i}`)
-                        a.carousel-control-next(data-slide="next" role="button" href="#carousel")
-                            span.carousel-control-next-icon
-                        a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")
-                            span.carousel-control-prev-icon
-
-        footer.bg-dark
-            div.container
-                div.row.text-white
-                    div.col-6.col-md-3.nav.flex-column.p-3
-                        h6 Support
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                    div.col-6.col-md-3.nav.flex-column.p-3
-                        h6 About
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                    div.col-6.col-md-3.nav.flex-column.p-3
-                        h6 Contact
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                    div.col-6.col-md-3.nav.flex-column.p-3
-                        h6 Cooperation
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-                        a(href="#").text-info.smaller Question
-
-                div.d-flex.row.py-1
-                    div.text-nowrap.d-flex
-                        a(href="#").text-light.ml-3.smaller Conditions of Use
-                        a(href="#").text-light.ml-2.smaller Privacy Notice
-                    div.text-nowrap.d-flex
-                        a(href="#").text-muted.ml-3.smaller Blog
-                        a(href="#").text-muted.ml-2.smaller Facebook
-                        a(href="#").text-muted.ml-2.smaller Twitter
-                        a(href="#").text-muted.ml-2.smaller Linkedln
-                    div.ml-3.text-muted.smaller &copy; 2019 Logon, Inc. All right reserved
-
-
-
-        script(src="../scripts/jquery-3.4.1.min.js")
-        script(src="../scripts/bootstrap.bundle.min.js")
+mixin offerBanner
+    div.card.shadow-sm&attributes(attributes)
+        div.card-body.d-flex.flex-row-reverse.justify-content-between
+            button.btn.btn-info.px-md-5 Buy Now!
+            h5.card-text.font-weight-light.d-none.d-md-inline Ad Banner or Discount Offer go here

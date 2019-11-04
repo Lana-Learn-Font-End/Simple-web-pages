@@ -10,3 +10,15 @@ body {
     font-size: 65%;
     font-weight: 400;
 }
+
+.large {
+    font-size: 120%;
+}
+
+.overflow-auto {
+    overflow: hidden !important;
+}
+
+.overflow-auto:hover {
+    overflow: auto !important;
+}
