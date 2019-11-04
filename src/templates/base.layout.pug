@@ -12,7 +12,7 @@ html(lang="en")
         block head
     body.bg-light
         //header nav
-        header.navbar.navbar-dark.bg-dark.navbar-expand-lg
+        header.navbar.navbar-dark.bg-dark.navbar-expand-lg.z-top
             div.container
                 button.navbar-toggler(data-target="#nav-collapse-menu" data-toggle="collapse")
                     i.fas.fa-bars
@@ -45,10 +45,14 @@ html(lang="en")
                             a.nav-link(href="#")
                                 i.fas.fa-user-friends.mr-1
                                 span Support
-                        li.nav-item
-                            a.nav-link(href="#")
+                        li.nav-item.dropdown
+                            a.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown")
                                 i.fas.fa-question-circle.mr-1
-                                span About
+                                span Location
+                            div.dropdown-menu
+                                a.dropdown-item(href="home.html") Home
+                                a.dropdown-item(href="cart.html") Cart
+                                a.dropdown-item(href="categories.html") Categories
                 div#nav-collapse-option.collapse.navbar-collapse
                     hr.border-light
                     ul.navbar-nav.ml-auto.mr-2

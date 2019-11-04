@@ -14,3 +14,7 @@ body {
 .large {
     font-size: 120%;
 }
+
+.z-top {
+    z-index: 2000;
+}
