@@ -1,5 +1,31 @@
 extends nav-left.layout.pug
 
+mixin featuredProduct(title, subtitle)
+    div.col-md-6.col-12.col-lg-4.d-flex&attributes(attributes)
+        div.card.shadow-sm.flex-grow-1
+            img.card-img-top.w-100(src=`../images/items/featured/${random(1, 4)}.jpg`)
+            div.card-body.d-flex.flex-column
+                h5.card-title #{title}
+                h6.card-subtitle.text-muted.mb-2 #{subtitle}
+                a.card-link.mt-auto(href="#") Read more >
+
+mixin stallHeader(title, badgeTitle)
+    div.d-flex.align-items-end.justify-content-between
+        h4
+            a.d-md-none.card-link(href="#") #{title}
+            span.d-none.d-md-inline #{title}
+            if badgeTitle
+                span.badge.ml-2&attributes(attributes) #{badgeTitle}
+        h6
+            a.card-link.d-none.d-md-block(href="#") More >>
+    hr.border-info.mt-2
+
+mixin offerBanner
+    div.card.shadow-sm&attributes(attributes)
+        div.card-body.d-flex.flex-row-reverse.justify-content-between
+            button.btn.btn-info.px-md-5 Buy Now!
+            h5.card-text.font-weight-light.d-none.d-md-inline Ad Banner or Discount Offer go here
+
 block head
     title Home
     link(rel="stylesheet" href="../css/simplebar.css")
@@ -54,7 +80,7 @@ block content
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
     div.mb-4
-        +stallHeader("Laptop")
+        +stallHeader("Popular in Laptop")
         div(data-simplebar).pb-2
             div.row.flex-nowrap
                 +item("Nvidia GTX 1070", 5, 499, 699 ,"Sale")
@@ -65,7 +91,7 @@ block content
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
     div.mb-4
-        +stallHeader("Workstation")
+        +stallHeader("Popular in Workstation")
         div(data-simplebar).pb-2
             div.row.flex-nowrap
                 +item("Nvidia GTX 1070", 5, 499, 699 ,"Sale")
@@ -95,63 +121,18 @@ block content
                 +item("Nvidia GTX 1070", 5, 499)
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
+    div.mb-4
+        +stallHeader("Recommended for you")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
+                +item("Macbook pro 2019", 5, 1299)
+                +item("Nvidia RTX 2070", 5, 2000, 3000, "Special")
+                +item("Nvidia GTX 1070", 5, 499)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
     div.p-4
 
 append content
     script(src="../scripts/simplebar.min.js")
 
-mixin featuredProduct(title, subtitle)
-    div.col-md-6.col-12.col-lg-4.d-flex&attributes(attributes)
-        div.card.shadow-sm.flex-grow-1
-            img.card-img-top.w-100(src="../images/thumb.jpg")
-            div.card-body.d-flex.flex-column
-                h5.card-title #{title}
-                h6.card-subtitle.text-muted.mb-2 #{subtitle}
-                a.card-link.mt-auto(href="#") Read more >
-
-mixin item(title, rate, price, oldPrice, saleTitle)
-    div.col-md-4.col-6.col-lg-3.d-flex&attributes(attributes)
-        div.card.shadow-sm
-            img.card-img-top.w-100(src="../images/thumb.jpg")
-            div.card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
-                h6.card-title.mb-1 #{title}
-                //price and sale
-                div.small.text-success.font-weight-bold.d-flex.align-items-center $#{price}.00
-                    if saleTitle
-                        span.badge.badge-danger.ml-1 #{saleTitle}
-                if oldPrice
-                    del.smaller.text-muted.d-none.d-md-block #{oldPrice}.00
-                // description
-                // div.card-text.small.text-muted.d-none.d-md-block Some thing about this product.
-                a.small.card-link.stretched-link(href="#")
-                // button group
-                div.d-flex.flex-grow-1.justify-content-between.align-items-end
-                    //rating
-                    div.smaller
-                        div.text-warning.d-none.d-md-block
-                            each _ in Array(rate)
-                                i.fas.fa-star
-                            each _ in Array(5 - rate)
-                                i.far.fa-star
-                    div.btn-over-stretched-link
-                        button.btn.btn-outline-success.btn-sm.py-0.px-1
-                            i.fas.fa-cart-plus
-                        button.btn.btn-outline-danger.btn-sm.py-0.px-1.ml-1
-                            i.far.fa-heart
-
-mixin stallHeader(title, badgeTitle)
-    div.d-flex.align-items-end.justify-content-between
-        h4
-            a.d-md-none.card-link(href="#") #{title}
-            span.d-none.d-md-inline #{title}
-            if badgeTitle
-                span.badge.ml-2&attributes(attributes) #{badgeTitle}
-        h6
-            a.card-link.d-none.d-md-block(href="#") More >>
-    hr.border-info.mt-2
-
-mixin offerBanner
-    div.card.shadow-sm&attributes(attributes)
-        div.card-body.d-flex.flex-row-reverse.justify-content-between
-            button.btn.btn-info.px-md-5 Buy Now!
-            h5.card-text.font-weight-light.d-none.d-md-inline Ad Banner or Discount Offer go here

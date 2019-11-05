@@ -1,6 +1,36 @@
 - var cartItems = [{name:"Nvidia GeForce RTX 2070", price:519},{name:"EVGA GeForce GTX 1080 FE", price:789},{name:"MSI GeForce GTX 1080", price:439}]
 - var totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+- var random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
+mixin item(title, rate, price, oldPrice, saleTitle)
+    div.col-md-4.col-6.col-lg-3.d-flex
+        div.card.shadow-sm
+            img.card-img-top.w-100(src=`../images/items/${random(1, 5, 5)}.jpg`)
+            div.card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
+                h6.card-title.mb-1 #{title}
+                //price and sale
+                div.small.text-success.font-weight-bold.d-flex.align-items-center $#{price}.00
+                    if saleTitle
+                        span.badge.badge-danger.ml-1 #{saleTitle}
+                if oldPrice
+                    del.smaller.text-muted.d-none.d-md-block #{oldPrice}.00
+                // description
+                // div.card-text.small.text-muted.d-none.d-md-block Some thing about this product.
+                a.small.card-link.stretched-link(href="#")
+                // button group
+                div.d-flex.flex-grow-1.justify-content-between.align-items-end
+                    //rating
+                    div.smaller
+                        div.text-warning.d-none.d-md-block
+                            each _ in Array(rate)
+                                i.fas.fa-star
+                            each _ in Array(5 - rate)
+                                i.far.fa-star
+                    div.btn-over-stretched-link
+                        button.btn.btn-outline-success.btn-sm.py-0.px-1
+                            i.fas.fa-cart-plus
+                        button.btn.btn-outline-danger.btn-sm.py-0.px-1.ml-1
+                            i.far.fa-heart
 doctype html
 html(lang="en")
     head
