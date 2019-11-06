@@ -6,13 +6,13 @@
 mixin stallHeader(title, badgeTitle)
     div.d-flex.align-items-end.justify-content-between
         h4
-            a.d-md-none.card-link(href="./categories-items.html") #{title}
+            a.d-md-none.card-link(href="./popular-items.html") #{title}
             span.d-none.d-md-inline #{title}
             if badgeTitle
                 span.badge.ml-2&attributes(attributes) #{badgeTitle}
         h6
-            a.card-link.d-none.d-md-block(href="#") More >>
-    hr.border-info.mb-2.mb-md-0.mt-1.mt-md-2
+            a.card-link.d-none.d-md-block(href="./popular-items.html") More >>
+    hr.border-info.mb-2.mb-md-1.mt-1.mt-md-2
 
 mixin item(title, rate, price, oldPrice, saleTitle)
     div.col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3&attributes(attributes)
@@ -43,6 +43,16 @@ mixin item(title, rate, price, oldPrice, saleTitle)
                             i.fas.fa-cart-plus
                         button.btn.btn-outline-danger.btn-sm.py-0.px-1.ml-1
                             i.far.fa-heart
+
+mixin itemLarge(title, subtitle)
+    div.col-md-6.col-12.col-lg-4.d-flex.my-2.my-md-3&attributes(attributes)
+        div.card.shadow-sm.flex-grow-1
+            img.card-img-top.w-100(src=`../images/items/featured/${random(1, 4)}.jpg`)
+            div.card-body.d-flex.flex-column
+                h5.card-title #{title}
+                h6.card-subtitle.text-muted.mb-2 #{subtitle}
+                a.card-link.mt-auto(href="./item.html") Read more >
+
 doctype html
 html(lang="en")
     head
@@ -50,6 +60,7 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
         link(rel="stylesheet" href="../css/font.min.css")
         link(rel="stylesheet" href="../css/bootstrap.min.css")
+        link(rel="stylesheet" href="../css/simplebar.css")
         link(rel="stylesheet" href="../css/global.css")
         block head
     body.bg-light
@@ -98,6 +109,8 @@ html(lang="en")
                                 a.dropdown-item(href="./home.html") Home
                                 a.dropdown-item(href="./cart.html") Cart
                                 a.dropdown-item(href="./categories-items.html") Category
+                                a.dropdown-item(href="./search-items.html") Search
+                                a.dropdown-item(href="./search-items.html") Popular
                 div#nav-collapse-user.collapse.navbar-collapse
                     hr.border-light
                     ul.navbar-nav.ml-auto.mr-2
@@ -152,7 +165,7 @@ html(lang="en")
                                 form.input-group
                                     input.form-control.border-primary(placeholder="Search for product...")
                                     div.input-group-append
-                                        button.btn.btn-primary(type="submit")
+                                        a.btn.btn-primary(href="./search-items.html")
                                             i.fas.fa-search
                                             span.d-none.d-md-inline-block.ml-1 Search
                             // cart with dropdown
@@ -186,6 +199,7 @@ html(lang="en")
 
         //content
         block body
+
         footer.bg-dark.mt-5
             div.container
                 div.row.text-white
@@ -211,3 +225,4 @@ html(lang="en")
 
         script(src="../scripts/jquery-3.4.1.min.js")
         script(src="../scripts/bootstrap.bundle.min.js")
+        script(src="../scripts/simplebar.min.js")

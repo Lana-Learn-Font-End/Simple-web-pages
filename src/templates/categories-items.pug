@@ -1,11 +1,9 @@
 extends nav-left.layout.pug
 
 block head
-    title Home
-    link(rel="stylesheet" href="../css/simplebar.css")
+    title Laptop - Logon Computer
 
 block content
-
     div
         div.d-flex.align-items-end.justify-content-between
             h4 Laptop
@@ -20,6 +18,8 @@ block content
                     i.fas.fa-long-arrow-alt-up.ml-1
                 a.dropdown-item(href="#") Name a-z
                 a.dropdown-item(href="#") Name z-a
+                a.dropdown-item(href="#") Newer
+                a.dropdown-item(href="#") Older
         hr.border-info.mb-2.mb-md-0.mt-1.mt-md-2
 
     div.mb-4
@@ -48,6 +48,36 @@ block content
 
     // other suggestion
     div.mb-4
+        +stallHeader("Highlight", "New")(class="badge-info")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +itemLarge("Nvidia RTX 1080", "Better Gaming experiment")
+                +itemLarge("Nvidia GTX 1060", "Best in price")
+                +itemLarge("ASUS Vivobook A512FA", "Thin and Lightweight")
+                +itemLarge("Macbook pro 2019", "This is Macbook")
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+    div.mb-4
+        +stallHeader("Special Offer", "Hot")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
+                +item("Nvidia GTX 1060", 5, 499, 699, "20%")
+                +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
+                +item("Macbook pro 2019", 5, 1299, 1699, "60%")
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+    div.mb-4
+        +stallHeader("Most Wanted")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
+                +item("Nvidia GTX 1060", 5, 499, 699, "20%")
+                +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
+                +item("Macbook pro 2019", 5, 1299, 1699, "60%")
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+    div.mb-4
         +stallHeader("Recommended for you")(class="badge-danger")
         div(data-simplebar).pb-2
             div.row.flex-nowrap
@@ -57,16 +87,3 @@ block content
                 +item("Nvidia GTX 1070", 5, 499)
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
-    div.mb-4
-        +stallHeader("On Sale", "Hot")(class="badge-danger")
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
-                +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
-                +item("Nvidia GTX 1060", 5, 499, 699, "20%")
-                +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
-                +item("Macbook pro 2019", 5, 1299, 1699, "60%")
-                div.d-flex.align-items-center
-                    i.fas.fa-chevron-right.text-muted
-
-append content
-    script(src="../scripts/simplebar.min.js")

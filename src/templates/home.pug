@@ -1,14 +1,5 @@
 extends nav-left.layout.pug
 
-mixin featuredProduct(title, subtitle)
-    div.col-md-6.col-12.col-lg-4.d-flex.my-2.my-md-3&attributes(attributes)
-        div.card.shadow-sm.flex-grow-1
-            img.card-img-top.w-100(src=`../images/items/featured/${random(1, 4)}.jpg`)
-            div.card-body.d-flex.flex-column
-                h5.card-title #{title}
-                h6.card-subtitle.text-muted.mb-2 #{subtitle}
-                a.card-link.mt-auto(href="#") Read more >
-
 mixin offerBanner
     div.card.shadow-sm&attributes(attributes)
         div.card-body.d-flex.flex-row-reverse.justify-content-between
@@ -17,7 +8,6 @@ mixin offerBanner
 
 block head
     title Home
-    link(rel="stylesheet" href="../css/simplebar.css")
 
 block content
     div#carousel.carousel.slide.rounded.shadow-sm.mb-4(data-ride="carousel")
@@ -40,11 +30,11 @@ block content
         +stallHeader("Featured Product", "New")(class="badge-info")
         div(data-simplebar).pb-2
             div.row.flex-nowrap
-                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
-                +featuredProduct("Nvidia GTX 1070","Old Technology gaming card")
-                +featuredProduct("Nvidia GTX 1080","Gaming card")
-                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
-                +featuredProduct("Nvidia RTX 2070","New Technology gaming card")
+                +itemLarge("Nvidia RTX 2070","New Technology gaming card")
+                +itemLarge("Nvidia GTX 1070","Old Technology gaming card")
+                +itemLarge("Nvidia GTX 1080","Gaming card")
+                +itemLarge("Nvidia RTX 2070","New Technology gaming card")
+                +itemLarge("Nvidia RTX 2070","New Technology gaming card")
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
     div.mb-4
@@ -111,7 +101,7 @@ block content
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
     div.mb-4
-        +stallHeader("Recommended for you")(class="badge-danger")
+        +stallHeader("Recommended for you")
         div(data-simplebar).pb-2
             div.row.flex-nowrap
                 +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
@@ -120,7 +110,3 @@ block content
                 +item("Nvidia GTX 1070", 5, 499)
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
-
-append content
-    script(src="../scripts/simplebar.min.js")
-
