@@ -1,0 +1,70 @@
+extends base.layout.pug
+
+block body
+    div.container
+        div.row
+            //heading sm
+            h4.col-12.d-md-none EVGA GeForce RTX 2070 Black GAMING,8GB GDDR6
+            //sample picture
+            div.col-md-6.col-lg-5.mb-2.mb-mt-4
+                div#carousel.carousel.slide.rounded.shadow-sm(data-ride="carousel")
+                    ol.carousel-indicators.d-none.d-lg-flex
+                        li.active(data-target="#carousel" data-slide-to="0")
+                        each i in [1,2,3,4]
+                            li(data-target="#carousel" data-slide-to=i)
+                    div.carousel-inner
+                        div.carousel-item.active
+                            img.d-block.w-100(src="../images/items/item-preview/0.jpg" alt="slide0")
+                        each i in [1,2,3,4]
+                            div.carousel-item
+                                img.d-block.w-100(src=`../images/items/item-preview/${i}.jpg` alt=`slide${i}`)
+                    a.carousel-control-next(data-slide="next" role="button" href="#carousel")
+                        span.carousel-control-next-icon
+                    a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")
+                        span.carousel-control-prev-icon
+            div.col-lg-7.col-md-6
+                div
+                    // heading md
+                    h3.d-none.d-md-block EVGA GeForce RTX 2070 Black GAMING,8GB GDDR6
+                    div.small.text-nowrap
+                        div.text-warning.d-inline
+                            - var i = 0;
+                            while i < 4
+                                i.fas.fa-star
+                                - i++;
+                            i.fas.fa-star-half-alt
+                        div.text-muted.ml-2.d-inline |
+                        a.d-inline.ml-2.card-link(href="#") 30 Rating
+                    hr.my-2
+                    div.mb-3
+                        h3.text-nowrap.text-success.mb-1 2299.00 USD
+                        div.text-muted
+                            del 2899.00 USD
+                div.mb-3.mb-3.row
+                    i.fas.fa-tag.larger.text-info.col-1
+                    span.text-muted.ml-2.col 15% Sale up to 200 USD when you do something and some more thing
+                div.mb-3.row
+                    i.fas.fa-gift.larger.text-info.col-1
+                    span.text-muted.ml-2.col Get a gaming mouse and key board on purchase!
+                div.mb-3.row
+                    i.fas.fa-shipping-fast.larger.text-info.col-1
+                    span.text-muted.ml-2.col Free shipping!
+                div.mb-3.row
+                    i.fas.fa-boxes.larger.text-info.col-1
+                    // quantity control
+                    div.btn-group.col.d-block
+                        ul.pagination.pagination-sm.ml-2
+                            li.page-item.disabled
+                                a.page-link(href='#')
+                                    i.fas.fa-minus
+                            li.page-item
+                                a.page-link &nbsp;1&nbsp;
+                            li.page-item
+                                a.page-link.text-info(href='#')
+                                    i.fas.fa-plus
+                div.d-flex.flex-wrap.mt-auto
+                    button.btn.btn-primary.text-nowrap.ml-2.mb-2 Buy Now
+                    button.btn.btn-outline-primary.text-nowrap.ml-2.mb-2 Add to cart
+        hr.my-3.border-info.d-none.d-md-block
+
+
