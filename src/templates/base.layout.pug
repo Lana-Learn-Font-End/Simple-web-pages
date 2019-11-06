@@ -1,10 +1,21 @@
 - var cartItems = [{name:"Nvidia GeForce RTX 2070", price:519},{name:"EVGA GeForce GTX 1080 FE", price:789},{name:"MSI GeForce GTX 1080", price:439}]
-- var categories = ["Desktop & Laptop", "Smartphone & Tablet", "Embedded Computer","Components","Accessories","Software"]
+- var categories = ["Desktop","Laptop","Tablet","Smartphone","Components","Accessories","Software"]
 - var totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 - var random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
+mixin stallHeader(title, badgeTitle)
+    div.d-flex.align-items-end.justify-content-between
+        h4
+            a.d-md-none.card-link(href="#") #{title}
+            span.d-none.d-md-inline #{title}
+            if badgeTitle
+                span.badge.ml-2&attributes(attributes) #{badgeTitle}
+        h6
+            a.card-link.d-none.d-md-block(href="#") More >>
+    hr.border-info.mb-2.mb-md-0.mt-1.mt-md-2
+
 mixin item(title, rate, price, oldPrice, saleTitle)
-    div.col-md-4.col-6.col-lg-3.d-flex
+    div.col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3&attributes(attributes)
         div.card.shadow-sm
             img.card-img-top.w-100(src=`../images/items/${random(1, 5, 5)}.jpg`)
             div.card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
@@ -152,7 +163,7 @@ html(lang="en")
 
         //content
         block body
-        footer.bg-dark
+        footer.bg-dark.mt-5
             div.container
                 div.row.text-white
                     each title in ["Support","About","Contact","Cooperation"]

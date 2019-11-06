@@ -1,7 +1,7 @@
 extends nav-left.layout.pug
 
 mixin featuredProduct(title, subtitle)
-    div.col-md-6.col-12.col-lg-4.d-flex&attributes(attributes)
+    div.col-md-6.col-12.col-lg-4.d-flex.my-2.my-md-3&attributes(attributes)
         div.card.shadow-sm.flex-grow-1
             img.card-img-top.w-100(src=`../images/items/featured/${random(1, 4)}.jpg`)
             div.card-body.d-flex.flex-column
@@ -120,7 +120,6 @@ block content
                 +item("Nvidia GTX 1070", 5, 499)
                 div.d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
-    div.p-4
 
 append content
     script(src="../scripts/simplebar.min.js")

@@ -1,16 +1,5 @@
 extends base.layout.pug
 
-mixin stallHeader(title, badgeTitle)
-    div.d-flex.align-items-end.justify-content-between
-        h4
-            a.d-md-none.card-link(href="#") #{title}
-            span.d-none.d-md-inline #{title}
-            if badgeTitle
-                span.badge.ml-2&attributes(attributes) #{badgeTitle}
-        h6
-            a.card-link.d-none.d-md-block(href="#") More >>
-    hr.border-info.mt-2
-
 block body
     div.container
         div.row
