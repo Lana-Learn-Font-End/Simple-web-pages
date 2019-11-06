@@ -1,0 +1,61 @@
+extends nav-left.layout.pug
+
+block head
+    title Home
+    link(rel="stylesheet" href="../css/simplebar.css")
+
+block content
+
+    div
+        div.d-flex.align-items-end.justify-content-between
+            h4 Laptop
+        hr.border-info.mb-2.mb-md-0.mt-1.mt-md-2
+
+    div.mb-4
+        div.pb-2
+            div.row
+                - var i = 0
+                while i < 18
+                    +item("Nvidia GTX 1060", 5, 499, 699, "20%")(class="col-lg-4")
+                    - i++
+    //paging
+    div.mb-4.d-flex.justify-content-center
+        nav
+            ul.pagination
+                li.page-item.disabled
+                    a.page-link(href='#')
+                        span(aria-hidden='true') &laquo;
+                li.page-item.active
+                    a.page-link(href='#') 1
+                li.page-item
+                    a.page-link(href='#') 2
+                li.page-item
+                    a.page-link(href='#') 3
+                li.page-item
+                    a.page-link(href='#')
+                        span(aria-hidden='true') &raquo;
+
+    // other suggestion
+    div.mb-4
+        +stallHeader("Recommended for you")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
+                +item("Macbook pro 2019", 5, 1299)
+                +item("Nvidia RTX 2070", 5, 2000, 3000, "Special")
+                +item("Nvidia GTX 1070", 5, 499)
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+    div.mb-4
+        +stallHeader("On Sale", "Hot")(class="badge-danger")
+        div(data-simplebar).pb-2
+            div.row.flex-nowrap
+                +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
+                +item("Nvidia GTX 1060", 5, 499, 699, "20%")
+                +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
+                +item("Macbook pro 2019", 5, 1299, 1699, "60%")
+                div.d-flex.align-items-center
+                    i.fas.fa-chevron-right.text-muted
+
+append content
+    script(src="../scripts/simplebar.min.js")
