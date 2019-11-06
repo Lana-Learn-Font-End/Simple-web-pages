@@ -9,17 +9,6 @@ mixin featuredProduct(title, subtitle)
                 h6.card-subtitle.text-muted.mb-2 #{subtitle}
                 a.card-link.mt-auto(href="#") Read more >
 
-mixin stallHeader(title, badgeTitle)
-    div.d-flex.align-items-end.justify-content-between
-        h4
-            a.d-md-none.card-link(href="#") #{title}
-            span.d-none.d-md-inline #{title}
-            if badgeTitle
-                span.badge.ml-2&attributes(attributes) #{badgeTitle}
-        h6
-            a.card-link.d-none.d-md-block(href="#") More >>
-    hr.border-info.mt-2
-
 mixin offerBanner
     div.card.shadow-sm&attributes(attributes)
         div.card-body.d-flex.flex-row-reverse.justify-content-between

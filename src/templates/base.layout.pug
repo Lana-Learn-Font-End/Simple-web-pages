@@ -1,4 +1,5 @@
 - var cartItems = [{name:"Nvidia GeForce RTX 2070", price:519},{name:"EVGA GeForce GTX 1080 FE", price:789},{name:"MSI GeForce GTX 1080", price:439}]
+- var categories = ["Desktop & Laptop", "Smartphone & Tablet", "Embedded Computer","Components","Accessories","Software"]
 - var totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 - var random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
@@ -63,10 +64,13 @@ html(lang="en")
                             a.nav-link(href="./home.html")
                                 i.fas.fa-home.mr-1
                                 span Home
-                        li.nav-item
-                            a.nav-link(href="./categories.html")
+                        li.nav-item.dropdown
+                            a.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown")
                                 i.fas.fa-box.mr-1
                                 span Categories
+                            div.dropdown-menu
+                                each category in categories
+                                    a.dropdown-item(href="./categories-items.html") #{category}
                         li.nav-item
                             a.nav-link(href="#")
                                 i.fas.fa-phone-alt.mr-1
@@ -80,9 +84,9 @@ html(lang="en")
                                 i.fas.fa-question-circle.mr-1
                                 span Location
                             div.dropdown-menu
-                                a.dropdown-item(href="home.html") Home
-                                a.dropdown-item(href="cart.html") Cart
-                                a.dropdown-item(href="categories.html") Categories
+                                a.dropdown-item(href="./home.html") Home
+                                a.dropdown-item(href="./cart.html") Cart
+                                a.dropdown-item(href="./categories-items.html") Category
                 div#nav-collapse-option.collapse.navbar-collapse
                     hr.border-light
                     ul.navbar-nav.ml-auto.mr-2
@@ -130,8 +134,12 @@ html(lang="en")
                                             each item in cartItems
                                                 div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
                                                     a.card-link.text-nowrap(href="#") #{item.name}
-                                                    span &nbsp &nbsp &nbsp
-                                                    span.badge.badge-pill.badge-dark $#{item.price}
+                                                    span.d-none.d-md-inline &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                    span.d-md-none &nbsp
+                                                    div
+                                                        span.badge.badge-pill.badge-info.mr-2 1
+                                                        span.badge.badge-pill.badge-dark $#{item.price}
+
                                             div.dropdown-divider.m-0
                                             div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
                                                 a.card-link.text-nowrap(href="#") Total

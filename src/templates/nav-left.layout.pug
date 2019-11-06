@@ -1,33 +1,35 @@
 extends base.layout.pug
 
+mixin stallHeader(title, badgeTitle)
+    div.d-flex.align-items-end.justify-content-between
+        h4
+            a.d-md-none.card-link(href="#") #{title}
+            span.d-none.d-md-inline #{title}
+            if badgeTitle
+                span.badge.ml-2&attributes(attributes) #{badgeTitle}
+        h6
+            a.card-link.d-none.d-md-block(href="#") More >>
+    hr.border-info.mt-2
+
 block body
     div.container
         div.row
             // left col with nav and ad
             div.d-none.d-lg-block.col-lg-3
                 div.mr-2
+                    // categories
                     div.list-group.font-small.mb-4.shadow-sm
                         div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Shop by Category
                         ul.nav.flex-column.list-group-item
-                            li.nav-item
-                                a.nav-link.text-nowrap(href="#") Desktop & Laptop
-                                    span.badge.badge-danger.ml-2.small sale
-                            li.nav-item
-                                a.nav-link.text-nowrap(href="#") Smartphone & Tablet
-                            li.nav-item
-                                a.nav-link.text-nowrap(href="#") Embedded Computer
-                            li.nav-item
-                                a.nav-link.text-nowrap(href="#") Components
-                            li.nav-item
-                                a.nav-link.text-nowrap(href="#") Accessories
-                                    span.badge.badge-danger.ml-2.small sale
-                            li.nav-item
-                                a.nav-link.text-nowrap(href="#") Software
-                                    span.badge.badge-info.ml-2.small new
-                            li.nav-item
-                                hr.m-2
-                                a.text-nowrap.card-link(href="./categories.html") More Category...
+                            each category in categories
+                                li.nav-item
+                                    a.nav-link.text-nowrap(href="./categories-items.html") #{category}
+                                        if (random(1, 2) === 1)
+                                            span.badge.badge-danger.ml-2.small sale
+                                        if (random(1, 5) === 1)
+                                            span.badge.badge-info.ml-2.small new
 
+                    // Hot
                     div.list-group.font-small.mb-4.shadow-sm
                         div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Popular Searches
                         ul.nav.flex-column.list-group-item
@@ -49,6 +51,9 @@ block body
                                 a.nav-link.text-nowrap(href="#") Gaming Gear
                             li.nav-item
                                 a.nav-link.text-nowrap(href="#") Monitor
+                            li.nav-item
+                                hr.m-2
+                                a.text-nowrap.card-link More ...
 
                     //ad
                     img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/tablet.jpg")
