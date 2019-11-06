@@ -9,6 +9,17 @@ block content
     div
         div.d-flex.align-items-end.justify-content-between
             h4 Laptop
+            a.dropdown-toggle.card-link(href="#" role="button" data-toggle="dropdown")
+                span By Popular
+            div.dropdown-menu.dropdown-menu-right
+                a.dropdown-item.active(href="#") Popular
+                a.dropdown-item(href="#") Rating
+                a.dropdown-item(href="#") Price
+                    i.fas.fa-long-arrow-alt-down.ml-1
+                a.dropdown-item(href="#") Price
+                    i.fas.fa-long-arrow-alt-up.ml-1
+                a.dropdown-item(href="#") Name a-z
+                a.dropdown-item(href="#") Name z-a
         hr.border-info.mb-2.mb-md-0.mt-1.mt-md-2
 
     div.mb-4
