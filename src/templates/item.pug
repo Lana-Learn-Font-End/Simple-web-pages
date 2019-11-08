@@ -1,28 +1,51 @@
-extends base.layout.pug
+extends nav-left.layout.pug
 
-block body
+mixin specificationRow(title, content)
+    div.row
+        h6.col-5.col-md-3 #{title}
+        div.col-7.col-md-9 #{content}
+    hr.mt-1.mb-2
+
+mixin ratingRow(name , title, comment)
+    div.row
+        div.col-md-3
+            div #{name}
+                span.text-warning.d-block.smaller
+                    - var i = 0;
+                    - var rate = random(3,5);
+                    while i < rate
+                        i.fas.fa-star
+                        - i++;
+                    - i = 0
+                    while i < 5 - rate
+                        i.far.fa-star
+                        - i++;
+        div.col-md-9
+            h6.mb-0 #{title}
+            div.small #{comment}
+    hr.mt-3.mb-2
+
+
+block content
     div.container
         div.row
             //heading sm
             h4.col-12.d-md-none EVGA GeForce RTX 2070 Black GAMING,8GB GDDR6
             //sample picture
-            div.col-md-6.col-lg-5.mb-2.mb-mt-4
-                div#carousel.carousel.slide.rounded.shadow-sm(data-ride="carousel")
-                    ol.carousel-indicators.d-none.d-lg-flex
-                        li.active(data-target="#carousel" data-slide-to="0")
-                        each i in [1,2,3,4]
-                            li(data-target="#carousel" data-slide-to=i)
-                    div.carousel-inner
-                        div.carousel-item.active
-                            img.d-block.w-100(src="../images/items/item-preview/0.jpg" alt="slide0")
-                        each i in [1,2,3,4]
-                            div.carousel-item
-                                img.d-block.w-100(src=`../images/items/item-preview/${i}.jpg` alt=`slide${i}`)
-                    a.carousel-control-next(data-slide="next" role="button" href="#carousel")
-                        span.carousel-control-next-icon
-                    a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")
-                        span.carousel-control-prev-icon
-            div.col-lg-7.col-md-6
+            div.col-md-6.col-lg-6.mb-2.d-flex
+                div.d-flex.align-items-center.flex-grow-1.bg-white
+                    div#carousel.carousel.slide.bg-white(data-ride="carousel")
+                        div.carousel-inner
+                            div.carousel-item.active
+                                img.d-block.w-100(src="../images/items/item-preview/0.jpg" alt="slide0")
+                            each i in [1,2,3,4]
+                                div.carousel-item
+                                    img.d-block.w-100(src=`../images/items/item-preview/${i}.jpg` alt=`slide${i}`)
+                        a.carousel-control-next(data-slide="next" role="button" href="#carousel")
+                            span.carousel-control-next-icon
+                        a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")
+                            span.carousel-control-prev-icon
+            div.col-lg-6.col-md-6
                 div
                     // heading md
                     h3.d-none.d-md-block EVGA GeForce RTX 2070 Black GAMING,8GB GDDR6
@@ -35,6 +58,8 @@ block body
                             i.fas.fa-star-half-alt
                         div.text-muted.ml-2.d-inline |
                         a.d-inline.ml-2.card-link(href="#") 30 Rating
+                        div.text-muted.ml-2.d-inline | By
+                            a.d-inline.ml-1.card-link(href="#") Nvidia
                     hr.my-2
                     div.mb-3
                         h3.text-nowrap.text-success.mb-1 2299.00 USD
@@ -55,16 +80,131 @@ block body
                     div.btn-group.col.d-block
                         ul.pagination.pagination-sm.ml-2
                             li.page-item.disabled
-                                a.page-link(href='#')
+                                a.page-link(href="#")
                                     i.fas.fa-minus
                             li.page-item
                                 a.page-link &nbsp;1&nbsp;
                             li.page-item
-                                a.page-link.text-info(href='#')
+                                a.page-link.text-info(href="#")
                                     i.fas.fa-plus
                 div.d-flex.flex-wrap.mt-auto
-                    button.btn.btn-primary.text-nowrap.ml-2.mb-2 Buy Now
+                    button.btn.btn-primary.text-nowrap.mb-2 Buy Now
                     button.btn.btn-outline-primary.text-nowrap.ml-2.mb-2 Add to cart
-        hr.my-3.border-info.d-none.d-md-block
+        hr.border-info
+        div.card.bg-light.mt-2
+            h5.card-header Information
+            div.card-body
+                div Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                    | classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
+                    | professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+                    | consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
+                    | literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of
+                    | "de Finibus Bonorum et Malorum"
+                div.information-collapse.collapse
+                    hr
+                    h5 Lorem isump
+                    span
+                    | Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                    | classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
+                    | professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+                    | consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
+                    | literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of
+                    | "de Finibus Bonorum et Malorum"
+                    div.d-flex.justify-content-center.mt-3
+                        button.btn.btn-outline-secondary.btn-sm.collapse-hide-d-none(
+                            data-toggle="collapse"
+                            data-target=".information-collapse"
+                        ) Close
+                div.information-collapse.d-flex.justify-content-center.mt-3.show.collapse-btn
+                    button.btn.btn-outline-secondary.btn-sm.collapse-hide-d-none(
+                        data-toggle="collapse"
+                        data-target=".information-collapse"
+                    ) Read More
+        div.card.bg-light.mt-3
+            h5.card-header Specification
+            div.card-body.py-3
+                +specificationRow("Size", "1.69 x 30.2 x 18.9 cm / 1.2kg")
+                +specificationRow("Memory","8GB Onboard LPDDR3")
+                +specificationRow("Cores", "Intel Core i5-8265U ( 1.6 GHz - 3.9 GHz / 6MB / 4 cores - 8 threads )")
+                +specificationRow("Storage", "256GB SSD M.2 NVMe")
+                +specificationRow("Port", "1 x USB 3.1 Gen 2 Type C , 1 x USB 3.1 , 1 x USB 2.0")
+                div.d-flex.justify-content-center.mt-3
+                    button.btn.btn-outline-secondary.btn-sm(data-toggle="modal" data-target="#specification-modal") More Info
+                div#specification-modal.modal.fade(tabindex="-1" role="dialog")
+                    div.modal-dialog.modal-dialog-centered.modal-lg(role="document")
+                        div.modal-content
+                            div.modal-header.bg-light
+                                h5.modal-title Specification
+                                button.close(type="button" data-dismiss="modal")
+                                    span(aria-hidden="true") &times;
+                            div.modal-body
+                                - var i = 0;
+                                while i < 5
+                                    +specificationRow("Size", "1.69 x 30.2 x 18.9 cm / 1.2kg")
+                                    +specificationRow("Memory","8GB Onboard LPDDR3")
+                                    +specificationRow("Cores", "Intel Core i5-8265U ( 1.6 GHz - 3.9 GHz / 6MB / 4 cores - 8 threads )")
+                                    +specificationRow("Storage", "256GB SSD M.2 NVMe")
+                                    +specificationRow("Port", "1 x USB 3.1 Gen 2 Type C , 1 x USB 3.1 , 1 x USB 2.0")
+                                    - i++;
+                                div.d-flex.justify-content-center.mt-3
+                                    button.btn.btn-outline-secondary.btn-sm(data-dismiss="modal") Close
 
+        div.card.bg-light.mt-3.mb-5
+            h5.card-header Reviews and Rating
+            div.card-body.py-3
+                +ratingRow("Nguyen Toan","Nice","That was nice")
+                +ratingRow("Nguyen Johny","Good for gaming","Lorem Ipsum has been the industry's standard dummy text ever" +
+                " since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ")
+                +ratingRow("Toan Nguyen","Too Expensive","Lorem Ipsum has been the industry's standard dummy text ever" +
+                " since the 1500s")
+                +ratingRow("Toan Johny","Good for gaming","Lorem Ipsum has been the industry's standard dummy text ever" +
+                " since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ")
+                +ratingRow("Toan Johny","Ok")
+                +ratingRow("Toan Johny","Little bit weak")
+                +ratingRow("Toan Nguyen","Too Expensive","Lorem Ipsum has been the industry's standard dummy text ever" +
+                " since the 1500s")
+                +ratingRow("Toan Johny","Good for gaming","Lorem Ipsum has been the industry's standard dummy text ever" +
+                " since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ")
+                div.d-flex.justify-content-center.mt-3
+                    ul.pagination.pagination-sm.m-0
+                        li.page-item.disabled
+                            a.page-link(href='#')
+                                span(aria-hidden='true') &laquo;
+                        li.page-item.active
+                            a.page-link(href='#') 1
+                        li.page-item
+                            a.page-link(href='#') 2
+                        li.page-item
+                            a.page-link(href='#')
+                                span(aria-hidden='true') &raquo;
 
+        div.mb-4
+            +stallHeader("Other from Nvidia")(class="badge-danger")
+            div(data-simplebar).pb-2
+                div.row.flex-nowrap
+                    +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
+                    +item("Nvidia GTX 1060", 5, 499, 699, "20%")
+                    +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
+                    +item("Macbook pro 2019", 5, 1299, 1699, "60%")
+                    div.d-flex.align-items-center
+                        i.fas.fa-chevron-right.text-muted
+        div.mb-4
+            +stallHeader("Similar Products")(class="badge-danger")
+            div(data-simplebar).pb-2
+                div.row.flex-nowrap
+                    +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
+                    +item("Nvidia GTX 1060", 5, 499, 699, "20%")
+                    +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
+                    +item("Macbook pro 2019", 5, 1299, 1699, "60%")
+                    div.d-flex.align-items-center
+                        i.fas.fa-chevron-right.text-muted
+        div.mb-4
+            +stallHeader("Recommended for you")(class="badge-danger")
+            div(data-simplebar).pb-2
+                div.row.flex-nowrap
+                    +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
+                    +item("Macbook pro 2019", 5, 1299)
+                    +item("Nvidia RTX 2070", 5, 2000, 3000, "Special")
+                    +item("Nvidia GTX 1070", 5, 499)
+                    div.d-flex.align-items-center
+                        i.fas.fa-chevron-right.text-muted

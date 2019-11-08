@@ -23,6 +23,10 @@ body {
     z-index: 2000;
 }
 
-.btn-over-stretched-link{
-    z-index: 1!important;
+.btn-over-stretched-link {
+    z-index: 1 !important;
+}
+
+.collapse-btn:not(.show) {
+    display: none !important;
 }
