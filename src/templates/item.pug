@@ -25,6 +25,14 @@ mixin ratingRow(name , title, comment)
             div.small #{comment}
     hr.mt-3.mb-2
 
+mixin ratingBar(star, rate)
+    div.d-flex.align-items-center.my-1
+        div.d-inline.smaller.text-muted
+            span.mr-1 #{star}
+            i.fas.fa-star
+        div.progress.d-inline-flex.flex-grow-1.ml-3(style="height: .7em")
+            div.progress-bar.bg-info(style=`width: ${rate}%`)
+
 
 block content
     div.container
@@ -51,10 +59,10 @@ block content
                     h3.d-none.d-md-block EVGA GeForce RTX 2070 Black GAMING,8GB GDDR6
                     div.small.text-nowrap
                         div.text-warning.d-inline
-                            - var i = 0;
-                            while i < 4
-                                i.fas.fa-star
-                                - i++;
+                            i.fas.fa-star
+                            i.fas.fa-star
+                            i.fas.fa-star
+                            i.fas.fa-star
                             i.fas.fa-star-half-alt
                         div.text-muted.ml-2.d-inline |
                         a.d-inline.ml-2.card-link(href="#") 30 Rating
@@ -152,18 +160,38 @@ block content
         div.card.bg-light.mt-3.mb-5
             h5.card-header Reviews and Rating
             div.card-body.py-3
+                div.row
+                    //rating status
+                    div.col-md-8
+                        div.row
+                            div.col-5.col-md-6.d-flex.flex-column.align-items-center
+                                h2.text-danger 4.5/5
+                                div.text-warning.small
+                                    i.fas.fa-star
+                                    i.fas.fa-star
+                                    i.fas.fa-star
+                                    i.fas.fa-star
+                                    i.fas.fa-star-half-alt
+                                div.small.text-muted (30 Rating)
+                            div.col-7.col-md-6
+                                +ratingBar(5, 78)
+                                +ratingBar(4, 18)
+                                +ratingBar(3, 4)
+                                +ratingBar(2, 0)
+                                +ratingBar(1, 0)
+                    //rating button
+                    div.col-md-4.d-flex.justify-content-center.align-items-center.mt-3.mt-md-0
+                        button.btn.btn-outline-info Write a preview
+                hr.mt-3.mb-2
                 +ratingRow("Nguyen Toan","Nice","That was nice")
                 +ratingRow("Nguyen Johny","Good for gaming","Lorem Ipsum has been the industry's standard dummy text ever" +
                 " since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ")
-                +ratingRow("Toan Nguyen","Too Expensive","Lorem Ipsum has been the industry's standard dummy text ever" +
+                +ratingRow("Toan Nguyen","Too expensive","Lorem Ipsum has been the industry's standard dummy text ever" +
                 " since the 1500s")
-                +ratingRow("Toan Johny","Good for gaming","Lorem Ipsum has been the industry's standard dummy text ever" +
+                +ratingRow("Toan Johny","Good ones","Lorem Ipsum has been the industry's standard dummy text ever" +
                 " since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ")
-                +ratingRow("Toan Johny","Ok")
                 +ratingRow("Toan Johny","Little bit weak")
-                +ratingRow("Toan Nguyen","Too Expensive","Lorem Ipsum has been the industry's standard dummy text ever" +
-                " since the 1500s")
-                +ratingRow("Toan Johny","Good for gaming","Lorem Ipsum has been the industry's standard dummy text ever" +
+                +ratingRow("Toan Johny","Good price","Lorem Ipsum has been the industry's standard dummy text ever" +
                 " since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ")
                 div.d-flex.justify-content-center.mt-3
                     ul.pagination.pagination-sm.m-0

@@ -118,32 +118,81 @@ html(lang="en")
                         li.nav-item
                             a.nav-link(role="button" data-toggle="modal" data-target="#sign-in-modal") Sign in
                                 i.fas.fa-sign-in-alt.ml-2
-                            // put modal hear so it float over the top
-                            div#sign-in-modal.modal.fade(tabindex='-1' role='dialog')
-                                div.modal-dialog.modal-dialog-centered(role='document')
+                            // put modal here so it float over the top
+                            div#sign-in-modal.modal.fade(tabindex="-1" role="dialog")
+                                div.modal-dialog.modal-dialog-centered(role="document")
                                     div.modal-content
                                         div.modal-header
                                             h5.modal-title Login
-                                            button.close(type='button' data-dismiss='modal')
-                                                span(aria-hidden='true') &times;
+                                            button.close(type="button" data-dismiss="modal")
+                                                span(aria-hidden="true") &times;
                                         div.modal-body
                                             form#sigin-form
                                                 .form-group
-                                                    label(for='sign-in-email') Username or Email
-                                                    input#sign-in-email.form-control(type='email' placeholder='Enter username or email')
+                                                    label(for="sign-in-email") Email or phone number
+                                                    input#sign-in-email.form-control(type="text" placeholder="Enter email or Phone Number")
                                                 .form-group
-                                                    label(for='sign-in-password') Password
-                                                    input#sign-in-password.form-control(type='password' placeholder='Enter password')
+                                                    label(for="sign-in-password") Password
+                                                    input#sign-in-password.form-control(type="password" placeholder="Enter password")
                                                 .form-check.form-group
-                                                    input#keep-sign-in.form-check-input(type='checkbox')
+                                                    input#keep-sign-in.form-check-input(type="checkbox")
                                                     label.form-check-label(for="keep-sign-in") Remember me
                                                 .d-flex.justify-content-end
-                                                    button.btn.btn-primary.mr-2(type='submit') Login
-                                                    button.btn.btn-danger(type='button' data-dismiss='modal') Close
+                                                    button.btn.btn-primary.mr-2(type="submit") Login
+                                                    button.btn.btn-danger(type="button" data-dismiss="modal") Close
 
                         li.nav-item
-                            a.nav-link(role="button" data-toggle="modal" data-target="sign-up-modal") Sign up
+                            a.nav-link(role="button" data-toggle="modal" data-target="#sign-up-modal") Sign up
                                 i.fas.fa-user-plus.ml-2
+                            div#sign-up-modal.modal.fade(tabindex="-1" role="dialog")
+                                div.modal-dialog.modal-dialog-centered(role="document")
+                                    div.modal-content
+                                        div.modal-header
+                                            h5.modal-title Sign up
+                                            button.close(type="button" data-dismiss="modal")
+                                                span(aria-hidden="true") &times;
+                                        div.modal-body
+                                            form#sigup-form
+                                                .form-group
+                                                    label(for="sign-up-email") Email
+                                                    input#sign-up-email.form-control(type="text" placeholder="Enter Email")
+                                                .form-group
+                                                    label(for="sign-up-password") Password
+                                                    input#sign-up-password.form-control(type="password" placeholder="Enter password")
+                                                    small.form-text.text-muted Must be 8-20 characters long contain both letters and numbers
+                                                .form-group
+                                                    label(for="sign-up-password-check") Re-enter Password
+                                                    input#sign-up-password-check.form-control(type="password" placeholder="Re-enter password")
+                                                .form-row
+                                                    .form-group.col
+                                                        label(for="first-name") First name
+                                                        input#first-name.form-control(type="text" placeholder="First name")
+                                                    .form-group.col
+                                                        label(for="last-name") Last name
+                                                        input#last-name.form-control(type="text" placeholder="Last name")
+                                                .form-group
+                                                    label Date of Birth
+                                                    .form-row
+                                                        .form-group.col-4
+                                                            select#birth-date.form-control
+                                                                option 19
+                                                        .form-group.col-4
+                                                            select#birth-month.form-control
+                                                                option Jan
+                                                        .form-group.col-4
+                                                            select#birth-year.form-control
+                                                                option 1998
+                                                .form-check.form-group
+                                                    input#notify-news.form-check-input(type="checkbox")
+                                                    label.form-check-label(for="notify-news") Notify me about Logon"s new
+                                                        | product and discount
+                                                .form-check.form-group
+                                                    input#accept-terms-conditions.form-check-input(type="checkbox")
+                                                    label.form-check-label(for="accept-terms-conditions") I have read and accept the
+                                                        a.card-link.ml-1(href="#") Logon"s terms and conditions
+                                                .d-flex.justify-content-end
+                                                    button.btn.btn-primary.mr-2(type="submit") Sign up
+                                                    button.btn.btn-danger(type="button" data-dismiss="modal") Close
 
         //sticky search bar nav and cart
         nav.sticky-top.py-2.py-lg-3.mb-lg-5.mb-3.bg-white.shadow
