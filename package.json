@@ -5,11 +5,17 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "gulp dist",
+    "build": "gulp build"
   },
   "author": "lana",
   "license": "MIT",
   "devDependencies": {
+    "@types/gulp": "^4.0.6",
+    "@types/node": "^12.12.7",
+    "gulp": "^4.0.2",
+    "gulp-pug": "^4.0.1",
     "pug": "^2.0.4"
   }
 }
