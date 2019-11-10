@@ -17,7 +17,7 @@ mixin stallHeader(title, badgeTitle)
 mixin item(title, rate, price, oldPrice, saleTitle)
     div.col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3&attributes(attributes)
         div.card.shadow-sm
-            img.card-img-top.w-100(src=`../images/items/${random(1, 5, 5)}.jpg`)
+            img.card-img-top.w-100(src=`../images/items/item-image/${random(1, 5, 5)}.jpg`)
             div.card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
                 h6.card-title.mb-1 #{title}
                 //price and sale
@@ -47,7 +47,7 @@ mixin item(title, rate, price, oldPrice, saleTitle)
 mixin itemLarge(title, subtitle)
     div.col-md-6.col-12.col-lg-4.d-flex.my-2.my-md-3&attributes(attributes)
         div.card.shadow-sm.flex-grow-1
-            img.card-img-top.w-100(src=`../images/items/featured/${random(1, 4)}.jpg`)
+            img.card-img-top.w-100(src=`../images/items/item-featured/${random(1, 4)}.jpg`)
             div.card-body.d-flex.flex-column
                 h5.card-title #{title}
                 h6.card-subtitle.text-muted.mb-2 #{subtitle}
@@ -230,7 +230,7 @@ html(lang="en")
                                             h5.bg-dark.text-light.text-nowrap.dropdown-header.p-3.rounded-top Your Cart has #{cartItems.length} item
                                             each item in cartItems
                                                 div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
-                                                    a.card-link.text-nowrap(href="#") #{item.name}
+                                                    a.card-link.text-nowrap(href="./item.html") #{item.name}
                                                     span.d-none.d-md-inline &nbsp &nbsp &nbsp &nbsp &nbsp
                                                     span.d-md-none &nbsp
                                                     div
@@ -239,13 +239,13 @@ html(lang="en")
 
                                             div.dropdown-divider.m-0
                                             div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
-                                                a.card-link.text-nowrap(href="#") Total
+                                                div.card-link.text-nowrap Total
                                                 h5 $#{totalPrice}.00
                                             div.dropdown-divider.m-0
                                             div.dropdown-item.px-4.pt-3.pb-2.text-center.d-flex
-                                                a.btn.btn-success.flex-grow-1.btn-sm.text-light Check out
+                                                a.btn.btn-success.flex-grow-1.btn-sm.text-light(href="checkout.html") Check out
                                             div.dropdown-item.px-4.pb-3.text-center.d-flex
-                                                a.btn.btn-primary.flex-grow-1.btn-sm.text-light  Go to cart
+                                                a.btn.btn-primary.flex-grow-1.btn-sm.text-light(href="cart.html")  Go to cart
 
         //content
         block body
