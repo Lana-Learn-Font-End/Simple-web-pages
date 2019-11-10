@@ -8,12 +8,29 @@ block content
     div
         div.card.shadow-sm
             div.row.no-gutters
-                div.col-3
+                div.col-2.d-flex.align-items-center.bg-white
                     img.card-img-top.w-100(src=`../images/items/item-cart/1.jpg`)
-                div.col-9
-                    div.card-body
-                        h6.card-title EVGA GeForce RTX 2070 Black GAMING
-                        p.card-text
-                            | This is a wider card with supporting text below as a natural lead-in to additional content.
-                            | This content is a little bit longer.
+                div.col-10.flex-grow-1
+                    // md+ card-body
+                    div.card-body.d-none.d-md-flex.flex-column
+                        div.row
+                            h5.col-9.card-title EVGA GeForce RTX 2070 Black GAMING
+                            div.col-3.d-flex.flex-column.align-items-end
+                                h5.text-success.mb-1.large $1299.00
+                                del.text-muted.small $1899.00
+                        div.d-flex.justify-content-between.align-items-end.flex-grow-1
+                            div.d-flex.align-items-end
+                                div.btn-group.d-inline
+                                    ul.pagination.pagination-sm.m-0
+                                        li.page-item.disabled
+                                            a.page-link(href="#")
+                                                i.fas.fa-minus
+                                        li.page-item
+                                            a.page-link &nbsp;1&nbsp;
+                                        li.page-item
+                                            a.page-link.text-info(href="#")
+                                                i.fas.fa-plus
+                                button.btn-outline-danger.btn.btn-sm.ml-3 Remove
+                            button.btn.btn-outline-danger.btn-sm
+                                i.far.fa-heart
 
