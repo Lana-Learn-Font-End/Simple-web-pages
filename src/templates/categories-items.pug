@@ -25,10 +25,8 @@ block content
     div.mb-4
         div.pb-2
             div.row
-                - var i = 0
-                while i < 18
+                each i in Array(18)
                     +item("Nvidia GTX 1060", 5, 499, 699, "20%")(class="col-lg-4")
-                    - i++
     //paging
     div.mb-4.d-flex.justify-content-center
         nav

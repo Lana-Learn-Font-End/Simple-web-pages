@@ -1,13 +1,60 @@
-extends nav-left-no-ad.layout.pug
+extends base.layout.pug
 
-block ad
-    img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/tablet.jpg")
-    div.card.shadow-sm.mb-4
-        div.card-body
-            h5.card-text.font-weight-light 50% Discount offer, Don't miss out!
-            a.card-link.font-small(href="#") Read more >>
-    img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/laptop.jpg")
-    div.card.shadow-sm.mb-4
-        div.card-body
-            h5.card-text.font-weight-light Sign in now to get a 30% coupon!
-            a.card-link.font-small(href="#") Read more >>
+block body
+    div.container
+        div.row
+            // left col with nav and ad
+            div.d-none.d-lg-block.col-lg-3
+                div.mr-2
+                    // categories
+                    div.list-group.font-small.mb-4.shadow-sm
+                        div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Shop by Category
+                        ul.nav.flex-column.list-group-item
+                            each category in categories
+                                li.nav-item
+                                    a.nav-link.text-nowrap(href="./categories-items.html") #{category}
+                                        if (random(1, 2) === 1)
+                                            span.badge.badge-danger.ml-2.small sale
+                                        if (random(1, 5) === 1)
+                                            span.badge.badge-info.ml-2.small new
+
+                    // Hot
+                    div.list-group.font-small.mb-4.shadow-sm
+                        div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Popular Searches
+                        ul.nav.flex-column.list-group-item
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") Gaming Laptop
+                                    span.badge.badge-danger.ml-2.small sale
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") Workstation
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") Gaming PC
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") Hard Drive
+                                    span.badge.badge-danger.ml-2.small sale
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") Graphics Card
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") External Drives
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") Gaming Gear
+                            li.nav-item
+                                a.nav-link.text-nowrap(href="#") Monitor
+                            li.nav-item
+                                hr.m-2
+                                a.text-nowrap.card-link(href="#") More ...
+                    //ad
+                    img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/tablet.jpg")
+                    div.card.shadow-sm.mb-4
+                        div.card-body
+                            h5.card-text.font-weight-light 50% Discount offer, Don't miss out!
+                            a.card-link.font-small(href="#") Read more >>
+                    img.rounded.w-100.shadow-sm.mb-4.border-light(src="../images/ad/laptop.jpg")
+                    div.card.shadow-sm.mb-4
+                        div.card-body
+                            h5.card-text.font-weight-light Sign in now to get a 30% coupon!
+                            a.card-link.font-small(href="#") Read more >>
+
+            // main content
+            div.col-lg-9
+                block content

@@ -27,6 +27,6 @@ body {
     z-index: 1 !important;
 }
 
-.collapse-btn:not(.show) {
+.collapse-force:not(.show) {
     display: none !important;
 }

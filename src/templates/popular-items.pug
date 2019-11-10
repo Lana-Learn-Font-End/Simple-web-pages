@@ -49,10 +49,8 @@ block content
         hr.border-info.mb-2.mt-1.mt-md-2
         div.pb-2
             div.row
-                - var i = 0
-                while i < 6
+                each i in Array(6)
                     +item("Nvidia GTX 1060", 5, 499, 699, "20%")(class="col-lg-4")
-                    - i++
     //paging
     div.mb-4.d-flex.justify-content-center
         nav

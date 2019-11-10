@@ -11,15 +11,11 @@ mixin ratingRow(name , title, comment)
         div.col-md-3
             div #{name}
                 span.text-warning.d-block.smaller
-                    - var i = 0;
                     - var rate = random(3,5);
-                    while i < rate
+                    each i in Array(rate)
                         i.fas.fa-star
-                        - i++;
-                    - i = 0
-                    while i < 5 - rate
+                    each i in Array(5 - rate)
                         i.far.fa-star
-                        - i++;
         div.col-md-9
             h6.mb-0 #{title}
             div.small #{comment}
@@ -123,7 +119,7 @@ block content
                             data-toggle="collapse"
                             data-target=".information-collapse"
                         ) Close
-                div.information-collapse.d-flex.justify-content-center.mt-3.show.collapse-btn
+                div.information-collapse.d-flex.justify-content-center.mt-3.show.collapse-force
                     button.btn.btn-outline-secondary.btn-sm.collapse-hide-d-none(
                         data-toggle="collapse"
                         data-target=".information-collapse"
@@ -146,14 +142,12 @@ block content
                                 button.close(type="button" data-dismiss="modal")
                                     span(aria-hidden="true") &times;
                             div.modal-body
-                                - var i = 0;
-                                while i < 5
+                                each i in Array(5)
                                     +specificationRow("Size", "1.69 x 30.2 x 18.9 cm / 1.2kg")
                                     +specificationRow("Memory","8GB Onboard LPDDR3")
                                     +specificationRow("Cores", "Intel Core i5-8265U ( 1.6 GHz - 3.9 GHz / 6MB / 4 cores - 8 threads )")
                                     +specificationRow("Storage", "256GB SSD M.2 NVMe")
                                     +specificationRow("Port", "1 x USB 3.1 Gen 2 Type C , 1 x USB 3.1 , 1 x USB 2.0")
-                                    - i++;
                                 div.d-flex.justify-content-center.mt-3
                                     button.btn.btn-outline-secondary.btn-sm(data-dismiss="modal") Close
 
