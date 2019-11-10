@@ -181,7 +181,33 @@ block content
                                 +ratingBar(1, 0)
                     //rating button
                     div.col-md-4.d-flex.justify-content-center.align-items-center.mt-3.mt-md-0
-                        button.btn.btn-outline-info Write a preview
+                        button.btn.btn-outline-info(data-toggle="modal" data-target="#preview-rating-modal") Write a preview
+                    div#preview-rating-modal.modal.fade(tabindex="-1" role="dialog")
+                        div.modal-dialog.modal-dialog-centered(role="document")
+                            div.modal-content
+                                div.modal-header
+                                    h5.modal-title Preview
+                                    button.close(type="button" data-dismiss="modal")
+                                        span(aria-hidden="true") &times;
+                                div.modal-body
+                                    form#preview-rating-form
+                                        .form-group
+                                            label(for="overview") Overview
+                                            input#overview.form-control(type="text" placeholder="Write your over view")
+                                        .form-group
+                                            label(for="comment") Comment
+                                            textarea#comment.form-control(rows="8" placeholder="Write your comment")
+                                        .form-group
+                                            span.mr-2 Rating
+                                            div.text-warning
+                                                i.far.fa-star
+                                                i.far.fa-star
+                                                i.far.fa-star
+                                                i.far.fa-star
+                                                i.far.fa-star
+                                        .d-flex.justify-content-end
+                                            button.btn.btn-primary.mr-2(type="submit") Submit
+                                            button.btn.btn-danger(type="button" data-dismiss="modal") Close
                 hr.mt-3.mb-2
                 +ratingRow("Nguyen Toan","Nice","That was nice")
                 +ratingRow("Nguyen Johny","Good for gaming","Lorem Ipsum has been the industry's standard dummy text ever" +
