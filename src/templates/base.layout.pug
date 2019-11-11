@@ -60,6 +60,7 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
         link(rel="stylesheet" href="../css/font.min.css")
         link(rel="stylesheet" href="../css/bootstrap.min.css")
+        link(rel="stylesheet" href="../css/animate.min.css")
         link(rel="stylesheet" href="../css/simplebar.css")
         link(rel="stylesheet" href="../css/global.css")
         block head
@@ -137,9 +138,15 @@ html(lang="en")
                                                 .form-check.form-group
                                                     input#keep-sign-in.form-check-input(type="checkbox")
                                                     label.form-check-label(for="keep-sign-in") Remember me
-                                                .d-flex.justify-content-end
-                                                    button.btn.btn-primary.mr-2(type="submit") Login
-                                                    button.btn.btn-danger(type="button" data-dismiss="modal") Close
+                                                .d-flex.justify-content-between
+                                                    div
+                                                        button.btn.btn-outline-danger
+                                                            i.fab.fa-google
+                                                        button.btn.btn-outline-primary.ml-2
+                                                            i.fab.fa-facebook-f.p-1
+                                                    div
+                                                        button.btn.btn-primary.mr-2(type="submit") Login
+                                                        button.btn.btn-danger(type="button" data-dismiss="modal") Close
 
                         li.nav-item
                             a.nav-link(href="#" role="button" data-toggle="modal" data-target="#sign-up-modal") Sign up
