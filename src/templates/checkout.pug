@@ -6,16 +6,16 @@ block body
             h4.text-info.d-inline.mr-2 Check Out
             span.text-muted (3 Items)
             hr.border-info.mt-1.mt-md-2.mb-md-4
-        div
-            div.accordion.shadow#checkout-accordion
+        div.d-flex.flex-wrap
+            div.accordion.shadow.flex-grow-1#checkout-accordion
                 div.card
                     div.card-header
-                        a.card-link.text-dark.font-weight-bolder(href="#" role="button" data-toggle="collapse" data-target="#checkout-account")
-                            h5.my-1 Step 1: Login to Account
+                        a.card-link.text-dark(href="#" role="button" data-toggle="collapse" data-target="#checkout-account")
+                            h5.my-2 Step 1: Login to Account
                     div#checkout-account.collapse.show(data-parent="#checkout-accordion")
                         div.card-body.px-md-5
                             div.row
-                                div.col-md-6.col-lg-4.offset-lg-1
+                                div.col-md-6
                                     form#checkout-sign-in-form.d-flex.flex-column
                                         .form-group
                                             label(for="checkout-sign-in-email") Email or phone number
@@ -26,32 +26,58 @@ block body
                                         .form-check.form-group
                                             input#checkout-keep-sign-in.form-check-input(type="checkbox")
                                             label.form-check-label(for="checkout-keep-sign-in") Remember me
-                                        button.btn.btn-primary.align-self-md-center.w-50.d-none.d-md-block(type="submit") Login
-                                        button.btn.btn-primary.d-md-none(type="submit") Login
+                                        button.btn.btn-primary.align-self-md-center.w-50.d-none.d-md-block(
+                                            type="button"
+                                            data-toggle="collapse"
+                                        ) Login
+                                        button.btn.btn-primary.d-md-none(
+                                            type="button"
+                                            data-toggle="collapse"
+                                            data-target="#checkout-address,#checkout-account"
+                                        ) Login
                                     hr.d-md-none
-                                div.col-md-1.col-lg-2.d-none.d-md-flex.flex-column.align-items-center
+                                div.col-md-1.d-none.d-md-flex.flex-column.align-items-center
                                     div.border.border-muted.flex-grow-1
-                                div.col-md-5.col-lg-4.d-flex.justify-content-center.flex-column
+                                div.col-md-5.d-flex.justify-content-center.flex-column
                                     button.btn.btn-outline-primary.mb-2 Login with Facebook
                                     button.btn.btn-outline-danger.mb-2 Login with Google
                                     button.btn.btn-outline-success.mb-2 Create An Account
 
                 div.card
                     div.card-header
-                        h2.mb-0
-                            button.btn.btn-link.collapsed(type="button" data-toggle="collapse" data-target="#collapseTwo")
-                                | Collapsible Group Item #2
-                    div#collapseTwo.collapse(data-parent="#accordionExample")
-                        .card-body
-                            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+                        a.card-link.text-dark.font-weight-bolder(href="#" role="button" data-toggle="collapse" data-target="#checkout-address")
+                            h5.my-2 Step 2: Shipping address
+                    div#checkout-address.collapse(data-parent="#checkout-address")
+                        div.card-body
                 div.card
                     div.card-header
-                        h2.mb-0
-                            button.btn.btn-link.collapsed(type="button" data-toggle="collapse" data-target="#collapseThree")
-                                | Collapsible Group Item #3
-                    div#collapseThree.collapse(data-parent="#accordionExample")
-                        .card-body
-                            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+                        a.card-link.text-dark.font-weight-bolder(href="#" role="button" data-toggle="collapse" data-target="#checkout-payment")
+                            h5.my-2 Step 3: Payment method
+                    div#checkout-payment.collapse(data-parent="#checkout-accordion")
+                        div.card-body.d-flex.flex-column
+                            div.form-check.form-group
+                                input#payment-method-after.form-check-input(type="radio" name="payment-method" checked)
+                                label.form-check-label(for="payment-method-after") Payment after arrival of goods
+                            div.form-check.form-group
+                                input#payment-method-before.form-check-input(type="radio" name="payment-method")
+                                label.form-check-label(for="payment-method-before") Immediate online payment
+                            button.btn.btn-primary.align-self-md-start Process Checkout
 
+            div.ml-4.d-none.d-lg-block
+                div.card.shadow
+                    div.card-header.d-flex.justify-content-between.align-items-center
+                        h5.my-2.text-dark.d-inline Cart Items
+                        button.btn.btn-outline-secondary.btn-sm Edit
+                    div.card-body
+                        each item in cartItems
+                            div.d-flex.justify-content-between.align-items-baseline.mb-3
+                                a.card-link.text-nowrap(href="./item.html") #{item.name} &nbsp &nbsp
+                                div.text-nowrap
+                                    span.badge.badge-pill.badge-info.mr-1 1
+                                    span.badge.badge-pill.badge-dark $#{item.price}
+                        hr
+                        div.d-flex.justify-content-between
+                            h5 Total
+                            h5.text-success.font-weight-bold $#{totalPrice}.00
 
     hr.border-light

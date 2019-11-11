@@ -234,7 +234,8 @@ html(lang="en")
                                                 span.ml-3.d-none.d-md-inline $#{totalPrice}.00
                                         button.btn.btn-outline-primary.dropdown-toggle.dropdown-toggle-split(type="button" data-toggle="dropdown")
                                         div.dropdown-menu.bg-light.dropdown-menu-right.p-0.mt-2.mt-lg-3
-                                            h5.bg-dark.text-light.text-nowrap.dropdown-header.p-3.rounded-top Your Cart has #{cartItems.length} item
+                                            h5.bg-dark.text-light.text-nowrap.dropdown-header.p-3.rounded-top.d-flex.justify-content-between
+                                                span Your Cart has #{cartItems.length} item
                                             each item in cartItems
                                                 div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
                                                     a.card-link.text-nowrap(href="./item.html") #{item.name}
@@ -279,7 +280,7 @@ html(lang="en")
                         a(href="#").text-muted.ml-2.smaller Linkedln
                     div.ml-3.text-muted.smaller &copy; 2019 Logon, Inc. All right reserved
 
-
+        script(src="../scripts/wow.min.js")
         script(src="../scripts/jquery-3.4.1.min.js")
         script(src="../scripts/bootstrap.bundle.min.js")
         script(src="../scripts/simplebar.min.js")
