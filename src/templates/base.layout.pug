@@ -128,25 +128,33 @@ html(lang="en")
                                             button.close(type="button" data-dismiss="modal")
                                                 span(aria-hidden="true") &times;
                                         div.modal-body
-                                            form#sigin-form
-                                                .form-group
-                                                    label(for="sign-in-email") Email or phone number
-                                                    input#sign-in-email.form-control(type="text" placeholder="Enter email or Phone Number")
-                                                .form-group
-                                                    label(for="sign-in-password") Password
-                                                    input#sign-in-password.form-control(type="password" placeholder="Enter password")
-                                                .form-check.form-group
-                                                    input#keep-sign-in.form-check-input(type="checkbox")
-                                                    label.form-check-label(for="keep-sign-in") Remember me
-                                                .d-flex.justify-content-between
-                                                    div
-                                                        button.btn.btn-outline-danger
-                                                            i.fab.fa-google
-                                                        button.btn.btn-outline-primary.ml-2
-                                                            i.fab.fa-facebook-f.p-1
-                                                    div
-                                                        button.btn.btn-primary.mr-2(type="submit") Login
-                                                        button.btn.btn-danger(type="button" data-dismiss="modal") Close
+                                            form#sign-in-form(method="post" novalidate)
+                                                fieldset
+                                                    .form-group
+                                                        label(for="sign-in-email") Email
+                                                        input#sign-in-email.form-control(
+                                                            type="text"
+                                                            placeholder="Enter email"
+                                                            name="email"
+                                                        )
+                                                    .form-group
+                                                        label(for="sign-in-password") Password
+                                                        input#sign-in-password.form-control(
+                                                            type="password"
+                                                            placeholder="Enter password"
+                                                            name="password")
+                                                    .form-check.form-group
+                                                        input#keep-sign-in.form-check-input(type="checkbox")
+                                                        label.form-check-label(for="keep-sign-in") Remember me
+                                                    .d-flex.justify-content-between
+                                                        div
+                                                            button.btn.btn-outline-danger
+                                                                i.fab.fa-google
+                                                            button.btn.btn-outline-primary.ml-2
+                                                                i.fab.fa-facebook-f.p-1
+                                                        div
+                                                            button.btn.btn-primary.mr-2(type="submit") Login
+                                                            button.btn.btn-danger(type="button" data-dismiss="modal") Close
 
                         li.nav-item
                             a.nav-link(href="#" role="button" data-toggle="modal" data-target="#sign-up-modal") Sign up
@@ -159,24 +167,49 @@ html(lang="en")
                                             button.close(type="button" data-dismiss="modal")
                                                 span(aria-hidden="true") &times;
                                         div.modal-body
-                                            form#sigup-form
+                                            form#sign-up-form
                                                 .form-group
                                                     label(for="sign-up-email") Email
-                                                    input#sign-up-email.form-control(type="text" placeholder="Enter Email")
+                                                        span.text-danger.ml-1 *
+                                                    input#sign-up-email.form-control(
+                                                        type="text"
+                                                        placeholder="Enter Email"
+                                                        name="email"
+                                                    )
                                                 .form-group
                                                     label(for="sign-up-password") Password
-                                                    input#sign-up-password.form-control(type="password" placeholder="Enter password")
+                                                        span.text-danger.ml-1 *
+                                                    input#sign-up-password.form-control(
+                                                        type="password"
+                                                        placeholder="Enter password"
+                                                        name="password"
+                                                    )
                                                     small.form-text.text-muted Must be 8-20 characters long contain both letters and numbers
                                                 .form-group
                                                     label(for="sign-up-password-check") Re-enter Password
-                                                    input#sign-up-password-check.form-control(type="password" placeholder="Re-enter password")
+                                                        span.text-danger.ml-1 *
+                                                    input#sign-up-password-check.form-control(
+                                                        type="text"
+                                                        placeholder="Re-enter password"
+                                                        name="passwordCheck"
+                                                    )
                                                 .form-row
                                                     .form-group.col
                                                         label(for="first-name") First name
-                                                        input#first-name.form-control(type="text" placeholder="First name")
+                                                            span.text-danger.ml-1 *
+                                                        input#first-name.form-control(
+                                                            type="text"
+                                                            placeholder="First name"
+                                                            name="firstname"
+                                                        )
                                                     .form-group.col
                                                         label(for="last-name") Last name
-                                                        input#last-name.form-control(type="text" placeholder="Last name")
+                                                            span.text-danger.ml-1 *
+                                                        input#last-name.form-control(
+                                                            type="text"
+                                                            placeholder="Last name"
+                                                            name="lastname"
+                                                        )
                                                 .form-group
                                                     label Date of Birth
                                                     .form-row
@@ -194,12 +227,12 @@ html(lang="en")
                                                     label.form-check-label(for="notify-news") Notify me about Logon's new
                                                         | product and discount
                                                 .form-check.form-group
-                                                    input#accept-terms-conditions.form-check-input(type="checkbox")
+                                                    input#accept-terms-conditions.form-check-input(type="checkbox" name="agree")
                                                     label.form-check-label(for="accept-terms-conditions") I have read and accept the
                                                         a.card-link.ml-1(href="#") Logon's terms and conditions
                                                 .d-flex.justify-content-end
                                                     button.btn.btn-primary.mr-2(type="submit") Sign up
-                                                    button.btn.btn-danger(type="button" data-dismiss="modal") Close
+                                                    button#sign-in-modal-close.btn.btn-danger(type="button" data-dismiss="modal") Close
 
         //sticky search bar nav and cart
         nav.sticky-top.py-2.py-lg-3.mb-lg-5.mb-3.bg-white.shadow
@@ -280,7 +313,12 @@ html(lang="en")
                         a(href="#").text-muted.ml-2.smaller Linkedln
                     div.ml-3.text-muted.smaller &copy; 2019 Logon, Inc. All right reserved
 
-        script(src="../scripts/wow.min.js")
         script(src="../scripts/jquery-3.4.1.min.js")
         script(src="../scripts/bootstrap.bundle.min.js")
+        script(src="../scripts/wow.min.js")
         script(src="../scripts/simplebar.min.js")
+
+        script(src="../scripts/jquery.validate.min.js")
+        script(src="../scripts/additional-methods.min.js")
+        script(src="../scripts/jquery.validate.migrate.js")
+        script(src="../scripts/account-validate.js")
