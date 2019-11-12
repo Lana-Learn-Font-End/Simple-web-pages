@@ -4,7 +4,7 @@
 - var random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
 mixin stallHeader(title, badgeTitle)
-    div.d-flex.align-items-end.justify-content-between
+    .d-flex.align-items-end.justify-content-between
         h4
             a.d-md-none.card-link(href="./popular-items.html") #{title}
             span.d-none.d-md-inline #{title}
@@ -15,40 +15,40 @@ mixin stallHeader(title, badgeTitle)
     hr.border-info.mb-2.mb-md-1.mt-1.mt-md-2
 
 mixin item(title, rate, price, oldPrice, saleTitle)
-    div.col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3&attributes(attributes)
-        div.card.shadow-sm
+    .col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3&attributes(attributes)
+        .card.shadow-sm
             img.card-img-top.w-100(src=`../images/items/item-image/${random(1, 5, 5)}.jpg`)
-            div.card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
+            .card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
                 h6.card-title.mb-1 #{title}
                 //price and sale
-                div.small.text-success.font-weight-bold.d-flex.align-items-center $#{price}.00
+                .small.text-success.font-weight-bold.d-flex.align-items-center $#{price}.00
                     if saleTitle
                         span.badge.badge-danger.ml-1 #{saleTitle}
                 if oldPrice
                     del.smaller.text-muted.d-none.d-md-block #{oldPrice}.00
                 // description
-                // div.card-text.small.text-muted.d-none.d-md-block Some thing about this product.
+                // .card-text.small.text-muted.d-none.d-md-block Some thing about this product.
                 a.small.card-link.stretched-link(href="./item.html")
                 // button group
-                div.d-flex.flex-grow-1.justify-content-between.align-items-end
+                .d-flex.flex-grow-1.justify-content-between.align-items-end
                     //rating
-                    div.smaller
-                        div.text-warning.d-none.d-md-block
+                    .smaller
+                        .text-warning.d-none.d-md-block
                             each _ in Array(rate)
                                 i.fas.fa-star
                             each _ in Array(5 - rate)
                                 i.far.fa-star
-                    div.btn-over-stretched-link
+                    .btn-over-stretched-link
                         button.btn.btn-outline-success.btn-sm.py-0.px-1
                             i.fas.fa-cart-plus
                         button.btn.btn-outline-danger.btn-sm.py-0.px-1.ml-1
                             i.far.fa-heart
 
 mixin itemLarge(title, subtitle)
-    div.col-md-6.col-12.col-lg-4.d-flex.my-2.my-md-3&attributes(attributes)
-        div.card.shadow-sm.flex-grow-1
+    .col-md-6.col-12.col-lg-4.d-flex.my-2.my-md-3&attributes(attributes)
+        .card.shadow-sm.flex-grow-1
             img.card-img-top.w-100(src=`../images/items/item-featured/${random(1, 4)}.jpg`)
-            div.card-body.d-flex.flex-column
+            .card-body.d-flex.flex-column
                 h5.card-title #{title}
                 h6.card-subtitle.text-muted.mb-2 #{subtitle}
                 a.card-link.mt-auto(href="./item.html") Read more >
@@ -67,7 +67,7 @@ html(lang="en")
     body.bg-light
         //header nav
         header.navbar.navbar-dark.bg-dark.navbar-expand-lg.z-top
-            div.container
+            .container
                 button.navbar-toggler(data-target="#nav-collapse-menu" data-toggle="collapse")
                     i.fas.fa-bars
                 //sm logo (light)
@@ -91,7 +91,7 @@ html(lang="en")
                             a.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown")
                                 i.fas.fa-box.mr-1
                                 span Categories
-                            div.dropdown-menu
+                            .dropdown-menu
                                 each category in categories
                                     a.dropdown-item(href="./categories-items.html") #{category}
                         li.nav-item
@@ -106,7 +106,7 @@ html(lang="en")
                             a.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown")
                                 i.fas.fa-question-circle.mr-1
                                 span Location
-                            div.dropdown-menu
+                            .dropdown-menu
                                 a.dropdown-item(href="./home.html") Home
                                 a.dropdown-item(href="./categories-items.html") Category
                                 a.dropdown-item(href="./search-items.html") Search
@@ -121,13 +121,13 @@ html(lang="en")
                                 i.fas.fa-sign-in-alt.ml-2
                             // put modal here so it float over the top
                             div#sign-in-modal.modal.fade(tabindex="-1" role="dialog")
-                                div.modal-dialog.modal-dialog-centered(role="document")
-                                    div.modal-content
-                                        div.modal-header
+                                .modal-dialog.modal-dialog-centered(role="document")
+                                    .modal-content
+                                        .modal-header
                                             h5.modal-title Login
                                             button.close(type="button" data-dismiss="modal")
                                                 span(aria-hidden="true") &times;
-                                        div.modal-body
+                                        .modal-body
                                             form#sign-in-form(method="post" novalidate)
                                                 fieldset
                                                     .form-group
@@ -160,13 +160,13 @@ html(lang="en")
                             a.nav-link(href="#" role="button" data-toggle="modal" data-target="#sign-up-modal") Sign up
                                 i.fas.fa-user-plus.ml-2
                             div#sign-up-modal.modal.fade(tabindex="-1" role="dialog")
-                                div.modal-dialog.modal-dialog-centered(role="document")
-                                    div.modal-content
-                                        div.modal-header
+                                .modal-dialog.modal-dialog-centered(role="document")
+                                    .modal-content
+                                        .modal-header
                                             h5.modal-title Sign up
                                             button.close(type="button" data-dismiss="modal")
                                                 span(aria-hidden="true") &times;
-                                        div.modal-body
+                                        .modal-body
                                             form#sign-up-form
                                                 .form-group
                                                     label(for="sign-up-email") Email
@@ -236,12 +236,12 @@ html(lang="en")
 
         //sticky search bar nav and cart
         nav.sticky-top.py-2.py-lg-3.mb-lg-5.mb-3.bg-white.shadow
-            div.container
-                div.row
+            .container
+                .row
                     // lg logo (dark)
                     a.d-none.d-lg-block.col-lg-3.card-link.text-dark(href="./home.html")
-                        div.mr-2
-                            div.text-center
+                        .mr-2
+                            .text-center
                                 h2.d-inline.mr-2
                                     i.fas.fa-laptop
                                 h3.d-inline L
@@ -249,28 +249,28 @@ html(lang="en")
                                     i.fas.fa-power-off
                                 h3.d-inline gon
                     // search bar
-                    div.col-lg-9
-                        div.d-flex
-                            div.flex-grow-1
+                    .col-lg-9
+                        .d-flex
+                            .flex-grow-1
                                 form.input-group
                                     input.form-control.border-primary(placeholder="Search for product...")
-                                    div.input-group-append
+                                    .input-group-append
                                         a.btn.btn-primary(href="./search-items.html")
                                             i.fas.fa-search
                                             span.d-none.d-md-inline-block.ml-1 Search
                             // cart with dropdown
-                            div.ml-2.ml-lg-4
-                                div.dropdown
-                                    div.btn-group
+                            .ml-2.ml-lg-4
+                                .dropdown
+                                    .btn-group
                                         a.btn.btn-primary(role="button" href="./cart.html")
                                             i.fas.fa-shopping-cart
                                                 span.ml-3.d-none.d-md-inline $#{totalPrice}.00
                                         button.btn.btn-outline-primary.dropdown-toggle.dropdown-toggle-split(type="button" data-toggle="dropdown")
-                                        div.dropdown-menu.bg-light.dropdown-menu-right.p-0.mt-2.mt-lg-3
+                                        .dropdown-menu.bg-light.dropdown-menu-right.p-0.mt-2.mt-lg-3
                                             h5.bg-dark.text-light.text-nowrap.dropdown-header.p-3.rounded-top.d-flex.justify-content-between
                                                 span Your Cart has #{cartItems.length} item
                                             each item in cartItems
-                                                div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
+                                                .dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
                                                     a.card-link.text-nowrap(href="./item.html") #{item.name}
                                                     span.d-none.d-md-inline &nbsp &nbsp &nbsp &nbsp &nbsp
                                                     span.d-md-none &nbsp
@@ -278,40 +278,40 @@ html(lang="en")
                                                         span.badge.badge-pill.badge-info.mr-2 1
                                                         span.badge.badge-pill.badge-dark $#{item.price}
 
-                                            div.dropdown-divider.m-0
-                                            div.dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
-                                                div.card-link.text-nowrap Total
+                                            .dropdown-divider.m-0
+                                            .dropdown-item.pl-3.pr-2.py-2.d-flex.justify-content-between.align-items-baseline
+                                                .card-link.text-nowrap Total
                                                 h5 $#{totalPrice}.00
-                                            div.dropdown-divider.m-0
-                                            div.dropdown-item.px-4.pt-3.pb-2.text-center.d-flex
+                                            .dropdown-divider.m-0
+                                            .dropdown-item.px-4.pt-3.pb-2.text-center.d-flex
                                                 a.btn.btn-success.flex-grow-1.btn-sm.text-light(href="checkout.html") Check out
-                                            div.dropdown-item.px-4.pb-3.text-center.d-flex
+                                            .dropdown-item.px-4.pb-3.text-center.d-flex
                                                 a.btn.btn-primary.flex-grow-1.btn-sm.text-light(href="cart.html")  Go to cart
 
         //content
         block body
 
         footer.bg-dark.mt-5
-            div.container
-                div.row.text-white
+            .container
+                .row.text-white
                     each title in ["Support","About","Contact","Cooperation"]
-                        div.col-6.col-md-3.nav.flex-column.p-3
+                        .col-6.col-md-3.nav.flex-column.p-3
                             h6 #{title}
                             a(href="#").text-info.smaller Link
                             a(href="#").text-info.smaller More Link
                             a(href="#").text-info.smaller Even More
                             a(href="#").text-info.smaller Question
 
-                div.d-flex.row.py-1.justify-content-md-center
-                    div.text-nowrap.d-flex
+                .d-flex.row.py-1.justify-content-md-center
+                    .text-nowrap.d-flex
                         a(href="#").text-light.ml-3.smaller Conditions of Use
                         a(href="#").text-light.ml-2.smaller Privacy Notice
-                    div.text-nowrap.d-flex
+                    .text-nowrap.d-flex
                         a(href="#").text-muted.ml-3.smaller Blog
                         a(href="#").text-muted.ml-2.smaller Facebook
                         a(href="#").text-muted.ml-2.smaller Twitter
                         a(href="#").text-muted.ml-2.smaller Linkedln
-                    div.ml-3.text-muted.smaller &copy; 2019 Logon, Inc. All right reserved
+                    .ml-3.text-muted.smaller &copy; 2019 Logon, Inc. All right reserved
 
         script(src="../scripts/jquery-3.4.1.min.js")
         script(src="../scripts/bootstrap.bundle.min.js")

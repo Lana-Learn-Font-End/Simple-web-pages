@@ -3,56 +3,56 @@ block head
     title Laptop Highlight - Logon Computer
 
 block content
-    div.mb-4
-        div.d-flex.align-items-end.justify-content-between
+    .mb-4
+        .d-flex.align-items-end.justify-content-between
             h4.text-info Laptop Highlight
         hr.border-info.mb-2.mt-1.mt-md-2
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
+        .pb-2(data-simplebar)
+            .row.flex-nowrap
                 +itemLarge("Nvidia RTX 1080", "Better Gaming experiment").col-lg-6
                 +itemLarge("Nvidia GTX 1060", "Best in price").col-lg-6
                 +itemLarge("ASUS Vivobook A512FA", "Thin and Lightweight").col-lg-6
                 +itemLarge("Macbook pro 2019", "This is Macbook").col-lg-6
-                div.d-flex.align-items-center
+                .d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
 
-    div.mb-4
-        div.d-flex.align-items-end.justify-content-between
+    .mb-4
+        .d-flex.align-items-end.justify-content-between
             h4.text-info Laptop Sale
         hr.border-info.mb-2.mt-1.mt-md-2
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
+        .pb-2(data-simplebar)
+            .row.flex-nowrap
                 +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
                 +item("Nvidia GTX 1060", 5, 499, 699, "20%")
                 +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
                 +item("Macbook pro 2019", 5, 1299, 1699, "60%")
-                div.d-flex.align-items-center
+                .d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
 
 
-    div.mb-4
-        div.d-flex.align-items-end.justify-content-between
+    .mb-4
+        .d-flex.align-items-end.justify-content-between
             h4.text-info Most wanted Laptop
         hr.border-info.mb-2.mt-1.mt-md-2
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
+        .pb-2(data-simplebar)
+            .row.flex-nowrap
                 +item("Nvidia GTX 1070", 5, 499, 699 ,"Sale")
                 +item("Nvidia RTX 2070", 5, 2000)
                 +item("ASUS Vivobook A512FA" ,4 ,429)
                 +item("Macbook pro 2019", 5, 1299)
-                div.d-flex.align-items-center
+                .d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
 
-    div.mb-4
-        div.d-flex.align-items-end.justify-content-between
+    .mb-4
+        .d-flex.align-items-end.justify-content-between
             h4.text-info Top Seller Laptop
         hr.border-info.mb-2.mt-1.mt-md-2
-        div.pb-2
-            div.row
+        .pb-2
+            .row
                 each i in Array(6)
                     +item("Nvidia GTX 1060", 5, 499, 699, "20%")(class="col-lg-4")
     //paging
-    div.mb-4.d-flex.justify-content-center
+    .mb-4.d-flex.justify-content-center
         nav
             ul.pagination
                 li.page-item.disabled
@@ -67,23 +67,23 @@ block content
                         span(aria-hidden='true') &raquo;
 
     // other suggestion
-    div.mb-4
+    .mb-4
         +stallHeader("Other Popular")(class="badge-danger")
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
+        .pb-2(data-simplebar)
+            .row.flex-nowrap
                 +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
                 +item("Nvidia GTX 1060", 5, 499, 699, "20%")
                 +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
                 +item("Macbook pro 2019", 5, 1299, 1699, "60%")
-                div.d-flex.align-items-center
+                .d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
-    div.mb-4
+    .mb-4
         +stallHeader("Recommended for you")(class="badge-danger")
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
+        .pb-2(data-simplebar)
+            .row.flex-nowrap
                 +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
                 +item("Macbook pro 2019", 5, 1299)
                 +item("Nvidia RTX 2070", 5, 2000, 3000, "Special")
                 +item("Nvidia GTX 1070", 5, 499)
-                div.d-flex.align-items-center
+                .d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted

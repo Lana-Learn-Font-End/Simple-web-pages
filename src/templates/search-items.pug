@@ -4,50 +4,49 @@ block head
     title Nvidia - Logon Computer
 
 block content
-    div
-        div.d-flex.align-items-end.justify-content-between
-            h4.text-info "Nvidia"
-            a.dropdown-toggle.card-link(href="#" role="button" data-toggle="dropdown")
-                span By Popular
-            div.dropdown-menu.dropdown-menu-right
-                a.dropdown-item.active(href="#") Popular
-                a.dropdown-item(href="#") Rating
-                a.dropdown-item(href="#") Price
-                    i.fas.fa-long-arrow-alt-down.ml-1
-                a.dropdown-item(href="#") Price
-                    i.fas.fa-long-arrow-alt-up.ml-1
-                a.dropdown-item(href="#") Name a-z
-                a.dropdown-item(href="#") Name z-a
-                div.d-lg-none
-                    div.dropdown-divider
-                    a.dropdown-item.text-primary(
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#advanced-search-modal"
-                        role="button"
-                    ) Advanced
-                        i.fas.fa-search.ml-1
-        hr.border-info.mb-2.mt-1.mt-md-2
-        div.breadcrumb.d-flex.flex-wrap.justify-content-between
-            div.text-nowrap.mr-2
-                span Search result for "Nvidia"
-                div.small.text-muted Showing 1-19 of 50 items
-            a.text-nowrap.card-link.d-block.d-lg-none(
-                href="#"
-                data-toggle="modal"
-                data-target="#advanced-search-modal"
-                role="button"
-            ) Advanced search
-
-    div.mb-4
-        div.pb-2
-            div.row
+    .d-flex.align-items-end.justify-content-between
+        h4.text-info "Nvidia"
+        a.dropdown-toggle.card-link(href="#" role="button" data-toggle="dropdown")
+            span By Popular
+        .dropdown-menu.dropdown-menu-right
+            a.dropdown-item.active(href="#") Popular
+            a.dropdown-item(href="#") Rating
+            a.dropdown-item(href="#") Price
+                i.fas.fa-long-arrow-alt-down.ml-1
+            a.dropdown-item(href="#") Price
+                i.fas.fa-long-arrow-alt-up.ml-1
+            a.dropdown-item(href="#") Name a-z
+            a.dropdown-item(href="#") Name z-a
+            .d-lg-none
+                .dropdown-divider
+                a.dropdown-item.text-primary(
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#advanced-search-modal"
+                    role="button"
+                ) Advanced
+                    i.fas.fa-search.ml-1
+    hr.border-info.mb-2.mt-1.mt-md-2
+    .breadcrumb.d-flex.flex-wrap.justify-content-between
+        .text-nowrap.mr-2
+            span Search result for "Nvidia"
+            .small.text-muted Showing 1-19 of 50 items
+        a.text-nowrap.card-link.d-block.d-lg-none(
+            href="#"
+            data-toggle="modal"
+            data-target="#advanced-search-modal"
+            role="button"
+        ) Advanced search
+    //items
+    .mb-4
+        .pb-2
+            .row
                 - var i = 0
                 while i < 18
                     +item("Nvidia GTX 1060", 5, 499, 699, "20%")(class="col-lg-4")
                     - i++
     //paging
-    div.mb-4.d-flex.justify-content-center
+    .mb-4.d-flex.justify-content-center
         nav
             ul.pagination
                 li.page-item.disabled
@@ -64,24 +63,24 @@ block content
                         span(aria-hidden='true') &raquo;
 
     // other suggestion
-    div.mb-4
+    .mb-4
         +stallHeader("Similar Products")
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
+        .pb-2(data-simplebar)
+            .row.flex-nowrap
                 +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
                 +item("Nvidia GTX 1060", 5, 499, 699, "20%")
                 +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
                 +item("Macbook pro 2019", 5, 1299, 1699, "60%")
-                div.d-flex.align-items-center
+                .d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted
 
-    div.mb-4
+    .mb-4
         +stallHeader("Recommended for you")(class="badge-danger")
-        div(data-simplebar).pb-2
-            div.row.flex-nowrap
+        .pb-2(data-simplebar)
+            .row.flex-nowrap
                 +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
                 +item("Macbook pro 2019", 5, 1299)
                 +item("Nvidia RTX 2070", 5, 2000, 3000, "Special")
                 +item("Nvidia GTX 1070", 5, 499)
-                div.d-flex.align-items-center
+                .d-flex.align-items-center
                     i.fas.fa-chevron-right.text-muted

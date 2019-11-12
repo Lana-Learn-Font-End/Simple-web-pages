@@ -1,32 +1,32 @@
 extends base.layout.pug
 
 mixin searchTopic(title, items, id)
-    div
-        if items
-            h6.text-muted #{title}
-            if items.length > 8 && id
-                each item in items.slice(0,6)
+    if items
+        h6.text-muted #{title}
+        if items.length > 8 && id
+            each item in items.slice(0,6)
+                div
+                    input(type="checkbox")
+                    label.ml-1.text-muted #{item}
+            .collapse(class=`${id}-collapse-mark`)
+                each item in items.slice(6)
                     div
                         input(type="checkbox")
                         label.ml-1.text-muted #{item}
-                div.collapse(class=`${id}-collapse-mark`)
-                    each item in items.slice(6)
-                        div
-                            input(type="checkbox")
-                            label.ml-1.text-muted #{item}
-                    a.card-link(href="#" role="button" data-toggle="collapse" data-target=`.${id}-collapse-mark`) Close
-                div.collapse.show(class=`${id}-collapse-mark`)
-                    a.card-link(href="#" role="button" data-toggle="collapse" data-target=`.${id}-collapse-mark`) More
-            else
-                each item in items
-                    div
-                        input(type="checkbox")
-                        label.ml-1.text-muted #{item}
+                a.card-link(href="#" role="button" data-toggle="collapse" data-target=`.${id}-collapse-mark`) Close
+            .collapse.show(class=`${id}-collapse-mark`)
+                a.card-link(href="#" role="button" data-toggle="collapse" data-target=`.${id}-collapse-mark`) More
+        else
+            each item in items
+                div
+                    input(type="checkbox")
+                    label.ml-1.text-muted #{item}
 
 mixin advancedSearch()
     div
         +searchTopic("Categories", categories)
         hr.text-muted
+    div
         +searchTopic("Brands",[
             "PNY",
             "Matrox",
@@ -41,29 +41,30 @@ mixin advancedSearch()
             "PowerColor"
         ],"search-brand")
         hr.text-muted
+    div
         +searchTopic("Shipping", ["Free shipping", "Fast shipping"])
         hr.text-muted
-        div
-            h6.text-muted Price
-            div.form-row
-                div.col-9
-                    div.form-row
-                        div.col
-                            input.form-control.form-control-sm(type="text" placeholder="Min")
-                        div.col
-                            input.form-control.form-control-sm(type="text" placeholder="Max")
-                div.col-3
-                    button.btn-outline-secondary.btn.btn-sm
-                        i.fas.fa-funnel-dollar
-            small.form-text.text-muted Showing item at any price
+    div
+        h6.text-muted Price
+        .form-row
+            .col-9
+                .form-row
+                    .col
+                        input.form-control.form-control-sm(type="text" placeholder="Min")
+                    .col
+                        input.form-control.form-control-sm(type="text" placeholder="Max")
+            .col-3
+                button.btn-outline-secondary.btn.btn-sm
+                    i.fas.fa-funnel-dollar
+        small.form-text.text-muted Showing item at any price
         hr.text-muted
-        div
-            h6.text-muted Rating
-            +stars(5)
-            +stars(4)
-            +stars(3)
-            +stars(2)
-            +stars(1)
+    div
+        h6.text-muted Rating
+        +stars(5)
+        +stars(4)
+        +stars(3)
+        +stars(2)
+        +stars(1)
 
 mixin stars(rate)
     a.text-warning.mb-1.d-block(href="#")
@@ -76,30 +77,30 @@ mixin stars(rate)
             span.ml-2.text-dark (#{rate} Up)
 
 block body
-    div.container
-        div.row
+    .container
+        .row
             // left col with search and ad
-            div.d-none.d-lg-block.col-lg-3
-                div.mr-2
+            .d-none.d-lg-block.col-lg-3
+                .mr-2
                     // advanced search
-                    div.list-group.font-small.mb-4.shadow-sm
-                        div.list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Advanced Search
-                        div.flex-column.list-group-item.py-3
+                    .list-group.font-small.mb-4.shadow-sm
+                        .list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Advanced Search
+                        .flex-column.list-group-item.py-3
                             +advancedSearch
                     block ad
             // main content
-            div.col-lg-9
+            .col-lg-9
                 block content
 
 append body
-    div#advanced-search-modal.modal.fade(tabindex="-1" role="dialog").z-top
-        div.modal-dialog.modal-dialog-centered(role="document")
-            div.modal-content
-                div.modal-header
+    #advanced-search-modal.modal.fade(tabindex="-1" role="dialog").z-top
+        .modal-dialog.modal-dialog-centered(role="document")
+            .modal-content
+                .modal-header
                     h5.modal-title Advanced Search
                     button.close(type="button" data-dismiss="modal")
                         span(aria-hidden="true") &times;
-                div.modal-body
+                .modal-body
                     +advancedSearch
-                div.d-flex.justify-content-center.modal-footer
+                .d-flex.justify-content-center.modal-footer
                     button.btn.btn-outline-secondary(data-dismiss="modal") Close
