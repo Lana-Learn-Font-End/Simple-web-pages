@@ -6,11 +6,16 @@ block body
             h4.text-info.d-inline.mr-2 Check Out
             span.text-muted (3 Items)
             hr.border-info.mt-1.mt-md-2.mb-md-4
-        div.d-flex.flex-wrap
-            div.accordion.shadow.flex-grow-1#checkout-accordion
+        div.d-flex.align-items-start
+            div#checkout-accordion.accordion.shadow.flex-grow-1
                 div.card
                     div.card-header
-                        a.card-link.text-dark(href="#" role="button" data-toggle="collapse" data-target="#checkout-account")
+                        a.card-link.text-dark(
+                            href="#"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#checkout-account"
+                        )
                             h5.my-2 Step 1: Login to Account
                     div#checkout-account.collapse.show(data-parent="#checkout-accordion")
                         div.card-body.px-md-5
@@ -18,8 +23,8 @@ block body
                                 div.col-md-6
                                     form#checkout-sign-in-form.d-flex.flex-column
                                         .form-group
-                                            label(for="checkout-sign-in-email") Email or phone number
-                                            input#checkout-sign-in-email.form-control(type="text" placeholder="Enter email or Phone Number")
+                                            label(for="checkout-sign-in-email") Email
+                                            input#checkout-sign-in-email.form-control(type="text" placeholder="Enter email")
                                         .form-group
                                             label(for="checkout-sign-in-password") Password
                                             input#checkout-sign-in-password.form-control(type="password" placeholder="Enter password")
@@ -29,6 +34,7 @@ block body
                                         button.btn.btn-primary.align-self-md-center.w-50.d-none.d-md-block(
                                             type="button"
                                             data-toggle="collapse"
+                                            data-target="#checkout-address,#checkout-account"
                                         ) Login
                                         button.btn.btn-primary.d-md-none(
                                             type="button"
@@ -45,23 +51,157 @@ block body
 
                 div.card
                     div.card-header
-                        a.card-link.text-dark.font-weight-bolder(href="#" role="button" data-toggle="collapse" data-target="#checkout-address")
+                        a.card-link.text-dark.font-weight-bolder(
+                            href="#"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#checkout-address"
+                        )
                             h5.my-2 Step 2: Shipping address
                     div#checkout-address.collapse(data-parent="#checkout-address")
-                        div.card-body
+                        div.card-body.px-md-5
+                            div.row
+                                div.col-md-10.offset-md-1
+                                    form
+                                        .form-row
+                                            .form-group.col-6
+                                                label(for="checkout-first-name") First name
+                                                input#checkout-first-name.form-control(
+                                                    type="text"
+                                                    placeholder="First name"
+                                                    name="firstname"
+                                                    value="John"
+                                                )
+                                            .form-group.col-6
+                                                label(for="checkout-last-name") Last name
+                                                input#checkout-last-name.form-control(
+                                                    type="text"
+                                                    placeholder="Last name"
+                                                    name="lastname"
+                                                    value="Nhoj"
+                                                )
+                                        .form-group
+                                            label(for="checkout-phone") Phone number
+                                            input#checkout-phone.form-control(
+                                                type="text"
+                                                placeholder="Your phone number"
+                                                name="phone"
+                                                value="0919190919"
+                                            )
+                                        .form-group
+                                            label(for="checkout-ship-address") Address
+                                            input#checkout-ship-address.form-control(
+                                                type="text"
+                                                placeholder="Your address"
+                                                name="address"
+                                            )
+                                        .form-group
+                                            label(for="checkout-ship-address2") Address 2
+                                                span.text-muted.ml-1.small (Optional)
+                                            input#checkout-ship-address2.form-control(
+                                                type="text"
+                                                placeholder="Your secondary address"
+                                                name="address2"
+                                            )
+                                        .form-row
+                                            .form-group.col-6
+                                                label(for="checkout-ship-city") City
+                                                input#checkout-ship-city.form-control(
+                                                    type="text"
+                                                    placeholder="Your city"
+                                                    name="city"
+                                                )
+                                            .form-group.col-6
+                                                label Nation
+                                                select.form-control
+                                                    option Viet Nam
+                                        .form-group.form-check
+                                            input.form-check-input(type="checkbox")
+                                            label.form-check-label Save this information for next transaction
+                                    hr.border-info
+                                    div.row
+                                        div.col-md-4
+                                            div.card.border-info.mb-2
+                                                div.card-body.p-3
+                                                    .d-flex.d-md-block.justify-content-between
+                                                        h6.card-title.mb-1.text-info Free Shipping
+                                                        div.card-text.text-info.small
+                                                            i.far.fa-clock.mr-1
+                                                            span 7-14 days
+                                        div.col-md-4
+                                            div.card.mb-2
+                                                div.card-body.p-3
+                                                    .d-flex.d-md-block.justify-content-between
+                                                        h6.card-title.mb-1.text-muted Fast Shipping
+                                                        div.card-text.small.text-muted
+                                                            i.fas.fa-shipping-fast.mr-1
+                                                            span 3-5 days
+
+                                        div.col-md-4
+                                            div.card.mb-2
+                                                div.card-body.p-3
+                                                    .d-flex.d-md-block.justify-content-between.flex-wrap
+                                                        h6.card-title.mb-1.text-muted Shipping Max
+                                                        div.card-text.small.text-muted
+                                                            i.fas.fa-fire-alt.mr-1
+                                                            span same-day
+                                    div.mt-4.d-flex.flex-column
+                                        button.btn.btn-primary.align-self-md-center(
+                                            data-toggle="collapse"
+                                            data-target="#checkout-address,#checkout-payment"
+                                        ) Save shipping information
+
                 div.card
                     div.card-header
-                        a.card-link.text-dark.font-weight-bolder(href="#" role="button" data-toggle="collapse" data-target="#checkout-payment")
+                        a.card-link.text-dark.font-weight-bolder(
+                            href="#"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#checkout-payment"
+                        )
                             h5.my-2 Step 3: Payment method
                     div#checkout-payment.collapse(data-parent="#checkout-accordion")
-                        div.card-body.d-flex.flex-column
-                            div.form-check.form-group
-                                input#payment-method-after.form-check-input(type="radio" name="payment-method" checked)
-                                label.form-check-label(for="payment-method-after") Payment after arrival of goods
-                            div.form-check.form-group
-                                input#payment-method-before.form-check-input(type="radio" name="payment-method")
-                                label.form-check-label(for="payment-method-before") Immediate online payment
-                            button.btn.btn-primary.align-self-md-start Process Checkout
+                        div.card-body.px-md-5
+                            div.row
+                                div.col
+                                    div.form-check.form-group
+                                        input#payment-method-after.form-check-input(
+                                            type="radio"
+                                            name="payment-method"
+                                            data-toggle="collapse"
+                                            data-target="#payment-method-before-collapse,#payment-method-before-divider"
+                                            checked
+                                        )
+                                        label.form-check-label(for="payment-method-after") Payment after arrival of goods
+                                    div.form-check.form-group
+                                        input#payment-method-before.form-check-input(
+                                            type="radio"
+                                            name="payment-method"
+                                            data-toggle="collapse"
+                                            data-target="#payment-method-before-collapse,#payment-method-before-divider"
+                                        )
+                                        label.form-check-label(for="payment-method-before") Immediate online payment
+                                //if payment-method-before checked then this form show up
+                                div#payment-method-before-divider.col-md-1.d-none.d-md-flex.flex-column.align-items-center.collapse-force
+                                    div.border.border-muted.flex-grow-1
+                                div#payment-method-before-collapse.col-md-6.collapse-force
+                                    form
+                                        .form-group
+                                            label(for="payment-card-number") Card Number
+                                            input#payment-card-number.form-control(type="text" placeholder="Ex: 1234 5678 9101 1212")
+                                        .form-group
+                                            label(for="payment-card-name") Card Name
+                                            input#payment-card-name.form-control(type="text" placeholder="Ex: JOHNY YNHOJ")
+                                        .form-row
+                                            .form-group.col-6
+                                                label(for="payment-card-name") Expiration
+                                                input#payment-expiration-date.form-control(type="text" placeholder="MM/YY")
+                                            .form-group.col-6
+                                                label(for="payment-card-name") MCC
+                                                input#payment-mcc.form-control(type="text" placeholder="Ex: 123")
+                                div.col-12.d-flex.flex-column.mt-4
+                                    div.button.btn.btn-primary.align-self-md-center Process Checkout
+
 
             div.ml-4.d-none.d-lg-block
                 div.card.shadow
