@@ -15,6 +15,7 @@ jQuery.validator.setDefaults({
     //on form-submit
     submitHandler: function (form) {
         alert("Submitted!");
+        form.submit();
     }
 });
 

@@ -151,7 +151,7 @@ block body
                             h5.my-2 Step 3: Payment method
                     #checkout-payment.collapse(data-parent="#checkout-accordion")
                         .card-body.px-md-5
-                            .row
+                            #checkout-payment-collapse.row.collapse-force.show
                                 .col
                                     .form-check.form-group
                                         input#payment-method-after.form-check-input(
@@ -189,7 +189,13 @@ block body
                                                 label(for="payment-card-name") MCC
                                                 input#payment-mcc.form-control(type="text" placeholder="Ex: 123")
                                 .col-12.d-flex.flex-column.mt-4
-                                    .button.btn.btn-primary.align-self-md-center Process Checkout
+                                    button.button.btn.btn-primary.align-self-md-center(
+                                        type="button"
+                                        data-toggle="collapse"
+                                        data-target="#success-checkout,#checkout-payment-collapse"
+                                    ) Process Checkout
+                            #success-checkout.collapse
+                                .alert.alert-success Checkout successfully!
 
 
             .ml-4.d-none.d-lg-block
