@@ -24,23 +24,15 @@ block body
                                     form#checkout-sign-in-form.d-flex.flex-column
                                         .form-group
                                             label(for="checkout-sign-in-email") Email
-                                            input#checkout-sign-in-email.form-control(type="text" placeholder="Enter email")
+                                            input#checkout-sign-in-email.form-control(type="text" placeholder="Enter email" name="email")
                                         .form-group
                                             label(for="checkout-sign-in-password") Password
-                                            input#checkout-sign-in-password.form-control(type="password" placeholder="Enter password")
+                                            input#checkout-sign-in-password.form-control(type="password" placeholder="Enter password" name="password")
                                         .form-check.form-group
                                             input#checkout-keep-sign-in.form-check-input(type="checkbox")
                                             label.form-check-label(for="checkout-keep-sign-in") Remember me
-                                        button.btn.btn-primary.align-self-md-center.w-50.d-none.d-md-block(
-                                            type="button"
-                                            data-toggle="collapse"
-                                            data-target="#checkout-address,#checkout-account"
-                                        ) Login
-                                        button.btn.btn-primary.d-md-none(
-                                            type="button"
-                                            data-toggle="collapse"
-                                            data-target="#checkout-address,#checkout-account"
-                                        ) Login
+                                        button.btn.btn-primary.align-self-md-center.w-50.d-none.d-md-block(type="submit") Login
+                                        button.btn.btn-primary.d-md-none(type="submit") Login
                                     hr.d-md-none
                                 .col-md-1.d-none.d-md-flex.flex-column.align-items-center
                                     .border.border-muted.flex-grow-1
@@ -61,8 +53,8 @@ block body
                     #checkout-address.collapse(data-parent="#checkout-address")
                         .card-body.px-md-5
                             .row
-                                .col-md-10.offset-md-1
-                                    form
+                                form#shipping-form.col-md-10.offset-md-1
+                                    div
                                         .form-row
                                             .form-group.col-6
                                                 label(for="checkout-first-name") First name
@@ -146,10 +138,7 @@ block body
                                                             i.fas.fa-fire-alt.mr-1
                                                             span same-day
                                     .mt-4.d-flex.flex-column
-                                        button.btn.btn-primary.align-self-md-center(
-                                            data-toggle="collapse"
-                                            data-target="#checkout-address,#checkout-payment"
-                                        ) Save shipping information
+                                        button#shipping-form-submit.btn.btn-primary.align-self-md-center(type="submit") Save shipping information
 
                 .card
                     .card-header
@@ -220,4 +209,52 @@ block body
                             h5 Total
                             h5.text-success.font-weight-bold $#{totalPrice}.00
 
-    hr.border-light
+block script
+    script.
+        $("#shipping-form").validate({
+            rules: {
+                firstname: {
+                    required: true
+                },
+                lastname: {
+                    required: true
+                },
+                phone: {
+                    required: true,
+                    regex: /^0[0-9]+$/,
+                    minlength: 10,
+                    maxlength: 11,
+                },
+                address: {
+                    required: true
+                },
+                city: {
+                    required: true
+                }
+            },
+            messages: {
+                phone: "Please provide a valid phone number"
+            },
+            submitHandler: () => {
+                $("#checkout-payment").collapse("show")
+                $("#checkout-address").collapse("hide")
+            }
+        });
+        $("#checkout-sign-in-form").validate({
+            rules: {
+                email: {
+                    required: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                email: "Please enter your Email",
+                password: "Please enter your password"
+            },
+            submitHandler: () => {
+                $("#checkout-account").collapse("hide")
+                $("#checkout-address").collapse("show")
+            }
+        })

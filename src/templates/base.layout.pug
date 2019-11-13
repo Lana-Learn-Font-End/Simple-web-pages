@@ -95,13 +95,13 @@ html(lang="en")
                                 each category in categories
                                     a.dropdown-item(href="./categories-items.html") #{category}
                         li.nav-item
-                            a.nav-link(href="#")
+                            a.nav-link(href="./contact.html")
                                 i.fas.fa-phone-alt.mr-1
                                 span Contact
                         li.nav-item
-                            a.nav-link(href="#")
+                            a.nav-link(href="./about.html")
                                 i.fas.fa-user-friends.mr-1
-                                span Support
+                                span About
                         li.nav-item.dropdown
                             a.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown")
                                 i.fas.fa-question-circle.mr-1
@@ -113,6 +113,9 @@ html(lang="en")
                                 a.dropdown-item(href="./popular-items.html") Popular
                                 a.dropdown-item(href="./item.html") Item
                                 a.dropdown-item(href="./cart.html") Cart
+                                a.dropdown-item(href="./checkout.html") CheckOut
+                                a.dropdown-item(href="./contact.html") Contact
+                                a.dropdown-item(href="./about.html") About
                 div#nav-collapse-user.collapse.navbar-collapse
                     hr.border-light
                     ul.navbar-nav.ml-auto.mr-2
@@ -184,7 +187,6 @@ html(lang="en")
                                                         placeholder="Enter password"
                                                         name="password"
                                                     )
-                                                    small.form-text.text-muted Must be 8-20 characters long contain both letters and numbers
                                                 .form-group
                                                     label(for="sign-up-password-check") Re-enter Password
                                                         span.text-danger.ml-1 *
@@ -291,6 +293,7 @@ html(lang="en")
         //content
         block body
 
+        hr.border-light.mt-5
         footer.bg-dark.mt-5
             .container
                 .row.text-white
@@ -321,4 +324,53 @@ html(lang="en")
         script(src="../scripts/jquery.validate.min.js")
         script(src="../scripts/additional-methods.min.js")
         script(src="../scripts/jquery.validate.migrate.js")
-        script(src="../scripts/account-validate.js")
+        script.
+            $("#sign-up-form").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 20
+                    },
+                    passwordCheck: {
+                        required: true,
+                        equalTo: "#sign-up-form input[name=password]"
+                    },
+                    firstname: {
+                        required: true
+                    },
+                    lastname: {
+                        required: true
+                    },
+                    agree: {
+                        required: true
+                    }
+                },
+                messages: {
+                    passwordCheck: {
+                        equalTo: "Password not match",
+                        required: ""
+                    },
+                    agree: "Please read and agree to our terms and condition"
+                }
+            });
+            $("#sign-in-form").validate({
+                    rules: {
+                        email: {
+                            required: true,
+                        },
+                        password: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        email: "Please enter your Email",
+                        password: "Please enter your password"
+                    }
+                }
+            );
+        block script

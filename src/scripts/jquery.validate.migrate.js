@@ -1,4 +1,4 @@
-// jquery validate with bootstrap 4
+// jquery validate w"ith bootstrap 4
 jQuery.validator.setDefaults({
     errorElement: "div",
     errorClass: "invalid-feedback",
@@ -18,12 +18,10 @@ jQuery.validator.setDefaults({
     }
 });
 
-
 $.validator.addMethod(
-    'regex',
+    "regex",
     (value, element, param) => {
-        return this.optional(element) ||
-            value.match(typeof param == 'string' ? new RegExp(param) : param);
+        return value.match(typeof param == "string" ? new RegExp(param) : param);
     },
-    'Please enter a value in the correct format.'
+    "Please enter a value in the correct format."
 );
