@@ -1,0 +1,133 @@
+extends base.layout.pug
+
+block body
+    .container.mt-5
+        h4.text-info.d-inline.mr-2 Contact Us
+        hr.border-info.mt-1.mt-md-2.mb-md-4
+
+        .row
+            .col-12
+                .card.shadow.mb-3.mb-md-4
+                    .card-header
+                        h5.my-1 Our location
+                    .card-body(style="height:200px")
+                hr
+            .col-lg-8.mb-4
+                .card.shadow
+                    .card-header
+                        h5.my-1 Feel free to contact us
+                    .card-body
+                        form#contact-form
+                            .form-row
+                                .form-group.col-6
+                                    label First name
+                                    input.form-control(type="text" placeholder="Your first name" name="firstname")
+                                .form-group.col-6
+                                    label Last name
+                                    input.form-control(type="text" placeholder="Your first name" name="lastname")
+                            .form-row
+                                .form-group.col-6
+                                    label Email
+                                    input.form-control(type="text" placeholder="Your contact email" name="email")
+                                .form-group.col-6
+                                    label.d-none.d-md-block Please specify your need
+                                    label.d-md-none Request
+                                    select.form-control
+                                        option(selected) Make Suggestions
+                            .form-group
+                                label Subject
+                                input.form-control(type="text" placeholder="Enter your subject" name="subject")
+                            .form-group
+                                label Message
+                                textarea.form-control(rows=8 placeholder="Enter your message" name="message")
+                            #success-contact.collapse
+                                .alert.alert-success.alert-dismissible
+                                    span Your message has sent successfully
+                                    button.close(type="button" data-toggle="collapse" data-target="#success-contact")
+                                        span(aria-hidden='true') &times;
+                            .d-flex.flex-column
+                                button.btn.btn-success.align-self-md-start Send us message
+
+            .col-lg-4
+                .row.flex-md-row-reverse.flex-lg-row
+                    .col-md-6.col-lg-12.mb-3
+                        .card.shadow
+                            .card-header
+                                h5.my-1 Our Office
+                            .card-body
+                                address.d-flex.flex-column
+                                    strong Logon, Inc
+                                    .row
+                                        .col-1
+                                            i.fas.fa-map-marker-alt
+                                        .col
+                                            div 252 Moon Street, Suite 500
+                                            div Moon City, Moon Planet
+                                    .row
+                                        .col-1
+                                            i.fas.fa-phone-alt
+                                        .col +84 (123) 456-7890
+                                    .row
+                                        .col-1
+                                            i.far.fa-envelope
+                                        .col logon.contact@gmail.com
+
+                    .col-md-6.col-lg-12.mb-3
+                        .card.shadow
+                            .card-header
+                                h5.my-1 Business Hour
+                            .card-body.pt-0
+                                table.table.mb-0
+                                    thead
+                                        tr
+                                            th Day
+                                            th Time
+                                    tbody
+                                        tr.table-success
+                                            td Monday
+                                            td 8:00 to 17:00
+                                        tr.table-success
+                                            td Tuesday
+                                            td 8:00 to 17:00
+                                        tr.table-success
+                                            td Wednesday
+                                            td 8:00 to 17:00
+                                        tr.table-success
+                                            td Thursday
+                                            td 8:00 to 17:00
+                                        tr.table-success
+                                            td Friday
+                                            td 8:00 to 17:00
+                                        tr.table-warning
+                                            td Saturday
+                                            td 8:00 to 11:00
+                                        tr.table-danger
+                                            td Sunday
+                                            td Day off
+
+block script
+    script.
+        $("#contact-form").validate({
+            rules: {
+                firstname: {
+                    required: true
+                },
+                lastname: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true
+                }
+            },
+            submitHandler: () => {
+                $("#contact-form").trigger("reset");
+                $("#success-contact").collapse("show");
+            }
+        });
+
+
+
