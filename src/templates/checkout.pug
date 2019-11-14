@@ -13,13 +13,7 @@ block body
             #checkout-accordion.accordion.shadow.flex-grow-1
                 .card
                     .card-header
-                        a.card-link.text-dark(
-                            href="#"
-                            role="button"
-                            data-toggle="collapse"
-                            data-target="#checkout-account"
-                        )
-                            h5.my-2 Step 1: Login to Account
+                        h5.my-2 Step 1: Login to Account
                     #checkout-account.collapse.show(data-parent="#checkout-accordion")
                         .card-body.px-md-5
                             .row
@@ -46,13 +40,7 @@ block body
 
                 .card
                     .card-header
-                        a.card-link.text-dark.font-weight-bolder(
-                            href="#"
-                            role="button"
-                            data-toggle="collapse"
-                            data-target="#checkout-address"
-                        )
-                            h5.my-2 Step 2: Shipping address
+                        h5.my-2 Step 2: Shipping address
                     #checkout-address.collapse(data-parent="#checkout-address")
                         .card-body.px-md-5
                             .row
@@ -145,13 +133,7 @@ block body
 
                 .card
                     .card-header
-                        a.card-link.text-dark.font-weight-bolder(
-                            href="#"
-                            role="button"
-                            data-toggle="collapse"
-                            data-target="#checkout-payment"
-                        )
-                            h5.my-2 Step 3: Payment method
+                        h5.my-2 Step 3: Payment method
                     #checkout-payment.collapse(data-parent="#checkout-accordion")
                         .card-body.px-md-5
                             #checkout-payment-collapse.row.collapse-force.show

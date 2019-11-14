@@ -1,86 +1,186 @@
-extends search.layout.pug
+extends base.layout.pug
 
-block head
-    title Nvidia search result - Logon Computer
+mixin searchTopic(title, items, id)
+    if items
+        h6.text-muted #{title}
+        if items.length > 8 && id
+            each item in items.slice(0,6)
+                div
+                    input(type="checkbox")
+                    label.ml-1.text-muted #{item}
+            .collapse(class=`${id}-collapse-mark`)
+                each item in items.slice(6)
+                    div
+                        input(type="checkbox")
+                        label.ml-1.text-muted #{item}
+                a.card-link(href="#" role="button" data-toggle="collapse" data-target=`.${id}-collapse-mark`) Close
+            .collapse.show(class=`${id}-collapse-mark`)
+                a.card-link(href="#" role="button" data-toggle="collapse" data-target=`.${id}-collapse-mark`) More
+        else
+            each item in items
+                div
+                    input(type="checkbox")
+                    label.ml-1.text-muted #{item}
 
-block content
-    .d-flex.align-items-end.justify-content-between
-        h4.text-info "Nvidia"
-        a.dropdown-toggle.card-link(href="#" role="button" data-toggle="dropdown")
-            span By Popular
-        .dropdown-menu.dropdown-menu-right
-            a.dropdown-item.active(href="#") Popular
-            a.dropdown-item(href="#") Rating
-            a.dropdown-item(href="#") Price
-                i.fas.fa-long-arrow-alt-down.ml-1
-            a.dropdown-item(href="#") Price
-                i.fas.fa-long-arrow-alt-up.ml-1
-            a.dropdown-item(href="#") Name a-z
-            a.dropdown-item(href="#") Name z-a
-            .d-lg-none
-                .dropdown-divider
-                a.dropdown-item.text-primary(
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#advanced-search-modal"
-                    role="button"
-                ) Advanced
-                    i.fas.fa-search.ml-1
-    hr.border-info.mb-2.mt-1.mt-md-2
-    .breadcrumb.d-flex.flex-wrap.justify-content-between
-        .text-nowrap.mr-2
-            span Search result for "Nvidia"
-            .small.text-muted Showing 1-19 of 50 items
-        a.text-nowrap.card-link.d-block.d-lg-none(
-            href="#"
-            data-toggle="modal"
-            data-target="#advanced-search-modal"
-            role="button"
-        ) Advanced search
-    //items
-    .mb-4
-        .pb-2
-            .row
-                - var i = 0
-                while i < 18
-                    +item("Nvidia GTX 1060", 5, 499, 699, "20%")(class="col-lg-4")
-                    - i++
-    //paging
-    .mb-4.d-flex.justify-content-center
-        nav
-            ul.pagination
-                li.page-item.disabled
-                    a.page-link(href='#')
-                        span(aria-hidden='true') &laquo;
-                li.page-item.active
-                    a.page-link(href='#') 1
-                li.page-item
-                    a.page-link(href='#') 2
-                li.page-item
-                    a.page-link(href='#') 3
-                li.page-item
-                    a.page-link(href='#')
-                        span(aria-hidden='true') &raquo;
+mixin advancedSearch()
+    div
+        +searchTopic("Categories", categories)
+        hr.text-muted
+    div
+        +searchTopic("Brands",[
+            "PNY",
+            "Matrox",
+            "MSI",
+            "Gigabyte",
+            "Zotac",
+            "XFX",
+            "Asus",
+            "EVGA",
+            "Palit",
+            "Galax",
+            "PowerColor"
+        ],"search-brand")
+        hr.text-muted
+    div
+        +searchTopic("Shipping", ["Free shipping", "Fast shipping"])
+        hr.text-muted
+    div
+        h6.text-muted Price
+        .form-row
+            .col-9
+                .form-row
+                    .col
+                        input.form-control.form-control-sm(type="text" placeholder="Min")
+                    .col
+                        input.form-control.form-control-sm(type="text" placeholder="Max")
+            .col-3
+                button.btn-outline-secondary.btn.btn-sm
+                    i.fas.fa-funnel-dollar
+        small.form-text.text-muted Showing item at any price
+        hr.text-muted
+    div
+        h6.text-muted Rating
+        +stars(5)
+        +stars(4)
+        +stars(3)
+        +stars(2)
+        +stars(1)
 
-    // other suggestion
-    .mb-4
-        +stallHeader("Similar Products")
-        .pb-2(data-simplebar)
-            .row.flex-nowrap
-                +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
-                +item("Nvidia GTX 1060", 5, 499, 699, "20%")
-                +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
-                +item("Macbook pro 2019", 5, 1299, 1699, "60%")
-                .d-flex.align-items-center
-                    i.fas.fa-chevron-right.text-muted
+mixin stars(rate)
+    a.text-warning.mb-1.d-block(href="#")
+        i.fas.fa-star
+        each i in Array(rate - 1)
+            i.fas.fa-star.ml-1
+        each i in Array(5 - rate)
+            i.fas.fa-star.ml-1(style="color: #e9e9e9")
+        if rate < 5
+            span.ml-2.text-dark (#{rate} Up)
 
-    .mb-4
-        +stallHeader("Recommended for you")(class="badge-danger")
-        .pb-2(data-simplebar)
-            .row.flex-nowrap
-                +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
-                +item("Macbook pro 2019", 5, 1299)
-                +item("Nvidia RTX 2070", 5, 2000, 3000, "Special")
-                +item("Nvidia GTX 1070", 5, 499)
-                .d-flex.align-items-center
-                    i.fas.fa-chevron-right.text-muted
+block body
+    .container
+        .row
+            // left col with search and ad
+            .d-none.d-lg-block.col-lg-3
+                .mr-2
+                    // advanced search
+                    .list-group.font-small.mb-4.shadow-sm
+                        .list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Advanced Search
+                        .flex-column.list-group-item.py-3
+                            +advancedSearch
+                    block ad
+
+            // main content
+            .col-lg-9
+                .d-flex.align-items-end.justify-content-between
+                    h4.text-info "Nvidia"
+                    a.dropdown-toggle.card-link(href="#" role="button" data-toggle="dropdown")
+                        span By Popular
+                    .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item.active(href="#") Popular
+                        a.dropdown-item(href="#") Rating
+                        a.dropdown-item(href="#") Price
+                            i.fas.fa-long-arrow-alt-down.ml-1
+                        a.dropdown-item(href="#") Price
+                            i.fas.fa-long-arrow-alt-up.ml-1
+                        a.dropdown-item(href="#") Name a-z
+                        a.dropdown-item(href="#") Name z-a
+                        .d-lg-none
+                            .dropdown-divider
+                            a.dropdown-item.text-primary(
+                                href="#"
+                                data-toggle="modal"
+                                data-target="#advanced-search-modal"
+                                role="button"
+                            ) Advanced
+                                i.fas.fa-search.ml-1
+                hr.border-info.mb-2.mt-1.mt-md-2
+                .breadcrumb.d-flex.flex-wrap.justify-content-between
+                    .text-nowrap.mr-2
+                        span Search result for "Nvidia"
+                        .small.text-muted Showing 1-19 of 50 items
+                    a.text-nowrap.card-link.d-block.d-lg-none(
+                        href="#"
+                        data-toggle="modal"
+                        data-target="#advanced-search-modal"
+                        role="button"
+                    ) Advanced search
+                //items
+                .mb-4
+                    .pb-2
+                        .row
+                            - var i = 0
+                            while i < 18
+                                +item("Nvidia GTX 1060", 5, 499, 699, "20%")(class="col-lg-4")
+                                - i++
+                //paging
+                .mb-4.d-flex.justify-content-center
+                    nav
+                        ul.pagination
+                            li.page-item.disabled
+                                a.page-link(href='#')
+                                    span(aria-hidden='true') &laquo;
+                            li.page-item.active
+                                a.page-link(href='#') 1
+                            li.page-item
+                                a.page-link(href='#') 2
+                            li.page-item
+                                a.page-link(href='#') 3
+                            li.page-item
+                                a.page-link(href='#')
+                                    span(aria-hidden='true') &raquo;
+
+                // other suggestion
+                .mb-4
+                    +stallHeader("Similar Products")
+                    .pb-2(data-simplebar)
+                        .row.flex-nowrap
+                            +item("Nvidia RTX 1080", 5, 1199, 2000, "50%")
+                            +item("Nvidia GTX 1060", 5, 499, 699, "20%")
+                            +item("ASUS Vivobook A512FA" ,4 , 819, 1000, "15%")
+                            +item("Macbook pro 2019", 5, 1299, 1699, "60%")
+                            .d-flex.align-items-center
+                                i.fas.fa-chevron-right.text-muted
+
+                .mb-4
+                    +stallHeader("Recommended for you")(class="badge-danger")
+                    .pb-2(data-simplebar)
+                        .row.flex-nowrap
+                            +item("ASUS Vivobook A512FA" ,4 ,429, 819, "sale")
+                            +item("Macbook pro 2019", 5, 1299)
+                            +item("Nvidia RTX 2070", 5, 2000, 3000, "Special")
+                            +item("Nvidia GTX 1070", 5, 499)
+                            .d-flex.align-items-center
+                                i.fas.fa-chevron-right.text-muted
+
+append body
+    #advanced-search-modal.modal.fade(tabindex="-1" role="dialog").z-top
+        .modal-dialog.modal-dialog-centered(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title Advanced Search
+                    button.close(type="button" data-dismiss="modal")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    +advancedSearch
+                .d-flex.justify-content-center.modal-footer
+                    button.btn.btn-outline-secondary(data-dismiss="modal") Close
