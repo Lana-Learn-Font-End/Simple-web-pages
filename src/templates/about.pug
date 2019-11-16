@@ -2,6 +2,97 @@ extends base.layout.pug
 
 block head
     title Logon Computer
+    link(rel="stylesheet" href="../css/landing.css")
 
 block body
+    header.masthead.text-white.text-center
+        .overlay
+        .container
+            .row
+                .col-xl-9.mx-auto
+                    h1.mb-5 The best site to buy tech & electronics products
+                .col-md-10.col-lg-8.col-xl-7.mx-auto
+                    form
+                        .form-row
+                            .col-12.col-md-9.mb-2.mb-md-0
+                                input.form-control.form-control-lg(type='text' placeholder='Search for product...')
+                            .col-12.col-md-3
+                                a.btn.btn-block.btn-lg.btn-primary(href="./search-items.html") Go!
+
+    .features-icons.bg-light.text-center
+        .container
+            .row
+                .col-lg-4
+                    .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+                        .features-icons-icon.d-flex
+                            i.m-auto.text-primary.fas.fa-globe-africa
+                        h3 Global Shipping
+                        p.lead.mb-0 Ship to every where in only 14 days or less
+                .col-lg-4
+                    .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+                        .features-icons-icon.d-flex
+                            i.m-auto.text-primary.fas.fa-desktop
+                        h3 Diversity of product
+                        p.lead.mb-0 Dozen of product with various brands and option
+                .col-lg-4
+                    .features-icons-item.mx-auto.mb-0.mb-lg-3
+                        .features-icons-icon.d-flex
+                            i.m-auto.text-primary.fas.fa-sync
+                        h3 Lifetime warranty
+                        p.lead.mb-0 Lifetime warranty for all laptop and smartphone products!
+
+
+    .showcase
+        .container-fluid.p-0
+            .row.no-gutters
+                .col-lg-6.order-lg-2.text-white.showcase-img(style=`background-image: url('../images/landing/bg-showcase-1.jpg');`)
+                .col-lg-6.order-lg-1.my-auto.showcase-text
+                    h2 Easy to find and buy item
+                    p.lead.mb-0
+                        | It is a long established fact that a reader will be distracted by the readable content of a page when
+                        | looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                        | of letters, as opposed to using 'Content here, content here', making it look like readable English
+            .row.no-gutters
+                .col-lg-6.order-lg-1.text-white.showcase-img(style=`background-image: url('../images/landing/bg-showcase-4.jpg');`)
+                .col-lg-6.order-lg-2.my-auto.showcase-text
+                    h2 Best computer online shop
+                    p.lead.mb-0
+                        | When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+                        | not only five centuries but also the leap into electronic typesetting, remaining essentially unchanged
+            .row.no-gutters
+                .col-lg-6.order-lg-2.text-white.showcase-img(style=`background-image: url('../images/landing/bg-showcase-3.jpg');`)
+                .col-lg-6.order-lg-1.my-auto.showcase-text
+                    h2 Various product and brands
+                    p.lead.mb-0
+                        | When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+                        | not only five centuries but also the leap into electronic typesetting, remaining essentially unchanged
+                        | of letters, as opposed to using 'Content here, content here', making it look like readable English
+            .row.no-gutters
+                .col-lg-6.order-lg-1.text-white.showcase-img(style=`background-image: url('../images/landing/bg-showcase-2.jpg');`)
+                .col-lg-6.order-lg-2.my-auto.showcase-text
+                    h2 Best computer online shop
+                    p.lead.mb-0
+                        | When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+                        | not only five centuries but also the leap into electronic typesetting, remaining essentially unchanged
+
+    section.testimonials.text-center.bg-light
+        .container
+            h2.mb-5 Our highlight products
+            .row
+                .col-lg-4
+                    .testimonial-item.mx-auto.mb-5.mb-lg-0
+                        img.img-fluid.rounded-circle.mb-3(src='../images/landing/testimonials-1.jpg' alt='')
+                        h5 Nvidia Shield
+                        p.font-weight-light.mb-0 This is a nice Nvidia product, maybe?
+                .col-lg-4
+                    .testimonial-item.mx-auto.mb-5.mb-lg-0
+                        img.img-fluid.rounded-circle.mb-3(src='../images/landing/testimonials-2.jpg' alt='')
+                        h5 Macbook
+                        p.font-weight-light.mb-0
+                            | Macbook is amazing. I&apos;ve been using it to create lots of super nice landing pages.
+                .col-lg-4
+                    .testimonial-item.mx-auto.mb-5.mb-lg-0
+                        img.img-fluid.rounded-circle.mb-3(src='../images/landing/testimonials-3.jpg' alt='')
+                        h5 Corgi
+                        p.font-weight-light.mb-0 Yep! we even sell Corgi
 
