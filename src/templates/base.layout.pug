@@ -213,7 +213,7 @@ html(lang="en")
                                                             placeholder="Last name"
                                                             name="lastname"
                                                         )
-                                                .form-group
+                                                .form-group.mb-0
                                                     label Date of Birth
                                                     .form-row
                                                         .form-group.col-4
@@ -233,9 +233,15 @@ html(lang="en")
                                                     input#accept-terms-conditions.form-check-input(type="checkbox" name="agree")
                                                     label.form-check-label(for="accept-terms-conditions") I have read and accept the
                                                         a.card-link.ml-1(href="#") Logon's terms and conditions
-                                                .d-flex.justify-content-end
-                                                    button.btn.btn-primary.mr-2(type="submit") Sign up
-                                                    button#sign-in-modal-close.btn.btn-danger(type="button" data-dismiss="modal") Close
+                                                .d-flex.justify-content-between
+                                                    div
+                                                        button.btn.btn-outline-danger
+                                                            i.fab.fa-google
+                                                        button.btn.btn-outline-primary.ml-2
+                                                            i.fab.fa-facebook-f.p-1
+                                                    div
+                                                        button.btn.btn-primary.mr-2(type="submit") Sign up
+                                                        button#sign-in-modal-close.btn.btn-danger(type="button" data-dismiss="modal") Close
 
         //sticky search bar nav and cart
         nav.sticky-top.py-2.py-lg-3.bg-white.shadow

@@ -4,15 +4,192 @@ block head
     title Account setting - Logon Computer
 
 block body
-    .container
+    .container.mt-lg-5.mt-3
         .row
-            // left col account settings
+
             .d-none.d-lg-block.col-lg-3
                 .mr-2
                     .list-group.font-small.mb-4.shadow-sm
-                        .list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Account Setting
+                        .list-group-item.list-group-item-secondary.rounded-0.font-weight-bold Account setting
                         .flex-column.list-group-item.py-3
+                            h6.mb-4.row
+                                i.col-2.fas.fa-user
+                                span.col-10 My account info
+                            h6
+                                a.card-link(href="#").mb-4.row.text-muted
+                                    i.col-2.fas.fa-scroll
+                                    span.col-10  My orders info
+                            h6
+                                a.card-link(href="#").mb-4.row.text-muted
+                                    i.col-2.far.fa-credit-card
+                                    span.col-10  My Payment info
+                            h6
+                                a.card-link(href="#").mb-4.row.text-muted
+                                    i.col-2.fas.fa-heart
+                                    span.col-10  My wish list
+                            h6
+                                a.card-link(href="#").mb-4.row.text-muted
+                                    i.col-2.fas.fa-map-marker-alt
+                                    span.col-10  My address
+                            h6
+                                a.card-link(href="#").mb-4.row.text-muted
+                                    i.col-2.fas.fa-bell
+                                    span.col-10  Notification
+                            h6
+                                a.card-link(href="#").mb-4.row.text-muted
+                                    i.col-2.fas.fa-envelope
+                                    span.col-10  Messages
+                            h6
+                                a.card-link(href="#").mb-4.row.text-muted
+                                    i.col-2.fas.fa-question-circle
+                                    span.col-10  Help
+
 
             .col-lg-9
                 .d-flex.align-items-end.justify-content-between
-                    h4.text-info Account Profile
+                    div
+                        h4.d-inline.text-info Account
+                        h4.d-none.d-md-inline.ml-2.text-info Profile
+                    a.d-none.d-md-block.d-lg-none.card-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown") Setting
+                    a.d-md-none.card-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown")
+                        i.fas.fa-cog
+                    .dropdown-menu.dropdown-menu-right
+                        .dropdown-item.active
+                            h6.row
+                                i.col-2.fas.fa-user
+                                span.col-10 My account info
+                        .dropdown-item
+                            h6
+                                a.card-link(href="#").mb-2.row.text-muted
+                                    i.col-2.fas.fa-scroll
+                                    span.col-10  My orders info
+                        .dropdown-item
+                            h6
+                                a.card-link(href="#").mb-2.row.text-muted
+                                    i.col-2.far.fa-credit-card
+                                    span.col-10  My Payment info
+                        .dropdown-item
+                            h6
+                                a.card-link(href="#").mb-2.row.text-muted
+                                    i.col-2.fas.fa-heart
+                                    span.col-10  My wish list
+                        .dropdown-item
+                            h6
+                                a.card-link(href="#").mb-2.row.text-muted
+                                    i.col-2.fas.fa-map-marker-alt
+                                    span.col-10  My address
+                        .dropdown-item
+                            h6
+                                a.card-link(href="#").mb-2.row.text-muted
+                                    i.col-2.fas.fa-bell
+                                    span.col-10  Notification
+                        .dropdown-item
+                            h6
+                                a.card-link(href="#").mb-2.row.text-muted
+                                    i.col-2.fas.fa-envelope
+                                    span.col-10  Messages
+                        .dropdown-item
+                            h6
+                                a.card-link(href="#").mb-1.row.text-muted
+                                    i.col-2.fas.fa-question-circle
+                                    span.col-10  Help
+                hr.border-info.mb-md-2.mt-1.mt-md-2
+
+                form.row
+                    .col-md-9.order-2.order-md-1
+                        .form-row
+                            .form-group.col
+                                label(for="first-name") First name
+                                input#first-name.form-control(
+                                    type="text"
+                                    placeholder="First name"
+                                    name="firstname"
+                                    value="Toan"
+                                )
+                            .form-group.col
+                                label(for="last-name") Last name
+                                input#last-name.form-control(
+                                    type="text"
+                                    placeholder="Last name"
+                                    name="lastname"
+                                    value="John"
+                                )
+                        .form-group
+                            label(for="account-email") Email
+                            input#account-email.form-control(
+                                type="text"
+                                placeholder="Enter Email"
+                                name="email"
+                                value="example@mail.domain"
+                                readonly
+                            )
+                        .form-group
+                            label(for="account-phone") Phone number
+                            input#account-phone.form-control(
+                                type="text"
+                                placeholder="Enter Phone"
+                                name="phone"
+                                value="0912212228"
+                                readonly
+                            )
+                        .form-group
+                            label.d-block Gender
+                            .form-check.form-check-inline
+                                input#account-gender-female.form-check-input(type="radio" name="gender" checked)
+                                label.form-check-label(for="account-gender-female") Female
+                            .form-check.form-check-inline
+                                input#account-gender-male.form-check-input(type="radio" name="gender")
+                                label.form-check-label(for="account-gender-male") Male
+                            .form-check.form-check-inline
+                                input#account-gender-gay.form-check-input(type="radio" name="gender")
+                                label.form-check-label(for="account-gender-gay") Gay
+                        .form-group.mb-0
+                            label Date of Birth
+                            .form-row
+                                .form-group.col-4
+                                    select#birth-date.form-control
+                                        option 19
+                                .form-group.col-4
+                                    select#birth-month.form-control
+                                        option Jan
+                                .form-group.col-4
+                                    select#birth-year.form-control
+                                        option 1998
+                        .form-group
+                            .form-check
+                                input#change-password.form-check-input(
+                                    type="checkbox"
+                                    data-toggle="collapse"
+                                    data-target="#password-form"
+                                )
+                                label.form-check-label(for="change-password") Change Password
+                        #password-form.collapse
+                            .form-group
+                                label(for="account-old-password") Old password
+                                input#account-old-password.form-control(
+                                    type="password"
+                                    placeholder="Enter password"
+                                    name="password"
+                                )
+                            .form-group
+                                label(for="account-password") New password
+                                input#account-password.form-control(
+                                    type="password"
+                                    placeholder="Enter new password"
+                                    name="password"
+                                )
+                            .form-group
+                                label(for="account-password-check") Re-type new password
+                                input#account-password-check.form-control(
+                                    type="text"
+                                    placeholder="Re-type new password"
+                                    name="passwordCheck"
+                                )
+                        button.btn.btn-success(type="submit") Update Profile
+                    .col-md-3.order-1.order-md-2
+                        label.d-none.d-md-block Profile Picture
+                        .form-group
+                            img.img-fluid.img-thumbnail(src="../images/avatar.jpg")
+                        button.btn.btn-outline-success.btn-sm.w-100 Change picture
+                        hr.d-md-none.border-info
+
