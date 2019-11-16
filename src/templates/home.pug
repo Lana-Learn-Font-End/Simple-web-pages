@@ -1,7 +1,7 @@
 extends nav-left.layout.pug
 
 mixin offerBanner
-    .card.shadow-sm&attributes(attributes)
+    .card.shadow-sm.wow.fadeInUp&attributes(attributes)
         .card-body.d-flex.flex-row-reverse.justify-content-between
             button.btn.btn-info.px-md-5 Buy Now!
             h5.card-text.font-weight-light.d-none.d-md-inline Ad Banner or Discount Offer go here
@@ -10,7 +10,7 @@ block head
     title Home - Logon Computer
 
 block content
-    #carousel.carousel.slide.rounded.shadow-sm.mb-4(data-ride="carousel")
+    #carousel.carousel.slide.rounded.shadow-sm.mb-4.wow.fadeIn(data-ride="carousel")
         ol.carousel-indicators.d-none.d-md-flex
             li.active(data-target="#carousel" data-slide-to="0")
             each i in [1,2,3,4]
@@ -29,7 +29,7 @@ block content
     .mb-4
         +stallHeader("Featured Product", "New")(class="badge-info")
         .pb-2(data-simplebar)
-            .row.flex-nowrap
+            .row.flex-nowrap.wow.fadeIn
                 +itemLarge("Nvidia RTX 2070","New Technology gaming card")
                 +itemLarge("Nvidia GTX 1070","Old Technology gaming card")
                 +itemLarge("Nvidia GTX 1080","Gaming card")

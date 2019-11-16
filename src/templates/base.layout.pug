@@ -4,7 +4,7 @@
 - var random = (min, max) => Math.round(Math.random() * (max - min) + min);
 
 mixin stallHeader(title, badgeTitle)
-    .d-flex.align-items-end.justify-content-between
+    .d-flex.align-items-end.justify-content-between.fadeIn.wow
         h4
             a.d-md-none.card-link(href="./popular-items.html") #{title}
             span.d-none.d-md-inline #{title}
@@ -15,7 +15,7 @@ mixin stallHeader(title, badgeTitle)
     hr.border-info.mb-2.mb-md-1.mt-1.mt-md-2
 
 mixin item(title, rate, price, oldPrice, saleTitle)
-    .col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3&attributes(attributes)
+    .col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3.fadeIn.wow&attributes(attributes)
         .card.shadow-sm
             img.card-img-top.w-100(src=`../images/items/item-image/${random(1, 5, 5)}.jpg`)
             .card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
@@ -385,4 +385,6 @@ html(lang="en")
                     form.submit();
                 }
             });
+            // init wow
+            new WOW().init();
         block script
