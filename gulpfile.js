@@ -16,7 +16,9 @@ function copyExcludeTemplate(cb) {
 
 function pugDist(cb) {
     src(["./src/templates/*.pug", "!./src/templates/*.layout.pug"])
-        .pipe(pug())
+        .pipe(pug({
+            pretty: true
+        }))
         .pipe(dest("./dist/templates"));
     cb();
 }
