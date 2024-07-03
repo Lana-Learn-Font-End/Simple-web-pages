@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/font.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/simplebar.css">
+    <link rel="stylesheet" href="css/global.css">
+    <title>Home - Logon Computer</title>
+  </head>
+  <body class="bg-light">
+    <!--header nav-->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg z-top">
+      <div class="container">
+        <button class="navbar-toggler" data-target="#nav-collapse-menu" data-toggle="collapse"><i class="fas fa-bars"></i></button>
+        <!--sm logo (light)--><a class="d-block flex-grow-1 d-lg-none text-center text-light card-link" href="./home.html">
+          <h4 class="d-inline mr-2"><i class="fas fa-laptop"></i></h4>
+          <h4 class="d-inline">L</h4>
+          <h6 class="d-inline"><i class="fas fa-power-off"></i></h6>
+          <h4 class="d-inline">gon</h4></a>
+        <button class="navbar-toggler ml-auto" data-target="#nav-collapse-user" data-toggle="collapse"><i class="fas fa-user-cog"></i></button>
+        <div class="collapse navbar-collapse" id="nav-collapse-menu">
+          <hr class="d-block d-lg-none border-light">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="./home.html"><i class="fas fa-home mr-1"></i><span>Home</span></a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="fas fa-box mr-1"></i><span>Categories</span></a>
+              <div class="dropdown-menu"><a class="dropdown-item" href="categories-items.html">Desktop</a><a class="dropdown-item" href="categories-items.html">Laptop</a><a class="dropdown-item" href="categories-items.html">Tablet</a><a class="dropdown-item" href="categories-items.html">Smartphone</a><a class="dropdown-item" href="categories-items.html">Components</a><a class="dropdown-item" href="categories-items.html">Accessories</a><a class="dropdown-item" href="categories-items.html">Software</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-phone-alt mr-1"></i><span>Contact</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-user-friends mr-1"></i><span>About</span></a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="fas fa-question-circle mr-1"></i><span>Location</span></a>
+              <div class="dropdown-menu"><a class="dropdown-item" href="./home.html">Home</a><a class="dropdown-item" href="categories-items.html">Category</a><a class="dropdown-item" href="search-items.html">Search</a><a class="dropdown-item" href="popular-items.html">Popular</a><a class="dropdown-item" href="item.html">Item</a><a class="dropdown-item" href="cart.html">Cart</a><a class="dropdown-item" href="checkout.html">CheckOut</a><a class="dropdown-item" href="contact.html">Contact</a><a class="dropdown-item" href="about.html">About</a><a class="dropdown-item" href="account.html">Account</a></div>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-collapse-user">
+          <hr class="border-light">
+          <ul class="navbar-nav ml-auto mr-2">
+            <li class="nav-item"><a class="nav-link" href="#" role="button" data-toggle="modal" data-target="#sign-in-modal">Sign in<i class="fas fa-sign-in-alt ml-2"></i></a>
+              <!-- put modal here so it float over the top-->
+              <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Login</h5>
+                      <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="sign-in-form" method="post" novalidate>
+                        <fieldset>
+                          <div class="form-group">
+                            <label for="sign-in-email">Email</label>
+                            <input class="form-control" id="sign-in-email" type="text" placeholder="Enter email" name="email">
+                          </div>
+                          <div class="form-group">
+                            <label for="sign-in-password">Password</label>
+                            <input class="form-control" id="sign-in-password" type="password" placeholder="Enter password" name="password">
+                          </div>
+                          <div class="form-check form-group">
+                            <input class="form-check-input" id="keep-sign-in" type="checkbox">
+                            <label class="form-check-label" for="keep-sign-in">Remember me</label>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <button class="btn btn-outline-danger"><i class="fab fa-google"></i></button>
+                              <button class="btn btn-outline-primary ml-2"><i class="fab fa-facebook-f p-1"></i></button>
+                            </div>
+                            <div>
+                              <button class="btn btn-primary mr-2" type="submit">Login</button>
+                              <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#" role="button" data-toggle="modal" data-target="#sign-up-modal">Sign up<i class="fas fa-user-plus ml-2"></i></a>
+              <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Sign up</h5>
+                      <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="sign-up-form">
+                        <div class="form-group">
+                          <label for="sign-up-email">Email<span class="text-danger ml-1">*</span></label>
+                          <input class="form-control" id="sign-up-email" type="text" placeholder="Enter Email" name="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="sign-up-password">Password<span class="text-danger ml-1">*</span></label>
+                          <input class="form-control" id="sign-up-password" type="password" placeholder="Enter password" name="password">
+                        </div>
+                        <div class="form-group">
+                          <label for="sign-up-password-check">Re-enter Password<span class="text-danger ml-1">*</span></label>
+                          <input class="form-control" id="sign-up-password-check" type="text" placeholder="Re-enter password" name="passwordCheck">
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col">
+                            <label for="first-name">First name<span class="text-danger ml-1">*</span></label>
+                            <input class="form-control" id="first-name" type="text" placeholder="First name" name="firstname">
+                          </div>
+                          <div class="form-group col">
+                            <label for="last-name">Last name<span class="text-danger ml-1">*</span></label>
+                            <input class="form-control" id="last-name" type="text" placeholder="Last name" name="lastname">
+                          </div>
+                        </div>
+                        <div class="form-group mb-0">
+                          <label>Date of Birth</label>
+                          <div class="form-row">
+                            <div class="form-group col-4">
+                              <select class="form-control" id="birth-date">
+                                <option>19</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-4">
+                              <select class="form-control" id="birth-month">
+                                <option>Jan</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-4">
+                              <select class="form-control" id="birth-year">
+                                <option>1998</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-check form-group">
+                          <input class="form-check-input" id="notify-news" type="checkbox">
+                          <label class="form-check-label" for="notify-news">
+                            Notify me about Logon's newproduct and discount</label>
+                        </div>
+                        <div class="form-check form-group">
+                          <input class="form-check-input" id="accept-terms-conditions" type="checkbox" name="agree">
+                          <label class="form-check-label" for="accept-terms-conditions">I have read and accept the<a class="card-link ml-1" href="#">Logon's terms and conditions</a></label>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <button class="btn btn-outline-danger"><i class="fab fa-google"></i></button>
+                            <button class="btn btn-outline-primary ml-2"><i class="fab fa-facebook-f p-1"></i></button>
+                          </div>
+                          <div>
+                            <button class="btn btn-primary mr-2" type="submit">Sign up</button>
+                            <button class="btn btn-danger" id="sign-in-modal-close" type="button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--sticky search bar nav and cart-->
+    <nav class="sticky-top py-2 py-lg-3 bg-white shadow">
+      <div class="container">
+        <div class="row">
+          <!-- lg logo (dark)--><a class="d-none d-lg-block col-lg-3 card-link text-dark" href="./home.html">
+            <div class="mr-2">
+              <div class="text-center">
+                <h2 class="d-inline mr-2"><i class="fas fa-laptop"></i></h2>
+                <h3 class="d-inline">L</h3>
+                <h5 class="d-inline"><i class="fas fa-power-off"></i></h5>
+                <h3 class="d-inline">gon</h3>
+              </div>
+            </div></a>
+          <!-- search bar-->
+          <div class="col-lg-9">
+            <div class="d-flex">
+              <div class="flex-grow-1">
+                <form class="input-group">
+                  <input class="form-control border-primary" placeholder="Search for product...">
+                  <div class="input-group-append"><a class="btn btn-primary" href="search-items.html"><i class="fas fa-search"></i><span class="d-none d-md-inline-block ml-1">Search</span></a></div>
+                </form>
+              </div>
+              <!-- cart with dropdown-->
+              <div class="ml-2 ml-lg-4">
+                <div class="dropdown">
+                  <div class="btn-group"><a class="btn btn-primary" role="button" href="cart.html"><i class="fas fa-shopping-cart"><span class="ml-3 d-none d-md-inline">$1747.00</span></i></a>
+                    <button class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown"></button>
+                    <div class="dropdown-menu bg-light dropdown-menu-right p-0 mt-2 mt-lg-3">
+                      <h5 class="bg-dark text-light text-nowrap dropdown-header p-3 rounded-top d-flex justify-content-between"><span>Your Cart has 3 item</span></h5>
+                      <div class="dropdown-item pl-3 pr-2 py-2 d-flex justify-content-between align-items-baseline"><a class="card-link text-nowrap" href="item.html">Nvidia GeForce RTX 2070</a><span class="d-none d-md-inline">&nbsp &nbsp &nbsp &nbsp &nbsp</span><span class="d-md-none">&nbsp</span>
+                        <div><span class="badge badge-pill badge-info mr-2">1</span><span class="badge badge-pill badge-dark">$519</span></div>
+                      </div>
+                      <div class="dropdown-item pl-3 pr-2 py-2 d-flex justify-content-between align-items-baseline"><a class="card-link text-nowrap" href="item.html">EVGA GeForce GTX 1080 FE</a><span class="d-none d-md-inline">&nbsp &nbsp &nbsp &nbsp &nbsp</span><span class="d-md-none">&nbsp</span>
+                        <div><span class="badge badge-pill badge-info mr-2">1</span><span class="badge badge-pill badge-dark">$789</span></div>
+                      </div>
+                      <div class="dropdown-item pl-3 pr-2 py-2 d-flex justify-content-between align-items-baseline"><a class="card-link text-nowrap" href="item.html">MSI GeForce GTX 1080</a><span class="d-none d-md-inline">&nbsp &nbsp &nbsp &nbsp &nbsp</span><span class="d-md-none">&nbsp</span>
+                        <div><span class="badge badge-pill badge-info mr-2">1</span><span class="badge badge-pill badge-dark">$439</span></div>
+                      </div>
+                      <div class="dropdown-divider m-0"></div>
+                      <div class="dropdown-item pl-3 pr-2 py-2 d-flex justify-content-between align-items-baseline">
+                        <div class="card-link text-nowrap">Total</div>
+                        <h5>$1747.00</h5>
+                      </div>
+                      <div class="dropdown-divider m-0"></div>
+                      <div class="dropdown-item px-4 pt-3 pb-2 text-center d-flex"><a class="btn btn-success flex-grow-1 btn-sm text-light" href="checkout.html">Check out</a></div>
+                      <div class="dropdown-item px-4 pb-3 text-center d-flex"><a class="btn btn-primary flex-grow-1 btn-sm text-light" href="cart.html"> Go to cart</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--content-->
+    <div class="container mt-lg-5 mt-3">
+      <div class="row">
+        <!-- left col with nav and ad-->
+        <div class="d-none d-lg-block col-lg-3">
+          <div class="mr-2">
+            <!-- categories-->
+            <div class="list-group font-small mb-4 shadow-sm">
+              <div class="list-group-item list-group-item-secondary rounded-0 font-weight-bold">Shop by Category</div>
+              <ul class="nav flex-column list-group-item">
+                <li class="nav-item"><a class="nav-link text-nowrap" href="categories-items.html">Desktop<span class="badge badge-info ml-2 small">new</span></a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="categories-items.html">Laptop</a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="categories-items.html">Tablet<span class="badge badge-danger ml-2 small">sale</span></a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="categories-items.html">Smartphone<span class="badge badge-danger ml-2 small">sale</span></a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="categories-items.html">Components<span class="badge badge-danger ml-2 small">sale</span></a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="categories-items.html">Accessories</a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="categories-items.html">Software<span class="badge badge-danger ml-2 small">sale</span><span class="badge badge-info ml-2 small">new</span></a></li>
+              </ul>
+            </div>
+            <!-- Hot-->
+            <div class="list-group font-small mb-4 shadow-sm">
+              <div class="list-group-item list-group-item-secondary rounded-0 font-weight-bold">Popular Searches</div>
+              <ul class="nav flex-column list-group-item">
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">Gaming Laptop<span class="badge badge-danger ml-2 small">sale</span></a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">Workstation</a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">Gaming PC</a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">Hard Drive<span class="badge badge-danger ml-2 small">sale</span></a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">Graphics Card</a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">External Drives</a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">Gaming Gear</a></li>
+                <li class="nav-item"><a class="nav-link text-nowrap" href="#">Monitor</a></li>
+                <li class="nav-item">
+                  <hr class="m-2"><a class="text-nowrap card-link" href="#">More ...</a>
+                </li>
+              </ul>
+            </div>
+            <!--ad--><img class="rounded w-100 shadow-sm mb-4 border-light" src="images/ad/tablet.jpg">
+            <div class="card shadow-sm mb-4">
+              <div class="card-body">
+                <h5 class="card-text font-weight-light">50% Discount offer, Don't miss out!</h5><a class="card-link font-small" href="#">Read more >></a>
+              </div>
+            </div><img class="rounded w-100 shadow-sm mb-4 border-light" src="images/ad/laptop.jpg">
+            <div class="card shadow-sm mb-4">
+              <div class="card-body">
+                <h5 class="card-text font-weight-light">Sign in now to get a 30% coupon!</h5><a class="card-link font-small" href="#">Read more >></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- main content-->
+        <div class="col-lg-9">
+          <div class="carousel slide rounded shadow-sm mb-4 wow fadeIn" id="carousel" data-ride="carousel">
+            <ol class="carousel-indicators d-none d-md-flex">
+              <li class="active" data-target="#carousel" data-slide-to="0"></li>
+              <li data-target="#carousel" data-slide-to="1"></li>
+              <li data-target="#carousel" data-slide-to="2"></li>
+              <li data-target="#carousel" data-slide-to="3"></li>
+              <li data-target="#carousel" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img class="d-block w-100" src="images/carousel/slide0.jpg" alt="slide0"></div>
+              <div class="carousel-item"><img class="d-block w-100" src="images/carousel/slide1.jpg" alt="slide1"></div>
+              <div class="carousel-item"><img class="d-block w-100" src="images/carousel/slide2.jpg" alt="slide2"></div>
+              <div class="carousel-item"><img class="d-block w-100" src="images/carousel/slide3.jpg" alt="slide3"></div>
+              <div class="carousel-item"><img class="d-block w-100" src="images/carousel/slide4.jpg" alt="slide4"></div>
+            </div><a class="carousel-control-next" data-slide="next" role="button" href="#carousel"><span class="carousel-control-next-icon"></span></a><a class="carousel-control-prev" data-slide="prev" role="button" href="#carousel"><span class="carousel-control-prev-icon"></span></a>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">Featured Product</a><span class="d-none d-md-inline">Featured Product</span><span class="badge ml-2 badge-info">New</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap wow fadeIn">
+                <div class="col-md-6 col-12 col-lg-4 d-flex my-2 my-md-3">
+                  <div class="card shadow-sm flex-grow-1"><img class="card-img-top w-100" src="images/items/item-featured/2.jpg"/>
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Nvidia RTX 2070</h5>
+                      <h6 class="card-subtitle text-muted mb-2">New Technology gaming card</h6><a class="card-link mt-auto" href="item.html">Read more ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12 col-lg-4 d-flex my-2 my-md-3">
+                  <div class="card shadow-sm flex-grow-1"><img class="card-img-top w-100" src="images/items/item-featured/2.jpg"/>
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Nvidia GTX 1070</h5>
+                      <h6 class="card-subtitle text-muted mb-2">Old Technology gaming card</h6><a class="card-link mt-auto" href="item.html">Read more ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12 col-lg-4 d-flex my-2 my-md-3">
+                  <div class="card shadow-sm flex-grow-1"><img class="card-img-top w-100" src="images/items/item-featured/1.jpg"/>
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Nvidia GTX 1080</h5>
+                      <h6 class="card-subtitle text-muted mb-2">Gaming card</h6><a class="card-link mt-auto" href="item.html">Read more ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12 col-lg-4 d-flex my-2 my-md-3">
+                  <div class="card shadow-sm flex-grow-1"><img class="card-img-top w-100" src="images/items/item-featured/2.jpg"/>
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Nvidia RTX 2070</h5>
+                      <h6 class="card-subtitle text-muted mb-2">New Technology gaming card</h6><a class="card-link mt-auto" href="item.html">Read more ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12 col-lg-4 d-flex my-2 my-md-3">
+                  <div class="card shadow-sm flex-grow-1"><img class="card-img-top w-100" src="images/items/item-featured/3.jpg"/>
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Nvidia RTX 2070</h5>
+                      <h6 class="card-subtitle text-muted mb-2">New Technology gaming card</h6><a class="card-link mt-auto" href="item.html">Read more ></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">Most Popular</a><span class="d-none d-md-inline">Most Popular</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap">
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/1.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$499.00<span class="badge badge-danger ml-1">Sale</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">699.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/1.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia RTX 2070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$2000.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">ASUS Vivobook A512FA</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$429.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Macbook pro 2019</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1299.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="card shadow-sm wow fadeInUp mb-4">
+            <div class="card-body d-flex flex-row-reverse justify-content-between">
+              <button class="btn btn-info px-md-5">Buy Now!</button>
+              <h5 class="card-text font-weight-light d-none d-md-inline">Ad Banner or Discount Offer go here</h5>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">On Sale</a><span class="d-none d-md-inline">On Sale</span><span class="badge ml-2 badge-danger">Hot</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap">
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia RTX 1080</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1199.00<span class="badge badge-danger ml-1">50%</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">2000.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1060</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$499.00<span class="badge badge-danger ml-1">20%</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">699.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/3.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">ASUS Vivobook A512FA</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$819.00<span class="badge badge-danger ml-1">15%</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">1000.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/4.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Macbook pro 2019</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1299.00<span class="badge badge-danger ml-1">60%</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">1699.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">Popular in Laptop</a><span class="d-none d-md-inline">Popular in Laptop</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap">
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/5.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$499.00<span class="badge badge-danger ml-1">Sale</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">699.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia RTX 2070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$2000.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/4.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1080</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$599.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">ASUS Vivobook A512FA</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$629.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/1.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Macbook pro 2019</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1299.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">Popular in Workstation</a><span class="d-none d-md-inline">Popular in Workstation</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap">
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/4.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$499.00<span class="badge badge-danger ml-1">Sale</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">699.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia RTX 2070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$2000.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/1.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">ASUS Vivobook A512FA</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$629.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/4.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Macbook pro 2019</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1299.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="card shadow-sm wow fadeInUp mb-4">
+            <div class="card-body d-flex flex-row-reverse justify-content-between">
+              <button class="btn btn-info px-md-5">Buy Now!</button>
+              <h5 class="card-text font-weight-light d-none d-md-inline">Ad Banner or Discount Offer go here</h5>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">Gaming Gear</a><span class="d-none d-md-inline">Gaming Gear</span><span class="badge ml-2 badge-danger">Hot</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap">
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/5.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia RTX 2070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$2000.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/4.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$499.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">ASUS Vivobook A512FA</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$629.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/3.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Macbook pro 2019</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1299.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">Hi-End Device</a><span class="d-none d-md-inline">Hi-End Device</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap">
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/3.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">ASUS Vivobook A512FA</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$429.00<span class="badge badge-danger ml-1">sale</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">819.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Macbook pro 2019</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1299.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/5.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia RTX 2070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$2000.00<span class="badge badge-danger ml-1">Special</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">3000.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$499.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex align-items-end justify-content-between fadeIn wow">
+              <h4><a class="d-md-none card-link" href="popular-items.html">Recommended for you</a><span class="d-none d-md-inline">Recommended for you</span>
+              </h4>
+              <h6><a class="card-link d-none d-md-block" href="popular-items.html">More >></a></h6>
+            </div>
+            <hr class="border-info mb-2 mb-md-1 mt-1 mt-md-2"/>
+            <div class="pb-2" data-simplebar>
+              <div class="row flex-nowrap">
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/3.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">ASUS Vivobook A512FA</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$429.00<span class="badge badge-danger ml-1">sale</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">819.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/1.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Macbook pro 2019</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$1299.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/3.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia RTX 2070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$2000.00<span class="badge badge-danger ml-1">Special</span>
+                      </div>
+                      <del class="smaller text-muted d-none d-md-block">3000.00</del>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-6 col-lg-3 d-flex my-2 my-md-3 fadeIn wow">
+                  <div class="card shadow-sm"><img class="card-img-top w-100" src="images/items/item-image/2.jpg"/>
+                    <div class="card-body d-flex flex-column flex-grow-1 px-md-3 px-2 py-2">
+                      <h6 class="card-title mb-1">Nvidia GTX 1070</h6>
+                      <!--price and sale-->
+                      <div class="small text-success font-weight-bold d-flex align-items-center">$499.00
+                      </div>
+                      <!-- description-->
+                      <!-- .card-text.small.text-muted.d-none.d-md-block Some thing about this product.--><a class="small card-link stretched-link" href="item.html"></a>
+                      <!-- button group-->
+                      <div class="d-flex flex-grow-1 justify-content-between align-items-end">
+                        <!--rating-->
+                        <div class="smaller">
+                          <div class="text-warning d-none d-md-block"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                        </div>
+                        <div class="btn-over-stretched-link">
+                          <button class="btn btn-outline-success btn-sm py-0 px-1"><i class="fas fa-cart-plus"></i></button>
+                          <button class="btn btn-outline-danger btn-sm py-0 px-1 ml-1"><i class="far fa-heart"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center"><i class="fas fa-chevron-right text-muted"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="border-light mt-5">
+    <footer class="bg-dark mt-5">
+      <div class="container">
+        <div class="row text-white">
+          <div class="col-6 col-md-3 nav flex-column p-3">
+            <h6>Support</h6><a class="text-info smaller" href="#">Link</a><a class="text-info smaller" href="#">More Link</a><a class="text-info smaller" href="#">Even More</a><a class="text-info smaller" href="#">Question</a>
+          </div>
+          <div class="col-6 col-md-3 nav flex-column p-3">
+            <h6>About</h6><a class="text-info smaller" href="#">Link</a><a class="text-info smaller" href="#">More Link</a><a class="text-info smaller" href="#">Even More</a><a class="text-info smaller" href="#">Question</a>
+          </div>
+          <div class="col-6 col-md-3 nav flex-column p-3">
+            <h6>Contact</h6><a class="text-info smaller" href="#">Link</a><a class="text-info smaller" href="#">More Link</a><a class="text-info smaller" href="#">Even More</a><a class="text-info smaller" href="#">Question</a>
+          </div>
+          <div class="col-6 col-md-3 nav flex-column p-3">
+            <h6>Cooperation</h6><a class="text-info smaller" href="#">Link</a><a class="text-info smaller" href="#">More Link</a><a class="text-info smaller" href="#">Even More</a><a class="text-info smaller" href="#">Question</a>
+          </div>
+        </div>
+        <div class="d-flex row py-1 justify-content-md-center">
+          <div class="text-nowrap d-flex"><a class="text-light ml-3 smaller" href="#">Conditions of Use</a><a class="text-light ml-2 smaller" href="#">Privacy Notice</a></div>
+          <div class="text-nowrap d-flex"><a class="text-muted ml-3 smaller" href="#">Blog</a><a class="text-muted ml-2 smaller" href="#">Facebook</a><a class="text-muted ml-2 smaller" href="#">Twitter</a><a class="text-muted ml-2 smaller" href="#">Linkedln</a></div>
+          <div class="ml-3 text-muted smaller">&copy; 2019 Logon, Inc. All right reserved</div>
+        </div>
+      </div>
+    </footer>
+    <script src="scriptsquery-3.4.1.min.js"></script>
+    <script src="scriptsootstrap.bundle.min.js"></script>
+    <script src="scriptsow.min.js"></script>
+    <script src="scriptsimplebar.min.js"></script>
+    <script src="scriptsquery.validate.min.js"></script>
+    <script src="scriptsdditional-methods.min.js"></script>
+    <script src="scriptsquery.validate.migrate.js"></script>
+    <script>
+      $("#sign-up-form").validate({
+          rules: {
+              email: {
+                  required: true,
+                  email: true,
+              },
+              password: {
+                  required: true,
+                  minlength: 8,
+                  maxlength: 20
+              },
+              passwordCheck: {
+                  required: true,
+                  equalTo: "#sign-up-form input[name=password]"
+              },
+              firstname: {
+                  required: true
+              },
+              lastname: {
+                  required: true
+              },
+              agree: {
+                  required: true
+              }
+          },
+          messages: {
+              passwordCheck: {
+                  equalTo: "Password not match",
+                  required: ""
+              },
+              agree: "Please read and agree to our terms and condition"
+          },
+          submitHandler: (form) => {
+              form.submit();
+          }
+      });
+      $("#sign-in-form").validate({
+          rules: {
+              email: {
+                  required: true,
+              },
+              password: {
+                  required: true
+              }
+          },
+          messages: {
+              email: "Please enter your Email",
+              password: "Please enter your password"
+          },
+          submitHandler: (form) => {
+              form.submit();
+          }
+      });
+      // init wow
+      new WOW().init();
+    </script>
+  </body>
+</html>

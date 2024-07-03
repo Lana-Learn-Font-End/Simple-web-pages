@@ -1,0 +1,34 @@
+body {
+    background-color: #f4f5f7;
+}
+
+.font-small {
+    font-size: 14px;
+}
+
+.smaller {
+    font-size: 65%;
+    font-weight: 400;
+}
+
+.large {
+    font-size: 120%;
+}
+
+.larger {
+    font-size: 135%;
+}
+
+.z-top {
+    z-index: 1100;
+}
+
+.btn-over-stretched-link {
+    z-index: 1 !important;
+}
+
+.collapse-force:not(.show) {
+    display: none !important;
+}
+
+.
