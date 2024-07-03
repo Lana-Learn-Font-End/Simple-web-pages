@@ -12,10 +12,13 @@
   "author": "lana",
   "license": "MIT",
   "devDependencies": {
-    "@types/gulp": "^4.0.6",
-    "@types/node": "^12.12.7",
+    "@types/gulp": "^4.0.17",
+    "@types/node": "^12.20.55",
     "gulp": "^4.0.2",
     "gulp-pug": "^4.0.1",
     "pug": "^2.0.4"
+  },
+  "volta": {
+    "node": "12.22.12"
   }
 }
