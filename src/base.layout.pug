@@ -17,7 +17,7 @@ mixin stallHeader(title, badgeTitle)
 mixin item(title, rate, price, oldPrice, saleTitle)
     .col-md-4.col-6.col-lg-3.d-flex.my-2.my-md-3.fadeIn.wow&attributes(attributes)
         .card.shadow-sm
-            img.card-img-top.w-100(src=`../images/items/item-image/${random(1, 5, 5)}.jpg`)
+            img.card-img-top.w-100(src=`./images/items/item-image/${random(1, 5, 5)}.jpg`)
             .card-body.d-flex.flex-column.flex-grow-1.px-md-3.px-2.py-2
                 h6.card-title.mb-1 #{title}
                 //price and sale
@@ -47,7 +47,7 @@ mixin item(title, rate, price, oldPrice, saleTitle)
 mixin itemLarge(title, subtitle)
     .col-md-6.col-12.col-lg-4.d-flex.my-2.my-md-3&attributes(attributes)
         .card.shadow-sm.flex-grow-1
-            img.card-img-top.w-100(src=`../images/items/item-featured/${random(1, 4)}.jpg`)
+            img.card-img-top.w-100(src=`./images/items/item-featured/${random(1, 4)}.jpg`)
             .card-body.d-flex.flex-column
                 h5.card-title #{title}
                 h6.card-subtitle.text-muted.mb-2 #{subtitle}
@@ -58,11 +58,11 @@ html(lang="en")
     head
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-        link(rel="stylesheet" href="../css/font.min.css")
-        link(rel="stylesheet" href="../css/bootstrap.min.css")
-        link(rel="stylesheet" href="../css/animate.min.css")
-        link(rel="stylesheet" href="../css/simplebar.css")
-        link(rel="stylesheet" href="../css/global.css")
+        link(rel="stylesheet" href="./css/font.min.css")
+        link(rel="stylesheet" href="./css/bootstrap.min.css")
+        link(rel="stylesheet" href="./css/animate.min.css")
+        link(rel="stylesheet" href="./css/simplebar.css")
+        link(rel="stylesheet" href="./css/global.css")
         block head
     body.bg-light
         //header nav
@@ -323,14 +323,14 @@ html(lang="en")
                         a(href="#").text-muted.ml-2.smaller Linkedln
                     .ml-3.text-muted.smaller &copy; 2019 Logon, Inc. All right reserved
 
-        script(src="../scripts/jquery-3.4.1.min.js")
-        script(src="../scripts/bootstrap.bundle.min.js")
-        script(src="../scripts/wow.min.js")
-        script(src="../scripts/simplebar.min.js")
+        script(src="./scripts/jquery-3.4.1.min.js")
+        script(src="./scripts/bootstrap.bundle.min.js")
+        script(src="./scripts/wow.min.js")
+        script(src="./scripts/simplebar.min.js")
 
-        script(src="../scripts/jquery.validate.min.js")
-        script(src="../scripts/additional-methods.min.js")
-        script(src="../scripts/jquery.validate.migrate.js")
+        script(src="./scripts/jquery.validate.min.js")
+        script(src="./scripts/additional-methods.min.js")
+        script(src="./scripts/jquery.validate.migrate.js")
         script.
             $("#sign-up-form").validate({
                 rules: {

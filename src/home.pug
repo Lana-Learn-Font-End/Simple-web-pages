@@ -17,10 +17,10 @@ block content
                 li(data-target="#carousel" data-slide-to=i)
         .carousel-inner
             .carousel-item.active
-                img.d-block.w-100(src="../images/carousel/slide0.jpg" alt="slide0")
+                img.d-block.w-100(src="./images/carousel/slide0.jpg" alt="slide0")
             each i in [1,2,3,4]
                 .carousel-item
-                    img.d-block.w-100(src=`../images/carousel/slide${i}.jpg` alt=`slide${i}`)
+                    img.d-block.w-100(src=`./images/carousel/slide${i}.jpg` alt=`slide${i}`)
         a.carousel-control-next(data-slide="next" role="button" href="#carousel")
             span.carousel-control-next-icon
         a.carousel-control-prev(data-slide="prev" role="button" href="#carousel")

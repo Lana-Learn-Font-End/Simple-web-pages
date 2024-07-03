@@ -2,24 +2,24 @@ const {src, dest, parallel} = require("gulp");
 const pug = require("gulp-pug");
 
 function pugBuild(cb) {
-    src(["./src/templates/*.pug", "!./src/templates/*.layout.pug"])
+    src(["./src/*.pug", "!./src/*.layout.pug"])
         .pipe(pug())
-        .pipe(dest("./src/templates"));
+        .pipe(dest("./src"));
     cb();
 }
 
 function copyExcludeTemplate(cb) {
-    src(["./src/**/*", "!./src/templates/*"])
+    src(["./src/**/*", "!./src/*.pug"])
         .pipe(dest("./dist"));
     cb();
 }
 
 function pugDist(cb) {
-    src(["./src/templates/*.pug", "!./src/templates/*.layout.pug"])
+    src(["./src/*.pug", "!./src/*.layout.pug"])
         .pipe(pug({
             pretty: true
         }))
-        .pipe(dest("./dist/templates"));
+        .pipe(dest("./dist"));
     cb();
 }
 
